@@ -1,0 +1,21 @@
+@extends('landingpage.index')
+@section('content')
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1>Welcome to <span>Nurul Fikri Culinary</span></h1>
+          <h2>Delivering great food for more than 18 years!</h2>
+          <div class="btns">
+            <a href="{{ url('/menu') }}" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
+            <a href="{{ url('/reservation') }}" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+          </div>
+        </div>
+        <div class="col-lg-4 d-flex align-items-center justify-content-center position-relative" data-aos="zoom-in" data-aos-delay="200">
+          <a href="" class="glightbox play-btn"></a>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+@endsection
