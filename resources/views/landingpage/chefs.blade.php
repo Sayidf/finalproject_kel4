@@ -12,7 +12,7 @@
 
       <div class="col-lg-4 col-md-6">
         <div class="member" data-aos="zoom-in" data-aos-delay="100">
-          <img src="{{ url('assets/img/chefs/chefs-1.jpg') }}" class="img-fluid" alt="">
+          <img src="{{ url('/public/assets/img/chefs/chefs-1.jpg') }}" class="img-fluid" alt="">
           <div class="member-info">
             <div class="member-info-content">
               <h4>Walter White</h4>
@@ -30,7 +30,7 @@
 
       <div class="col-lg-4 col-md-6">
         <div class="member" data-aos="zoom-in" data-aos-delay="200">
-          <img src="{{ url('assets/img/chefs/chefs-2.jpg') }}" class="img-fluid" alt="">
+          <img src="{{ url('/public/assets/img/chefs/chefs-2.jpg') }}" class="img-fluid" alt="">
           <div class="member-info">
             <div class="member-info-content">
               <h4>Sarah Jhonson</h4>
@@ -48,7 +48,7 @@
 
       <div class="col-lg-4 col-md-6">
         <div class="member" data-aos="zoom-in" data-aos-delay="300">
-          <img src="{{ url('assets/img/chefs/chefs-3.jpg') }}" class="img-fluid" alt="">
+          <img src="{{ url('/public/assets/img/chefs/chefs-3.jpg') }}" class="img-fluid" alt="">
           <div class="member-info">
             <div class="member-info-content">
               <h4>William Anderson</h4>

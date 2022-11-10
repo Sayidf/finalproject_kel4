@@ -14,7 +14,7 @@
         <div class="swiper-slide">
           <div class="row event-item">
             <div class="col-lg-6">
-              <img src="{{ url('assets/img/event-birthday.jpg') }}" class="img-fluid" alt="">
+              <img src="{{ url('/public/assets/img/event-birthday.jpg') }}" class="img-fluid" alt="">
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content">
               <h3>Birthday Parties</h3>
@@ -41,7 +41,7 @@
         <div class="swiper-slide">
           <div class="row event-item">
             <div class="col-lg-6">
-              <img src="{{ url('assets/img/event-private.jpg') }}" class="img-fluid" alt="">
+              <img src="{{ url('/public/assets/img/event-private.jpg') }}" class="img-fluid" alt="">
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content">
               <h3>Private Parties</h3>
@@ -68,7 +68,7 @@
         <div class="swiper-slide">
           <div class="row event-item">
             <div class="col-lg-6">
-              <img src="{{ url('assets/img/event-custom.jpg') }}" class="img-fluid" alt="">
+              <img src="{{ url('/public/assets/img/event-custom.jpg') }}" class="img-fluid" alt="">
             </div>
             <div class="col-lg-6 pt-4 pt-lg-0 content">
               <h3>Custom Parties</h3>
