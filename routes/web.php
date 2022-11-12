@@ -67,9 +67,9 @@ Route::get('/administrator', function () {
     return view('back.home');
 });
 
-Route::get('/customer', function () {
+Route::get('/administrator/customer', function () {
     return view('customer.index');
 });
 
-Route::resource('meja', MejaController::class);
-Route::resource('menus', MenuController::class);
+Route::resource('administrator/meja', MejaController::class);
+Route::resource('administrator/menu', MenuController::class);

@@ -203,6 +203,7 @@ h6 {
   font-weight: 800;
   letter-spacing: 1px;
   font-family: 'EB Garamond';
+  width: 228px;
 }
 
 #header .logo a {
@@ -217,7 +218,7 @@ h6 {
 # Book a table button Menu
 --------------------------------------------------------------*/
 .book-a-table-btn {
-  margin: 0 0 0 15px;
+  margin: 0px;
   border: 2px solid #cda45e;
   color: #fff;
   border-radius: 50px;
@@ -232,6 +233,122 @@ h6 {
 .book-a-table-btn:hover {
   background: #cda45e;
   color: #fff;
+}
+
+@media (max-width: 992px) {
+  .book-a-table-btn {
+    margin: 0 15px 0 0;
+    padding: 8px 20px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Login Menu
+--------------------------------------------------------------*/
+
+section.login{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 140px;
+}
+
+.login input,
+.login textarea {
+  box-shadow: none;
+  font-size: 14px;
+  height: 50px;
+  background: #0c0b09;
+  border: unset;
+  color: white;
+  padding-left: 1rem;
+}
+
+.login input::-moz-placeholder,
+.login textarea::-moz-placeholder {
+  color: #a49b89;
+}
+
+.login input::placeholder,
+.login textarea::placeholder {
+  color: #a49b89;
+}
+
+.login input:focus,
+.login textarea:focus {
+  border-color: #cda45e;
+  background-color: black;
+  color: white;
+}
+
+.login textarea {
+  padding: 10px 12px;
+}
+
+.login button[type=submit] {
+  background: #cda45e;
+  border: 0;
+  padding: 10px 35px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.login button[type=submit]:hover {
+  background: #d3af71;
+}
+
+.login h4{
+  font-family: 'Trebuchet MS', sans-serif;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-input:before {
+  content: "\f30d";
+  font-family: 'Font Awesome 6 Pro';
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: #cda45e;
+  font-size: 18px;
+  padding-left: 2em;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+.username-input {
+  position: relative;
+}
+
+.username-input:before {
+  content: "\f007";
+  font-family: 'Font Awesome 6 Pro';
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  color: #cda45e;
+  font-size: 18px;
+  padding-left: 2em;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+.login .card{
+  width: 450px;
+}
+
+.login .with-icon{
+  border: unset;
+  padding-left: 3.7em;
+  border-radius: 5px;
 }
 
 @media (max-width: 992px) {

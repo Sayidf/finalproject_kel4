@@ -17,7 +17,7 @@
           </div>
           <div class="card-body">
             <div class="basic-form">
-              <form class="row g-3" method="POST" action="{{ route('menus.store') }}">
+              <form class="row g-3" method="POST" action="{{ route('menu.store') }}">
 								@csrf
                 <div class="row">
                   <div class="mb-3">

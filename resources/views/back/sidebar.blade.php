@@ -7,7 +7,7 @@
               </a>
               <ul aria-expanded="false">
                  
-                  <li><a href="{{'home'}}">Beranda</a></li>
+                  <li><a href="{{ url('/administrator')}}">Beranda</a></li>
                   <li><a href="kanban.html">Kanban</a></li>
                   <li><a href="calendar-page.html">Calendar</a></li>
                   <li><a href="message.html">Messages</a></li>	
@@ -20,10 +20,10 @@
                   <span class="nav-text">Master Data</span>
               </a>
               <ul aria-expanded="false">
-                  <li><a href="{{'menus'}}">Menu</a></li>
-                  <li><a href="{{'customer'}}">Customers</a></li>
-                  <li><a href="{{'meja'}}">Data Meja</a></li>
-                  <li><a href="table-datatable-basic.html">Pegawai</a></li>
+                  <li><a href="{{ url('administrator/menu') }}">Data Menu</a></li>
+                  <li><a href="{{ url('administrator/meja') }}">Data Meja</a></li>
+                  <li><a href="{{ url('administrator/customer') }}">Customers</a></li>
+                  <li><a href="{{ url('administrator/pegawai') }}">Pegawai</a></li>
               </ul>
           </li>
           <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">

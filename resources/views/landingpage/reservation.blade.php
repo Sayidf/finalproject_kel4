@@ -7,7 +7,7 @@
       <h2>Reservation</h2>
       <p>Book a Table</p>
     </div>
-    <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+    <form action="#" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
       <div class="row">
         <div class="col-lg-4 col-md-6 form-group">
           <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">

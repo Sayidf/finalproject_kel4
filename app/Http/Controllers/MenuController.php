@@ -16,7 +16,7 @@ class MenuController extends Controller
     {
         //menampilkan seluruh data
         $menu = Menu::all();
-        return view('menus.index', compact('menu'));
+        return view('menu.index', compact('menu'));
     }
 
     /**
@@ -26,7 +26,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('menus.form');
+        return view('menu.form');
     }
 
     /**
@@ -45,7 +45,7 @@ class MenuController extends Controller
 
         Menu::create($request->all());
 
-        return redirect()->route('menus.index')
+        return redirect()->route('menu.index')
             ->with('success', 'Menu Berhasil Disimpan');
     }
 
@@ -58,7 +58,7 @@ class MenuController extends Controller
     public function show($id)
     {
         $row = Menu::find($id);
-        return view('menus.index', compact('row'));
+        return view('menu.index', compact('row'));
     }
 
     /**

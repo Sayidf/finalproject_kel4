@@ -4,7 +4,7 @@
 	<div class="container-fluid">
 		<div class="row page-titles">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item active"><a href="{{ url('/home') }}">Master Data</a></li>
+				<li class="breadcrumb-item active"><a href="#">Master Data</a></li>
 				<li class="breadcrumb-item"><a href="#">Menu</a></li>
 			</ol>
 		</div>
@@ -32,7 +32,7 @@
 						        <h4 class="modal-title" id="menuModalLabel">Tambah Menu</h4>
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
-									<form class="row g-3" method="POST" action="{{ route('menus.store') }}">
+									<form class="row g-3" method="POST" action="{{ route('menu.store') }}">
 										@csrf
 						      	<div class="modal-body">
 											<div class="row">
