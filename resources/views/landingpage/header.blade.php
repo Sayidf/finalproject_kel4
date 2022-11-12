@@ -9,13 +9,15 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ url('/public/assets/img/favicon.png') }}" rel="icon">
-  <link href="{{ url('/public/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="https://learn.nurulfikri.com/pluginfile.php/1/theme_edumy/favicon/1653270284/nci.png" rel="shortcut icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=EB Garamond' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet'>
 
   <!-- Vendor CSS Files -->
+  <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet" type="text/css" />
   <link href="{{ asset('/public/assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
   <link href="{{ asset('/public/assets/vendor/aos/aos.css') }}" rel="stylesheet">
   <link href="{{ asset('/public/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -41,7 +43,7 @@
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex justify-content-center justify-content-md-between">
       <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-phone d-flex align-items-center"><span>+62851-0218-5441</span></i>
+        <i class="bi bi-phone d-flex align-items-center"><span>+62 851-0218-5441</span></i>
         <i class="bi bi-clock d-flex align-items-center ms-4"><span> Mon-Sat: 11AM - 23PM</span></i>
       </div>
     </div>

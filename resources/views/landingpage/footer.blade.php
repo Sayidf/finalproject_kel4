@@ -4,11 +4,11 @@
       <div class="row">
         <div class="col-lg-3 col-md-6">
           <div class="footer-info">
-            <h3>Restaurantly</h3>
+            <h3>NF Culinary</h3>
             <p>
-              A108 Adam Street <br>
+              Jl. Lenteng Agung Raya No. 20-21 <br>
               NY 535022, USA<br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Phone:</strong> +62 851-0218-5441<br>
               <strong>Email:</strong> info@example.com<br>
             </p>
             <div class="social-links mt-3">
@@ -33,19 +33,20 @@
         </div>
 
         <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Our Services</h4>
+          <h4>Our Team</h4>
           <ul>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+            <li><i class="bx bx-chevron-right"></i> <span>Sayid Farhan</span></li>
+            <li><i class="bx bx-chevron-right"></i> <span>Amri Sahran Siregar</span></li>
+            <li><i class="bx bx-chevron-right"></i> <span>Dinda Friska Oktaviana</span></li>
+            <li><i class="bx bx-chevron-right"></i> <span>Fahrul Shalahudin Wahid</span></li>
+            <li><i class="bx bx-chevron-right"></i> <span>Rizki Idham Sofyan</span></li>
+            <li><i class="bx bx-chevron-right"></i> <span>Anisa Elok Asmaransyah</span></li>
           </ul>
         </div>
 
         <div class="col-lg-4 col-md-6 footer-newsletter">
           <h4>Our Newsletter</h4>
-          <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+          <p>Want to be notified when we launch new menu. Just sign up and we'll send you a notification by email.</p>
           <form action="" method="post">
             <input type="email" name="email"><input type="submit" value="Subscribe">
           </form>
@@ -56,7 +57,7 @@
 
   <div class="container">
     <div class="copyright">
-      &copy; Copyright <strong><span>Restaurantly</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>Nurul Fikri Culinary</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->

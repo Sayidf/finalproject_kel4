@@ -9,9 +9,10 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   background: #0c0b09;
   color: #fff;
+  line-height: 1.5;
 }
 
 a {
@@ -199,10 +200,9 @@ h6 {
   margin: 0;
   padding: 0;
   line-height: 1;
-  font-weight: 300;
+  font-weight: 800;
   letter-spacing: 1px;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: 'EB Garamond';
 }
 
 #header .logo a {
@@ -772,6 +772,11 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
+
+section .about{
+  padding: 60px 0 60px 0;
+}
+
 .about {
   background: url("../img/about-bg.jpg") center center;
   background-size: cover;
@@ -839,9 +844,25 @@ section {
   bottom: 10px;
 }
 
+.about .content h6 {
+  color: #cda45e;
+  font-weight: bolder;
+  font-size: 18px;
+  font-family: 'lobster two', serif;
+}
+
 .about .content h3 {
   font-weight: 600;
   font-size: 26px;
+  font-family: 'lobster two', serif;
+}
+
+.about .content p{
+  padding-top: 16px;
+  margin-bottom: 0px;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .about .content ul {
@@ -951,11 +972,47 @@ section {
   margin-top: 50px;
 }
 
+.menu .nav-menu .nav-item{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+
+.menu .nav-menu a{
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+}
+
+.menu .nav-menu .card:hover{
+  background-color: #cda45e;;
+}
+
+.menu .nav-menu .card a{
+  color: black;
+}
+
+.menu .nav-menu .nav-link:hover{
+  color: #fff;
+  background-color: #cda45e ;
+}
+
+.menu .nav-menu .active{
+  color: #fff;
+  background-color: #cda45e ;
+}
+
 .menu .menu-img {
-  width: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   float: left;
-  border: 5px solid rgba(255, 255, 255, 0.2);
+  border: 4px solid rgba(255, 255, 255, 0.2);
 }
 
 .menu .menu-content {
@@ -979,12 +1036,15 @@ section {
 
 .menu .menu-content a {
   padding-right: 10px;
+  padding-left: 5px;
   background: #1a1814;
   position: relative;
   z-index: 3;
-  font-weight: 700;
+  font-weight: 500;
   color: white;
   transition: 0.3s;
+  font-family: 'lobster two';
+  font-size: 18px;
 }
 
 .menu .menu-content a:hover {
@@ -1640,9 +1700,9 @@ section {
   margin: 0 0 20px 0;
   padding: 2px 0 2px 0;
   line-height: 1;
-  font-weight: 300;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-family: 'EB Garamond';
+  color: #cda45e;
 }
 
 #footer .footer-top .footer-info p {
@@ -1710,6 +1770,13 @@ section {
 }
 
 #footer .footer-top .footer-links ul a {
+  color: #fff;
+  transition: 0.3s;
+  display: inline-block;
+  line-height: 1;
+}
+
+#footer .footer-top .footer-links ul span {
   color: #fff;
   transition: 0.3s;
   display: inline-block;

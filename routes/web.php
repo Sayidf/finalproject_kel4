@@ -53,6 +53,22 @@ Route::get('/reservation', function () {
     return view('landingpage.reservation');
 });
 
+Route::get('/login', function () {
+    return view('landingpage.mylogin');
+});
+
+Route::get('/register', function () {
+    return view('landingpage.register');
+});
+
 Route::get('/administrator', function () {
-    return view('admin.home');
+    return view('back.home');
+});
+
+Route::get('/customer', function () {
+    return view('customer.index');
+});
+
+Route::get('/menus', function () {
+    return view('menu.index');
 });
