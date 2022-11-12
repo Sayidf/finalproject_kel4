@@ -4,14 +4,13 @@
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
         <li><a class="nav-link scrollto" href="{{ url('/home') }}">Home</a></li>
-        <li><a class="nav-link scrollto" href="{{ url('/about') }}">About</a></li>
         <li><a class="nav-link scrollto" href="{{ url('/menu') }}">Menu</a></li>
         <li><a class="nav-link scrollto" href="{{ url('/specials') }}">Specials</a></li>
         <li><a class="nav-link scrollto" href="{{ url('/events') }}">Events</a></li>
         <li><a class="nav-link scrollto" href="{{ url('/chefs') }}">Chefs</a></li>
         <li><a class="nav-link scrollto" href="{{ url('/gallery') }}">Gallery</a></li>
         <li><a class="nav-link scrollto" href="{{ url('/contact') }}">Contact</a></li>
-        <li><a class="nav-link scrollto" href="{{ url('/administrator') }}">Admin</a></li>
+        <li><a class="nav-link scrollto" href="{{ url('/mylogin') }}"><i class='bx bx-log-in-circle'></i> &nbsp;Login</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>

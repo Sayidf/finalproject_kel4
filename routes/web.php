@@ -54,5 +54,18 @@ Route::get('/reservation', function () {
 });
 
 Route::get('/administrator', function () {
-    return view('admin.home');
+    return view('back.home');
+});
+Route::get('/mylogin', function () {
+    return view('landingpage.mylogin');
+});
+Route::get('/register', function () {
+    return view('landingpage.register');
+});
+
+Route::get('/customer', function () {
+    return view('customer.index');
+});
+Route::get('/menu', function () {
+    return view('menu.index');
 });
