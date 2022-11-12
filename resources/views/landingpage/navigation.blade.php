@@ -7,7 +7,6 @@
         <li><a class="nav-link scrollto" href="{{ url('/home') }}">Home</a></li>
         <li><a class="nav-link scrollto" href="{{ url('/menu') }}">Menu</a></li>
         <li><a class="nav-link scrollto" href="{{ url('/specials') }}">Specials</a></li>
-        <li><a class="nav-link scrollto" href="{{ url('/events') }}">Events</a></li>
         <li><a class="nav-link scrollto" href="{{ url('/chefs') }}">Chefs</a></li>
         <li><a class="nav-link scrollto" href="{{ url('/gallery') }}">Gallery</a></li>
         <li><a class="nav-link scrollto" href="{{ url('/contact') }}">Contact</a></li>

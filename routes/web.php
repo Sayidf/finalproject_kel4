@@ -35,10 +35,6 @@ Route::get('/specials', function () {
     return view('landingpage.specials');
 });
 
-Route::get('/events', function () {
-    return view('landingpage.events');
-});
-
 Route::get('/chefs', function () {
     return view('landingpage.chefs');
 });
