@@ -104,7 +104,7 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script src="{{asset('/public/admin/vendor/global/global.min.js')}}"></script>
+  <script src="{{asset('/public/admin/vendor/global/global.min.js')}}"></script>
 	<script src="{{asset('/public/admin/vendor/chart.js/Chart.bundle.min.js')}}"></script>
 	<script src="{{asset('/public/admin/vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}"></script>
 	

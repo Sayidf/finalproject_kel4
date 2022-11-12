@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MejaController;
+use App\Http\Controllers\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +71,5 @@ Route::get('/customer', function () {
     return view('customer.index');
 });
 
-Route::get('/menus', function () {
-    return view('menu.index');
-});
+Route::resource('meja', MejaController::class);
+Route::resource('menus', MenuController::class);
