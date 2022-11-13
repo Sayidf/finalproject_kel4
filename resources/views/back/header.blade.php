@@ -53,11 +53,12 @@
               <span class="ms-2">Logout </span>
             </a>
           </li>
+        </ul>
       </div>
-      </ul>
+    </nav>
   </div>
-  </nav>
-</div>undefined</div>undefined<script>
+</div>
+<script>
   function showTime() {
     var date = new Date();
     var h = date.getHours();
