@@ -5,7 +5,7 @@
 		<div class="row page-titles">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item active"><a href="#">Master Data</a></li>
-				<li class="breadcrumb-item"><a href="#">Menu</a></li>
+				<li class="breadcrumb-item"><a href="#">Kategori Menu</a></li>
 			</ol>
 		</div>
 		<!-- row -->
@@ -13,53 +13,32 @@
 			<div class="col-12">
 				<div class="card">
 					<div class="card-header">
-						<h4 class="card-title">Data Menu</h4>
+						<h4 class="card-title">Data Kategori Menu</h4>
 						@if ($message = Session::get('success'))
 							<div class="alert alert-success">
 								<p>{{ $message }}</p>
 							</div>
 						@endif
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#menuModal">
+						<button type="button" class="btn btn-primary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#kategoriModal">
 						  <i class="bi bi-plus-lg"></i> Tambah
 						</button>
 
 						<!-- Modal -->
-						<div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
+						<div class="modal fade" id="kategoriModal" tabindex="-1" aria-labelledby="kategoriModalLabel" aria-hidden="true">
 						  <div class="modal-dialog modal-dialog-centered">
 						    <div class="modal-content">
 						      <div class="modal-header">
-						        <h4 class="modal-title" id="menuModalLabel">Tambah Menu</h4>
+						        <h4 class="modal-title" id="kategoriModalLabel">Tambah Kategori Menu</h4>
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
-									<form class="row g-3" method="POST" action="{{ route('menu.store') }}">
+									<form class="row g-3" method="POST" action="{{ route('kategori.store') }}">
 										@csrf
 						      	<div class="modal-body">
 											<div class="row">
 												<div class="mb-3">
-													<label class="form-label">Nama</label>
-													<input name="nama" type="text" class="form-control" placeholder="Nama">
-												</div>
-
-												<div class="mb-3">
-													<label class="form-label"><b>Kategori</b></label>
-													<div class="form-group">
-														<select class="form-control main" name="id_kategori">
-															<option selected>-- Pilih Kategori --</option>
-																@foreach($kategori as $kat)
-																	<option value="{{ $kat->id }}">{{ $kat->nama }}</option>
-																@endforeach
-														</select>
-													</div>
-												</div>
-										
-												<div class="mb-3">
-													<label class="form-label">Harga</label>
-													<input name="harga" type="text" class="form-control" placeholder="Harga">
-												</div>
-												<div class="mb-3">
-													<label class="form-label">Keterangan</label>
-													<input name="ket" type="text" class="form-control" placeholder="Keterangan">
+													<label class="form-label">Nama Kategori</label>
+													<input name="nama" type="text" class="form-control" placeholder="Nama Kategori">
 												</div>
 											</div>
 						      	</div>
@@ -79,11 +58,7 @@
 								<thead>
 									<tr>
 										<th style="width: 30px;">No</th>
-										<th>Foto</th>
-										<th>Nama</th>
-										<th>Kategori</th>
-										<th>Harga</th>
-										<th>Keterangan</th>
+										<th>Nama Kategori</th>
 										<th>Aksi</th>
 									</tr>
 								</thead>
@@ -91,14 +66,10 @@
 									@php
 										$no = 1;
 									@endphp
-									@foreach ($menu as $row)
+									@foreach ($kategori as $row)
 										<tr>
 											<td>{{$no++}}</td>
-											<td><img class="rounded-circle" width="50" src="https://imgs.search.brave.com/ayCGV163wL7_8zo5dqDeFENLzkavod8-nyZy5bAqh5A/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9pMi53/cC5jb20vY2hpbGlw/ZXBwZXJtYWRuZXNz/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMC8xMS9OYXNp/LUdvcmVuZy1JbmRv/bmVzaWFuLUZyaWVk/LVJpY2UtU1EuanBn" alt=""></td>
 											<td>{{ $row->nama }}</td>
-											<td>{{ $row->id_kategori }}</td>
-											<td>{{ $row->harga }}</td>
-											<td>{{ $row->ket }}</td>
 											<td>
 												<div class="dropdown">
 													<button type="button" class="btn btn-primary light sharp" data-bs-toggle="dropdown">

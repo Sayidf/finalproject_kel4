@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="keywords" content="">
 	<meta name="author" content="">
@@ -17,93 +17,58 @@
 	<title>Admin Dashboard</title>
 	
 	<!-- FAVICONS ICON -->
-	<link rel="shortcut icon" type="image/png" href="{{url('images/favicon.png')}}">
+	<link href="https://learn.nurulfikri.com/pluginfile.php/1/theme_edumy/favicon/1653270284/nci.png" rel="shortcut icon">
+
 	<link href="{{asset('/public/admin/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
 	<link href="{{asset('/public/admin/vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
 	<link rel="stylesheet" href="{{asset('/public/admin/vendor/nouislider/nouislider.min.css')}}">
+	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 	<!-- Datatable -->
-    <link href="{{asset('/public/admin/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+  <link href="{{asset('/public/admin/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 	<!-- Style css -->
-    <link href="{{asset('/public/admin/css/style.css')}}" rel="stylesheet">
+  <link href="{{asset('/public/admin/css/style.css')}}" rel="stylesheet">
 	
 </head>
 <body>
-
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
-		<div class="lds-ripple">
-			<div></div>
-			<div></div>
-		</div>
-    </div>
-    <!--*******************
-        Preloader end
-    ********************-->
-
-    <!--**********************************
-        Main wrapper start
-    ***********************************-->
-    <div id="main-wrapper">
-
-        <!--**********************************
-            Nav header start
-        ***********************************-->
-		@include('back.header')
-		
-        <!--**********************************
-            Header end ti-comment-alt
-        ***********************************-->
-
-        <!--**********************************
-            Sidebar start
-        ***********************************-->
-		@include('back.sidebar')
-        
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
-		
-		<!--**********************************
-            Content body start
-        ***********************************-->
-		@yield('content')
-        
-        <!--**********************************
-            Content body end
-        ***********************************-->
-		
-
-
-		
-        <!--**********************************
-            Footer start
-        ***********************************-->
-		@include('back.footer')
-        
-        <!--**********************************
-            Footer end
-        ***********************************-->
-
-		<!--**********************************
-           Support ticket button start
-        ***********************************-->
-		
-        <!--**********************************
-           Support ticket button end
-        ***********************************-->
-
-
+  <!--*******************
+      Preloader start
+  ********************-->
+  <div id="preloader">
+	<div class="lds-ripple">
+		<div></div>
+		<div></div>
 	</div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
+  </div>
+  <!--*******************
+      Preloader end
+  ********************-->
 
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <!-- Required vendors -->
+  {{-- Main Content --}}
+  <div id="main-wrapper">
+
+    {{-- Header Start --}}
+		@include('back.header')
+		{{-- End Header --}}
+
+		{{-- Header Sidebar --}}
+		@include('back.sidebar')
+		{{-- End Sidebar --}}
+
+		{{-- Content Start --}}
+		@yield('content')
+		{{-- End Content --}}
+
+    {{-- Footer Start --}}
+		@include('back.footer')
+		{{-- End Footer --}}
+
+	<div>
+  {{-- End Main Content --}}
+
+  <!--**********************************
+      Scripts
+  ***********************************-->
+  <!-- Required vendors -->
   <script src="{{asset('/public/admin/vendor/global/global.min.js')}}"></script>
 	<script src="{{asset('/public/admin/vendor/chart.js/Chart.bundle.min.js')}}"></script>
 	<script src="{{asset('/public/admin/vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}"></script>
@@ -114,7 +79,7 @@
 	<script src="{{asset('/public/admin/vendor/chart.js/Chart.bundle.min.js')}}"></script>
 	
 	<!-- Chart piety plugin files -->
-    <script src="{{asset('/public/admin/vendor/peity/jquery.peity.min.js')}}"></script>
+  <script src="{{asset('/public/admin/vendor/peity/jquery.peity.min.js')}}"></script>
 	<!-- Dashboard 1 -->
 	<script src="{{asset('/public/admin/js/dashboard/dashboard-1.js')}}"></script>
 	
@@ -122,19 +87,13 @@
 	 <!-- Datatable -->
 	<script src="{{asset('/public/admin/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
 	<script src="{{asset('/public/admin/js/plugins-init/datatables.init.js')}}"></script>
-
-    <script src="{{asset('/public/admin/js/custom.min.js')}}"></script>
+  <script src="{{asset('/public/admin/js/custom.min.js')}}"></script>
 	<script src="{{asset('/public/admin/js/dlabnav-init.js')}}"></script>
 	<script src="{{asset('/public/admin/js/demo.js')}}"></script>
-    <script src="{{asset('/public/admin/js/styleSwitcher.js')}}"></script>
+  <script src="{{asset('/public/admin/js/styleSwitcher.js')}}"></script>
 	<script>
-		function cardsCenter()
-		{
-			
+		function cardsCenter(){
 			/*  testimonial one function by = owl.carousel.js */
-			
-	
-			
 			jQuery('.card-slider').owlCarousel({
 				loop:true,
 				margin:0,
@@ -166,7 +125,6 @@
 				}
 			})
 		}
-		
 		jQuery(window).on('load',function(){
 			setTimeout(function(){
 				cardsCenter();
@@ -178,8 +136,6 @@
 				new dlabSettings(dlabSettingsOptions);
 			},1500)
 		});
-		
 	</script>
-
 </body>
 </html>

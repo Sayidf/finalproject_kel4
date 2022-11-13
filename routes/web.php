@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\KategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,3 +70,4 @@ Route::get('/administrator/customer', function () {
 
 Route::resource('administrator/meja', MejaController::class);
 Route::resource('administrator/menu', MenuController::class);
+Route::resource('administrator/kategori', KategoriController::class);

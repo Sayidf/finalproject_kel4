@@ -1,15 +1,13 @@
 @extends('landingpage.index')
 @section('content')
+<!--======= Chefs Section =======-->
 <section id="chefs" class="chefs">
   <div class="container" data-aos="fade-up">
-
     <div class="section-title">
       <h2>Chefs</h2>
       <p>Our Proffesional Chefs</p>
     </div>
-
     <div class="row">
-
       <div class="col-lg-4 col-md-6">
         <div class="member" data-aos="zoom-in" data-aos-delay="100">
           <img src="{{ url('/public/assets/img/chefs/chefs-1.jpg') }}" class="img-fluid" alt="">
@@ -27,7 +25,6 @@
           </div>
         </div>
       </div>
-
       <div class="col-lg-4 col-md-6">
         <div class="member" data-aos="zoom-in" data-aos-delay="200">
           <img src="{{ url('/public/assets/img/chefs/chefs-2.jpg') }}" class="img-fluid" alt="">
@@ -45,7 +42,6 @@
           </div>
         </div>
       </div>
-
       <div class="col-lg-4 col-md-6">
         <div class="member" data-aos="zoom-in" data-aos-delay="300">
           <img src="{{ url('/public/assets/img/chefs/chefs-3.jpg') }}" class="img-fluid" alt="">
@@ -63,9 +59,8 @@
           </div>
         </div>
       </div>
-
     </div>
-
   </div>
 </section>
+<!--======= End Chefs Section =======-->
 @endsection

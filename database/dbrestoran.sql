@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2022 at 12:54 AM
+-- Generation Time: Nov 13, 2022 at 03:50 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -24,6 +24,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `kategori`
+--
+
+CREATE TABLE `kategori` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(45) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kategori`
+--
+
+INSERT INTO `kategori` (`id`, `nama`, `created_at`, `updated_at`) VALUES
+(1, 'Nasi', NULL, NULL),
+(2, 'Ikan', NULL, NULL),
+(3, 'Ayam', NULL, NULL),
+(4, 'Sayuran', NULL, NULL),
+(5, 'Minuman', NULL, NULL),
+(6, 'Mie', '2022-11-13 07:48:08', '2022-11-13 07:48:08');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `meja`
 --
 
@@ -33,16 +58,18 @@ CREATE TABLE `meja` (
   `kapasitas` varchar(45) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `meja`
 --
 
 INSERT INTO `meja` (`id`, `no_meja`, `kapasitas`, `created_at`, `updated_at`) VALUES
-(1, '1', '4', NULL, NULL),
-(2, '2', '8', '2022-11-12 09:25:27', '2022-11-12 09:25:27'),
-(3, '3', '12', '2022-11-12 12:23:13', '2022-11-12 12:23:13');
+(1, '1', '4', '2022-11-13 07:43:38', '2022-11-13 07:43:38'),
+(2, '2', '4', '2022-11-13 07:43:51', '2022-11-13 07:43:51'),
+(3, '3', '4', '2022-11-13 07:44:06', '2022-11-13 07:44:06'),
+(4, '4', '8', '2022-11-13 07:44:16', '2022-11-13 07:44:16'),
+(5, '5', '6', '2022-11-13 07:44:30', '2022-11-13 07:44:30');
 
 -- --------------------------------------------------------
 
@@ -52,26 +79,25 @@ INSERT INTO `meja` (`id`, `no_meja`, `kapasitas`, `created_at`, `updated_at`) VA
 
 CREATE TABLE `menu` (
   `id` int(11) NOT NULL,
+  `id_kategori` int(11) NOT NULL,
   `nama` varchar(45) NOT NULL,
   `harga` double NOT NULL,
   `ket` text DEFAULT NULL,
   `foto` varchar(45) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`id`, `nama`, `harga`, `ket`, `foto`, `created_at`, `updated_at`) VALUES
-(1, 'Ayam Penyet', 20000, 'Ayam', NULL, NULL, NULL),
-(2, 'Sayur Ubi', 20000, NULL, NULL, '2022-11-12 10:02:27', '2022-11-12 10:02:27'),
-(3, 'Ayam Cabe Hijau', 30000, NULL, NULL, '2022-11-12 10:32:11', '2022-11-12 10:32:11'),
-(4, 'Terong Panggang', 15000, NULL, NULL, '2022-11-12 10:34:00', '2022-11-12 10:34:00'),
-(5, 'Ayam Bistik', 25000, 'Ayam', NULL, '2022-11-12 12:06:25', '2022-11-12 12:06:25'),
-(6, 'Sop Buntut', 40000, 'Ayam', NULL, '2022-11-12 12:17:02', '2022-11-12 12:17:02'),
-(7, 'Gurami Bakar', 80000, NULL, NULL, '2022-11-12 12:20:37', '2022-11-12 12:20:37');
+INSERT INTO `menu` (`id`, `id_kategori`, `nama`, `harga`, `ket`, `foto`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Nasi Goreng', 20000, NULL, NULL, NULL, NULL),
+(2, 3, 'Ayam Goreng', 20000, NULL, NULL, '2022-11-13 07:41:41', '2022-11-13 07:41:41'),
+(3, 2, 'Gurami Bakar', 80000, NULL, NULL, '2022-11-13 07:45:11', '2022-11-13 07:45:11'),
+(4, 4, 'Kangkung Terasi', 18000, NULL, NULL, '2022-11-13 07:45:37', '2022-11-13 07:45:37'),
+(5, 5, 'Teh Manis', 12000, NULL, NULL, '2022-11-13 07:45:55', '2022-11-13 07:45:55');
 
 -- --------------------------------------------------------
 
@@ -86,7 +112,7 @@ CREATE TABLE `orderdetails` (
   `quantityOrder` double NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -100,7 +126,7 @@ CREATE TABLE `orders` (
   `reservasi_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -109,13 +135,13 @@ CREATE TABLE `orders` (
 --
 
 CREATE TABLE `pembayaran` (
-  `idpembayaran` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `tgl_pembayarn` date DEFAULT NULL,
   `total_bayar` varchar(45) DEFAULT NULL,
   `reservasi_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -128,13 +154,26 @@ CREATE TABLE `reservasi` (
   `tgl_reservasi` date DEFAULT NULL,
   `jam_in` time DEFAULT NULL,
   `jam_out` time DEFAULT NULL,
-  `status` varchar(45) DEFAULT NULL,
+  `status` enum('success','pending','cancel') DEFAULT NULL,
   `meja_id` int(11) NOT NULL,
   `users_id` int(11) NOT NULL,
   `jml_orang` varchar(45) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ulasan`
+--
+
+CREATE TABLE `ulasan` (
+  `id` int(11) NOT NULL,
+  `komentar` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -153,11 +192,18 @@ CREATE TABLE `users` (
   `role` enum('admin','user') NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `kategori`
+--
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `nama_UNIQUE` (`nama`);
 
 --
 -- Indexes for table `meja`
@@ -169,7 +215,8 @@ ALTER TABLE `meja`
 -- Indexes for table `menu`
 --
 ALTER TABLE `menu`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_menu_kategori1_idx` (`id_kategori`);
 
 --
 -- Indexes for table `orderdetails`
@@ -190,7 +237,7 @@ ALTER TABLE `orders`
 -- Indexes for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  ADD PRIMARY KEY (`idpembayaran`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `fk_pembayaran_reservasi1` (`reservasi_id`);
 
 --
@@ -200,6 +247,12 @@ ALTER TABLE `reservasi`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_reservasi_meja1` (`meja_id`),
   ADD KEY `fk_reservasi_users1` (`users_id`);
+
+--
+-- Indexes for table `ulasan`
+--
+ALTER TABLE `ulasan`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -212,16 +265,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `meja`
 --
 ALTER TABLE `meja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `orderdetails`
@@ -239,7 +298,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `idpembayaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `reservasi`
@@ -256,6 +315,12 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `menu`
+--
+ALTER TABLE `menu`
+  ADD CONSTRAINT `fk_menu_kategori1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `orderdetails`

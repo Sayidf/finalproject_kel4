@@ -1,6 +1,6 @@
 @extends('landingpage.index')
 @section('content')
-<!-- ======= Book A Table Section ======= -->
+<!--====== Reservation Section ======-->
 <section id="book-a-table" class="book-a-table">
   <div class="container" data-aos="fade-up">
     <div class="section-title">
@@ -46,12 +46,13 @@
       <div class="text-center"><button type="submit">Book a Table</button></div>
     </form>
   </div>
-</section><!-- End Book A Table Section -->
+</section>
+<!--====== End Reservation Section ======-->
 <script>
-  $(function() {
+$(function() {
   $('.calendar').pignoseCalendar({
-  format: 'YYYY-MM-DD' // date format string. (2017-02-02)
-});
+    format: 'YYYY-MM-DD' // date format string. (2017-02-02)
+  });
 });
 </script>
 @endsection

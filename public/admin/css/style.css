@@ -5787,14 +5787,23 @@ fieldset:disabled .btn {
     flex-wrap: wrap;
     flex-shrink: 0;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     padding: 0.75rem;
     border-top: 1px solid #eeeeee;
     border-bottom-right-radius: calc(0.3rem - 1px);
     border-bottom-left-radius: calc(0.3rem - 1px);
+    margin-top: unset;
 }
 .modal-footer > * {
     margin: 0.25rem;
+}
+
+.modal-footer button{
+    border-radius: 20px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 1.25rem;
+    font-weight: 400;
+    font-size: 1rem;
 }
 
 .modal-scrollbar-measure {

@@ -1,13 +1,12 @@
 @extends('landingpage.index')
 @section('content')
+<!--====== Special Section ======-->
 <section id="specials" class="specials">
   <div class="container" data-aos="fade-up">
-
     <div class="section-title">
       <h2>Specials</h2>
       <p>Check Our Specials</p>
     </div>
-
     <div class="row" data-aos="fade-up" data-aos-delay="100">
       <div class="col-lg-3">
         <ul class="nav nav-tabs flex-column">
@@ -41,8 +40,7 @@
                 <img src="{{ url('/public/assets/img/specials-1.png') }}" alt="" class="img-fluid">
               </div>
             </div>
-          </div>
-          
+          </div> 
           <div class="tab-pane" id="tab-2">
             <div class="row">
               <div class="col-lg-8 details order-2 order-lg-1">
@@ -94,7 +92,7 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
+<!--====== End Special Section ======-->
 @endsection

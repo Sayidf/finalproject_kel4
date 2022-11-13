@@ -1,6 +1,6 @@
 @extends('landingpage.index')
 @section('content')
-<!-- ======= Book A Table Section ======= -->
+<!--======= Login Section =======-->
 <section id="login" class="login">
   <div class="container" data-aos="fade-up">
     <form action="#" method="post" role="form" data-aos="fade-up" data-aos-delay="100">
@@ -27,5 +27,6 @@
       </div>
     </form>
   </div>
-</section><!-- End Book A Table Section -->
+</section>
+<!--====== End Login Section ======-->
 @endsection

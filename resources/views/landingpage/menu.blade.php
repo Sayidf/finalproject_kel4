@@ -1,5 +1,6 @@
 @extends('landingpage.index')
 @section('content')
+<!--======= Menu Section =======-->
 <section id="menu" class="menu section-bg">
   <div class="container" data-aos="fade-up">
     <div class="section-title">
@@ -16,7 +17,9 @@
           <li data-filter=".filter-salads">Salads</li>
           <li data-filter=".filter-drink">Drink</li>
         </ul> --}}
+        <!-- Menu -->
         <ul class="nav nav-menu mb-4" role="tablist">
+          <!-- Menu Nasi -->
           <li class="nav-item" role="presentation">
             <a class="active show" data-bs-toggle="tab" data-bs-target="#menu-rice" aria-selected="false" role="tab">
 							<div>
@@ -24,43 +27,49 @@
 								<h6>Rice</h6>
 							</div>
             </a>
-          </li><!-- End tab nav item -->
+          </li>
+          <!-- Menu Ikan -->
           <li class="nav-item" role="presentation">
             <a class="" data-bs-toggle="tab" data-bs-target="#menu-fish" aria-selected="false" tabindex="-1" role="tab">
 							<div>
 								<i class="fa-solid fa-fish"></i>
 								<h6>Fish</h6>
 							</div>
-            </a><!-- End tab nav item -->
+            </a>
           </li>
+          <!-- Menu Ayam -->
 					<li class="nav-item" role="presentation">
-            <a class=""  data-bs-toggle="tab" data-bs-target="#menu-chicken" aria-selected="false" tabindex="-1" role="tab">
+            <a class="" data-bs-toggle="tab" data-bs-target="#menu-chicken" aria-selected="false" tabindex="-1" role="tab">
               <div>
 								<i class="fa-solid fa-drumstick"></i>
 								<h6>Chicken</h6>
 							</div>
             </a>
-          </li><!-- End tab nav item -->
+          </li>
+          <!-- Menu Sayuran -->
           <li class="nav-item" role="presentation">
-            <a class=""  data-bs-toggle="tab" data-bs-target="#menu-salads" aria-selected="false" tabindex="-1" role="tab">
+            <a class="" data-bs-toggle="tab" data-bs-target="#menu-salads" aria-selected="false" tabindex="-1" role="tab">
               <div>
 								<i class="fa-solid fa-salad"></i>
 								<h6>Salads</h6>
 							</div>
             </a>
-          </li><!-- End tab nav item -->
+          </li>
+          <!-- Menu Minuman -->
           <li class="nav-item" role="presentation">
-            <a class=""  data-bs-toggle="tab" data-bs-target="#menu-drink" aria-selected="false" tabindex="-1" role="tab">
+            <a class="" data-bs-toggle="tab" data-bs-target="#menu-drink" aria-selected="false" tabindex="-1" role="tab">
               <div>
 								<i class="fa-solid fa-glass"></i>
 								<h6>Drink</h6>
 							</div>
             </a>
-          </li><!-- End tab nav item -->
+          </li>
         </ul>
+        <!-- End Menu -->
       </div>
     </div>
     <div class="tab-content aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+      <!-- Konten Menu Nasi -->
       <div class="tab-pane fade active show" id="menu-rice" role="tabpanel">
         <div class="tab-header text-center">
           <h3>Rice</h3>
@@ -84,6 +93,7 @@
         	</div>
 				</div>
 			</div>
+      <!-- Konten Menu Ikan -->
 			<div class="tab-pane fade" id="menu-fish" role="tabpanel">
         <div class="tab-header text-center">
           <h3>Fish</h3>
@@ -107,6 +117,7 @@
 					</div>
 				</div>
 			</div>
+      <!-- Konten Menu Ayam -->
 			<div class="tab-pane fade" id="menu-chicken" role="tabpanel">
         <div class="tab-header text-center">
           <h3>Chicken</h3>
@@ -130,6 +141,7 @@
 					</div>
 				</div>
 			</div>
+      <!-- Konten Menu Sayuran -->
 			<div class="tab-pane fade" id="menu-salads" role="tabpanel">
         <div class="tab-header text-center">
           <h3>Salads</h3>
@@ -153,6 +165,7 @@
 					</div>
 				</div>
 			</div>
+      <!-- Konten Menu Minuman -->
 			<div class="tab-pane fade" id="menu-drink" role="tabpanel">
         <div class="tab-header text-center">
           <h3>Drink</h3>
@@ -184,6 +197,7 @@
 					</div>
 				</div>
 			</div>
+    </div>
     {{-- <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
       <div class="col-lg-6 menu-item filter-rice">
         <img src="https://imgs.search.brave.com/ayCGV163wL7_8zo5dqDeFENLzkavod8-nyZy5bAqh5A/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9pMi53/cC5jb20vY2hpbGlw/ZXBwZXJtYWRuZXNz/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMC8xMS9OYXNp/LUdvcmVuZy1JbmRv/bmVzaWFuLUZyaWVk/LVJpY2UtU1EuanBn" class="menu-img" alt="">
@@ -284,4 +298,5 @@
     </div> --}}
   </div>
 </section>
+<!--======= End Menu Section =======-->
 @endsection

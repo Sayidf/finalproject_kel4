@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kategori;
-use App\Models\Menu;
 use Illuminate\Http\Request;
 
-class MenuController extends Controller
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,8 @@ class MenuController extends Controller
     public function index()
     {
         //menampilkan seluruh data
-        $menu = Menu::all();
         $kategori = Kategori::all();
-        return view('menu.index', compact('menu', 'kategori'));
+        return view('kategori.index', compact('kategori'));
     }
 
     /**
@@ -28,7 +26,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('menu.form');
+        //
     }
 
     /**
@@ -40,15 +38,13 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|unique:menu|max:45',
-            'harga' => 'required|max:10',
-            'ket' => '',
+            'nama' => 'required|unique:kategori|max:45',
         ]);
 
-        Menu::create($request->all());
+        Kategori::create($request->all());
 
-        return redirect()->route('menu.index')
-            ->with('success', 'Menu Berhasil Disimpan');
+        return redirect()->route('kategori.index')
+            ->with('success', 'Kategori Berhasil Disimpan');
     }
 
     /**
@@ -59,8 +55,7 @@ class MenuController extends Controller
      */
     public function show($id)
     {
-        $row = Menu::find($id);
-        return view('menu.index', compact('row'));
+        //
     }
 
     /**
