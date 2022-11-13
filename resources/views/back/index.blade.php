@@ -18,13 +18,13 @@
 	
 	<!-- FAVICONS ICON -->
 	<link rel="shortcut icon" type="image/png" href="{{url('images/favicon.png')}}">
-	<link href="{{asset('admin/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
-	<link href="{{asset('admin/vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
-	<link rel="stylesheet" href="{{asset('admin/vendor/nouislider/nouislider.min.css')}}">
+	<link href="{{asset('/public/admin/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
+	<link href="{{asset('/public/admin/vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
+	<link rel="stylesheet" href="{{asset('/public/admin/vendor/nouislider/nouislider.min.css')}}">
 	<!-- Datatable -->
-    <link href="{{asset('admin/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+    <link href="{{asset('/public/admin/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 	<!-- Style css -->
-    <link href="{{asset('admin/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('/public/admin/css/style.css')}}" rel="stylesheet">
 	
 </head>
 <body>
@@ -104,29 +104,29 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
-    <script src="{{asset('admin/vendor/global/global.min.js')}}"></script>
-	<script src="{{asset('admin/vendor/chart.js/Chart.bundle.min.js')}}"></script>
-	<script src="{{asset('admin/vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}"></script>
+    <script src="{{asset('/public/admin/vendor/global/global.min.js')}}"></script>
+	<script src="{{asset('/public/admin/vendor/chart.js/Chart.bundle.min.js')}}"></script>
+	<script src="{{asset('/public/admin/vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}"></script>
 	
 	<!-- Apex Chart -->
-	<script src="{{asset('admin/vendor/apexchart/apexchart.js')}}"></script>
+	<script src="{{asset('/public/admin/vendor/apexchart/apexchart.js')}}"></script>
 	
-	<script src="{{asset('admin/vendor/chart.js/Chart.bundle.min.js')}}"></script>
+	<script src="{{asset('/public/admin/vendor/chart.js/Chart.bundle.min.js')}}"></script>
 	
 	<!-- Chart piety plugin files -->
-    <script src="{{asset('admin/vendor/peity/jquery.peity.min.js')}}"></script>
+    <script src="{{asset('/public/admin/vendor/peity/jquery.peity.min.js')}}"></script>
 	<!-- Dashboard 1 -->
-	<script src="{{asset('admin/js/dashboard/dashboard-1.js')}}"></script>
+	<script src="{{asset('/public/admin/js/dashboard/dashboard-1.js')}}"></script>
 	
-	<script src="{{asset('admin/vendor/owl-carousel/owl.carousel.js')}}"></script>
+	<script src="{{asset('/public/admin/vendor/owl-carousel/owl.carousel.js')}}"></script>
 	 <!-- Datatable -->
-	<script src="{{asset('admin/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
-	<script src="{{asset('admin/js/plugins-init/datatables.init.js')}}"></script>
+	<script src="{{asset('/public/admin/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
+	<script src="{{asset('/public/admin/js/plugins-init/datatables.init.js')}}"></script>
 
-    <script src="{{asset('admin/js/custom.min.js')}}"></script>
-	<script src="{{asset('admin/js/dlabnav-init.js')}}"></script>
-	<script src="{{asset('admin/js/demo.js')}}"></script>
-    <script src="{{asset('admin/js/styleSwitcher.js')}}"></script>
+    <script src="{{asset('/public/admin/js/custom.min.js')}}"></script>
+	<script src="{{asset('/public/admin/js/dlabnav-init.js')}}"></script>
+	<script src="{{asset('/public/admin/js/demo.js')}}"></script>
+    <script src="{{asset('/public/admin/js/styleSwitcher.js')}}"></script>
 	<script>
 		function cardsCenter()
 		{

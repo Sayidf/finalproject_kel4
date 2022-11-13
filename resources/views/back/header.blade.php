@@ -6,15 +6,10 @@
             </defs>
         </svg>
         <div class="brand-title">
-            <h2 class="">NF Culinary</h2>
+            <h2 class="">NFCulinary</h2>
             <span class="brand-sub-title">Restaurant</span>
         </div>
     </a>
-    <div class="nav-control">
-        <div class="hamburger">
-            <span class="line"></span><span class="line"></span><span class="line"></span>
-        </div>
-    </div>
 </div>
 <!--**********************************
     Nav header end
@@ -28,7 +23,7 @@
             <div class="collapse navbar-collapse justify-content-between">
                 <div class="header-left">
                     <div class="dashboard_bar">
-                        Halaman Admin
+                        <h3>Halaman Admin</h3>
                     </div>
                 </div>
                 <ul class="navbar-nav header-right">

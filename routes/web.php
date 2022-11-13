@@ -56,6 +56,9 @@ Route::get('/reservation', function () {
 Route::get('/administrator', function () {
     return view('back.home');
 });
+Route::get('/beranda', function () {
+    return view('back.home');
+});
 Route::get('/mylogin', function () {
     return view('landingpage.mylogin');
 });
@@ -63,9 +66,15 @@ Route::get('/register', function () {
     return view('landingpage.register');
 });
 
-Route::get('/customer', function () {
+Route::get('/datacustomer', function () {
     return view('customer.index');
 });
-Route::get('/menu', function () {
+Route::get('/datamenu', function () {
     return view('menu.index');
+});
+Route::get('/datameja', function () {
+    return view('meja.index');
+});
+Route::get('/datareservation', function () {
+    return view('reservasi.index');
 });

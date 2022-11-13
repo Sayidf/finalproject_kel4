@@ -75,9 +75,9 @@
 @import url(../vendor/metismenu/css/metisMenu.min.css);
 :root {
     --primary: #cda45e;
-    --secondary: #ffa7d7;
+    --secondary: #575757;
     --primary-light: #a590cf;
-    --primary-hover: #6c4bae;
+    --primary-hover: #f79f07;
     --primary-dark: #402c67;
     --rgba-primary-1: rgba(136, 108, 192, 0.1);
     --rgba-primary-2: rgba(136, 108, 192, 0.2);
@@ -3227,7 +3227,7 @@ fieldset:disabled .btn {
     background-color: #9a82c9;
     border-color: #947bc6;
     box-shadow: 0 0 0 0.25rem rgba(116, 92, 163, 0.5);
-}
+}0</td>
 .btn-check:checked + .btn-primary,
 .btn-check:active + .btn-primary,
 .btn-primary:active,
@@ -3253,13 +3253,13 @@ fieldset:disabled .btn {
 
 .btn-secondary {
     color: #000;
-    background-color: #ffa7d7;
-    border-color: #ffa7d7;
+    background-color: #575757;
+    border-color: #575757;
 }
 .btn-secondary:hover {
     color: #000;
-    background-color: #ffb4dd;
-    border-color: #ffb0db;
+    background-color: #3b3a3a;
+    border-color: #3b3a3a;
 }
 .btn-check:focus + .btn-secondary,
 .btn-secondary:focus {
@@ -17433,9 +17433,9 @@ html[dir="rtl"]
 
 :root {
     --primary: #cda45e;
-    --secondary: #ffa7d7;
+    --secondary: #575757;
     --primary-light: #a590cf;
-    --primary-hover: #6c4bae;
+    --primary-hover: #f79f07;
     --primary-dark: #402c67;
     --rgba-primary-1: rgba(136, 108, 192, 0.1);
     --rgba-primary-2: rgba(136, 108, 192, 0.2);
@@ -17929,9 +17929,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 */
 :root {
     --primary: #cda45e;
-    --secondary: #ffa7d7;
+    --secondary: #575757;
     --primary-light: #a590cf;
-    --primary-hover: #6c4bae;
+    --primary-hover: #f79f07;
     --primary-dark: #402c67;
     --rgba-primary-1: rgba(136, 108, 192, 0.1);
     --rgba-primary-2: rgba(136, 108, 192, 0.2);
@@ -18390,9 +18390,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 }
 :root {
     --primary: #cda45e;
-    --secondary: #ffa7d7;
+    --secondary: #575757;
     --primary-light: #a590cf;
-    --primary-hover: #6c4bae;
+    --primary-hover: #f79f07;
     --primary-dark: #402c67;
     --rgba-primary-1: rgba(136, 108, 192, 0.1);
     --rgba-primary-2: rgba(136, 108, 192, 0.2);
@@ -28765,9 +28765,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
     --primary: #cda45e;
-    --secondary: #ffa7d7;
+    --secondary: #575757;
     --primary-light: #a590cf;
-    --primary-hover: #6c4bae;
+    --primary-hover: #f79f07;
     --primary-dark: #402c67;
     --rgba-primary-1: rgba(136, 108, 192, 0.1);
     --rgba-primary-2: rgba(136, 108, 192, 0.2);
@@ -28955,9 +28955,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
     --primary: #cda45e;
-    --secondary: #ffa7d7;
+    --secondary: #575757;
     --primary-light: #a590cf;
-    --primary-hover: #6c4bae;
+    --primary-hover: #f79f07;
     --primary-dark: #402c67;
     --rgba-primary-1: rgba(136, 108, 192, 0.1);
     --rgba-primary-2: rgba(136, 108, 192, 0.2);
@@ -31798,9 +31798,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
     --primary: #cda45e;
-    --secondary: #ffa7d7;
+    --secondary: #575757;
     --primary-light: #a590cf;
-    --primary-hover: #6c4bae;
+    --primary-hover: #f79f07;
     --primary-dark: #402c67;
     --rgba-primary-1: rgba(136, 108, 192, 0.1);
     --rgba-primary-2: rgba(136, 108, 192, 0.2);
@@ -32431,9 +32431,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
     --primary: #cda45e;
-    --secondary: #ffa7d7;
+    --secondary: #575757;
     --primary-light: #a590cf;
-    --primary-hover: #6c4bae;
+    --primary-hover: #f79f07;
     --primary-dark: #402c67;
     --rgba-primary-1: rgba(136, 108, 192, 0.1);
     --rgba-primary-2: rgba(136, 108, 192, 0.2);
@@ -32764,9 +32764,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
     --primary: #cda45e;
-    --secondary: #ffa7d7;
+    --secondary: #575757;
     --primary-light: #a590cf;
-    --primary-hover: #6c4bae;
+    --primary-hover: #f79f07;
     --primary-dark: #402c67;
     --rgba-primary-1: rgba(136, 108, 192, 0.1);
     --rgba-primary-2: rgba(136, 108, 192, 0.2);
@@ -32798,9 +32798,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
     --primary: #cda45e;
-    --secondary: #ffa7d7;
+    --secondary: #575757;
     --primary-light: #a590cf;
-    --primary-hover: #6c4bae;
+    --primary-hover: #f79f07;
     --primary-dark: #402c67;
     --rgba-primary-1: rgba(136, 108, 192, 0.1);
     --rgba-primary-2: rgba(136, 108, 192, 0.2);
@@ -32850,9 +32850,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
     --primary: #cda45e;
-    --secondary: #ffa7d7;
+    --secondary: #575757;
     --primary-light: #a590cf;
-    --primary-hover: #6c4bae;
+    --primary-hover: #f79f07;
     --primary-dark: #402c67;
     --rgba-primary-1: rgba(136, 108, 192, 0.1);
     --rgba-primary-2: rgba(136, 108, 192, 0.2);
@@ -32922,9 +32922,9 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 :root {
     --primary: #cda45e;
-    --secondary: #ffa7d7;
+    --secondary: #575757;
     --primary-light: #a590cf;
-    --primary-hover: #6c4bae;
+    --primary-hover: #f79f07;
     --primary-dark: #402c67;
     --rgba-primary-1: rgba(136, 108, 192, 0.1);
     --rgba-primary-2: rgba(136, 108, 192, 0.2);
@@ -43571,9 +43571,9 @@ html[dir="rtl"]
 
 :root {
     --primary: #cda45e;
-    --secondary: #ffa7d7;
+    --secondary: #575757;
     --primary-light: #a590cf;
-    --primary-hover: #6c4bae;
+    --primary-hover: #f79f07;
     --primary-dark: #402c67;
     --rgba-primary-1: rgba(136, 108, 192, 0.1);
     --rgba-primary-2: rgba(136, 108, 192, 0.2);

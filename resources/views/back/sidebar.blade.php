@@ -20,10 +20,11 @@
                     <span class="nav-text">Master Data</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{'menu'}}">Menu</a></li>
-                    <li><a href="{{'customer'}}">Customers</a></li>
-                    <li><a href="table-datatable-basic.html">Pegawai</a></li>
-                    <li><a href="table-datatable-basic.html">Data Meja</a></li>
+                    <li><a href="{{'datamenu'}}">Menu</a></li>
+                    <li><a href="{{'datacustomer'}}">Customers</a></li>
+                    <li><a href="{{'datareservation'}}">Reservasi</a></li>
+                    <li><a href="{{'datameja'}}">Data Meja</a></li>
+                    <li><a href="table-datatable-basic.html">Ulasan Customers</a></li>
                 </ul>
             </li>
             <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
