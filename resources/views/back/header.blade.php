@@ -32,7 +32,7 @@
         </div>
         <ul class="navbar-nav header-right">
           <li class="nav-item ">
-            <span id="DisplayClock" class="clock fw-bold onload=" showTime()"></span>
+            <span id="DisplayClock" class="clock fw-bold" onload="showTime()"></span>
           </li>
           <li class="nav-item">
             <a href="app-profile.html">

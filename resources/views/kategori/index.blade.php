@@ -15,8 +15,10 @@
 					<div class="card-header">
 						<h4 class="card-title">Data Kategori Menu</h4>
 						@if ($message = Session::get('success'))
-							<div class="alert alert-success">
-								<p>{{ $message }}</p>
+							<div class="alert alert-success alert-dismissible fade show">
+								<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>	
+								<span class="me-3"><strong>Sukses! </strong>{{ $message }}</span>
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
 							</div>
 						@endif
 						<!-- Button trigger modal -->
@@ -44,7 +46,7 @@
 						      	</div>
 						      	<div class="modal-footer">
 											<button type="submit" class="btn btn-primary">Submit</button>
-											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+											<button type="button" class="btn light btn-danger" data-bs-dismiss="modal">Close</button>
 						      	</div>
 									</form>
 						    </div>
@@ -76,8 +78,12 @@
 														<svg width="20px" height="20px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
 													</button>
 													<div class="dropdown-menu">
-														<a class="dropdown-item" href="#">Edit</a>
-														<a class="dropdown-item" href="#">Delete</a>
+                            <form method="POST" action="{{ route('kategori.destroy',$row->id) }}">
+                              @csrf
+                              @method('DELETE')
+                                <a class="dropdown-item" href="#">Edit</a>
+														    <button type="submit" class="dropdown-item" title="Hapus Kategori" onclick="return confirm('yakin?')">Hapus</button>
+													  </form>
 													</div>
 												</div>
 											</td>

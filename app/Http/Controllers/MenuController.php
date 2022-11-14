@@ -28,7 +28,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('menu.form');
+        //
     }
 
     /**
@@ -40,9 +40,11 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'id_kategori' => 'required|integer',
             'nama' => 'required|unique:menu|max:45',
             'harga' => 'required|max:10',
-            'ket' => '',
+            'ket' => 'nullable',
+            'foto' => 'nullable|string'
         ]);
 
         Menu::create($request->all());
@@ -60,7 +62,7 @@ class MenuController extends Controller
     public function show($id)
     {
         $row = Menu::find($id);
-        return view('menu.index', compact('row'));
+        return view('menu.show', compact('row'));
     }
 
     /**
@@ -71,7 +73,8 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $row = Menu::find($id);
+        return view('menu.edit', compact('row'));
     }
 
     /**
@@ -94,6 +97,9 @@ class MenuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $row = Menu::find($id);
+        Menu::where('id',$id)->delete();
+        return redirect()->route('menu.index')
+                        ->with('success','Data Menu Berhasil Dihapus');
     }
 }

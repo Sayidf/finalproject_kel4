@@ -15,9 +15,12 @@
 					<div class="card-header">
 						<h4 class="card-title">Data Menu</h4>
 						@if ($message = Session::get('success'))
-							<div class="alert alert-success">
-								<p>{{ $message }}</p>
+							<div class="alert alert-success alert-dismissible fade show">
+								<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>	
+								<span class="me-3"><strong>Sukses! </strong>{{ $message }}</span>
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
 							</div>
+							
 						@endif
 						<!-- Button trigger modal -->
 						<button type="button" class="btn btn-primary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#menuModal">
@@ -65,7 +68,7 @@
 						      	</div>
 						      	<div class="modal-footer">
 											<button type="submit" class="btn btn-primary">Submit</button>
-											<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+											<button type="button" class="btn light btn-danger" data-bs-dismiss="modal">Close</button>
 						      	</div>
 									</form>
 						    </div>
@@ -94,19 +97,51 @@
 									@foreach ($menu as $row)
 										<tr>
 											<td>{{$no++}}</td>
-											<td><img class="rounded-circle" width="50" src="https://imgs.search.brave.com/ayCGV163wL7_8zo5dqDeFENLzkavod8-nyZy5bAqh5A/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9pMi53/cC5jb20vY2hpbGlw/ZXBwZXJtYWRuZXNz/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMC8xMS9OYXNp/LUdvcmVuZy1JbmRv/bmVzaWFuLUZyaWVk/LVJpY2UtU1EuanBn" alt=""></td>
+											<td><img class="rounded-circle" width="50" src="https://dummyimage.com/256x256/bdbdbd/fff" alt=""></td>
 											<td>{{ $row->nama }}</td>
-											<td>{{ $row->id_kategori }}</td>
+											<td>{{ $row->kategori->nama }}</td>
 											<td>{{ $row->harga }}</td>
 											<td>{{ $row->ket }}</td>
 											<td>
+                        {{-- <form action="{{ route('menu.destroy', $row->id) }}" method="POST">
+
+													<a data-toggle="modal" id="smallButton" data-target="#smallModal"
+															data-attr="{{ route('menu.show', $row->id) }}" title="show">
+															<i class="fas fa-eye text-success  fa-lg"></i>
+													</a>
+
+													<a class="text-secondary" data-toggle="modal" id="mediumButton" data-target="#mediumModal"
+															data-attr="{{ route('menu.edit', $row->id) }}">
+															<i class="fas fa-edit text-gray-300"></i>
+													</a>
+													@csrf
+													@method('DELETE')
+
+													<button type="submit" title="delete" style="border: none; background-color:transparent;">
+															<i class="fas fa-trash fa-lg text-danger"></i>
+													</button>
+											</form> --}}
 												<div class="dropdown">
 													<button type="button" class="btn btn-primary light sharp" data-bs-toggle="dropdown">
-														<svg width="20px" height="20px" viewbox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-													</button>
+                            <svg width="20px" height="20px" viewbox="0 0 24 24" version="1.1">
+                              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <rect x="0" y="0" width="24" height="24"></rect>
+                                <circle fill="#000000" cx="5" cy="12" r="2"></circle>
+                                <circle fill="#000000" cx="12" cy="12" r="2"></circle>
+                                <circle fill="#000000" cx="19" cy="12" r="2"></circle>
+                              </g>
+                            </svg>
+                          </button>
 													<div class="dropdown-menu">
-														<a class="dropdown-item" href="#">Edit</a>
-														<a class="dropdown-item" href="#">Delete</a>
+														<!-- Button trigger Detail modal -->
+														<form method="POST" action="{{ route('menu.destroy',$row->id) }}">
+															<button type="button" data-path="{{ route('menu.show',$row->id) }}" class="dropdown-item load-ajax-modal" data-bs-toggle="modal" data-bs-target="#menuDetailModal">Detail</button>
+															<a class="dropdown-item" href="#">Edit</a>
+	
+															@csrf
+															@method('DELETE')
+															<button type="submit" class="dropdown-item" title="Hapus Pegawai" onclick="return confirm('yakin?')">Hapus</button>
+														</form>
 													</div>
 												</div>
 											</td>
@@ -121,5 +156,105 @@
 		</div>
 	</div>
 </div>
-		
+
+{{-- Modal Detail Menu --}}
+<div class="modal fade" id="menuDetailModal" tabindex="-1" aria-labelledby="menuDetailModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="menuDetailModalLabel">Detail Menu</h4>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+					<div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+						<img class="rounded-circle mb-3" width="256" src="https://dummyimage.com/256x256/bdbdbd/fff" alt="">											
+						<div class="col text-center">
+							<h2>{{ $row->nama }}</h2>
+							<span>{{ $row->kategori->nama }}</span>
+						</div>
+
+							<div class="alert alert-primary w-100 d-flex justify-content-center mt-3" role="alert">
+								<table class="table w-100">
+									<tr>
+										<td>Harga</td>
+										<td>:</td>
+										<td>{{ $row->harga }}</td>
+									</tr>
+									<tr>
+										<td>Keterangan</td>
+										<td>:</td>
+										<td>{{ $row->ket }}</td>
+									</tr>
+								</table>
+								
+								<br />
+							</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn light btn-danger" data-bs-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+{{-- End Modal Detail Menu --}}
+
+
+
+
+{{-- <script>
+	// display a modal (small modal)
+	$(document).on('click', '#smallButton', function(event) {
+			event.preventDefault();
+			let href = $(this).attr('data-attr');
+			$.ajax({
+					url: href,
+					beforeSend: function() {
+							$('#loader').show();
+					},
+					// return the result
+					success: function(result) {
+							$('#smallModal').modal("show");
+							$('#smallBody').html(result).show();
+					},
+					complete: function() {
+							$('#loader').hide();
+					},
+					error: function(jqXHR, testStatus, error) {
+							console.log(error);
+							alert("Page " + href + " cannot open. Error:" + error);
+							$('#loader').hide();
+					},
+					timeout: 8000
+			})
+	});
+
+	// display a modal (medium modal)
+	$(document).on('click', '#mediumButton', function(event) {
+			event.preventDefault();
+			let href = $(this).attr('data-attr');
+			$.ajax({
+					url: href,
+					beforeSend: function() {
+							$('#loader').show();
+					},
+					// return the result
+					success: function(result) {
+							$('#mediumModal').modal("show");
+							$('#mediumBody').html(result).show();
+					},
+					complete: function() {
+							$('#loader').hide();
+					},
+					error: function(jqXHR, testStatus, error) {
+							console.log(error);
+							alert("Page " + href + " cannot open. Error:" + error);
+							$('#loader').hide();
+					},
+					timeout: 8000
+			})
+	});
+
+</script> --}}
+
 @endsection

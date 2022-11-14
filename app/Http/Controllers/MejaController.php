@@ -26,7 +26,7 @@ class MejaController extends Controller
      */
     public function create()
     {
-        return view('meja.form');
+        //
     }
 
     /**
@@ -91,6 +91,9 @@ class MejaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $row = Meja::find($id);
+        Meja::where('id',$id)->delete();
+        return redirect()->route('meja.index')
+                        ->with('success','Data Meja Berhasil Dihapus');
     }
 }
