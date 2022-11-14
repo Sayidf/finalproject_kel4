@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\SessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,8 +57,8 @@ Route::get('/login', function () {
     return view('landingpage.mylogin');
 });
 
-Route::get('/register', function () {
-    return view('landingpage.register');
+Route::get('/reg', function () {
+    return view('sesi/register');
 });
 
 Route::get('/administrator', function () {
@@ -71,3 +72,8 @@ Route::get('/administrator/customer', function () {
 Route::resource('administrator/meja', MejaController::class);
 Route::resource('administrator/menu', MenuController::class);
 Route::resource('administrator/kategori', KategoriController::class);
+
+Route::get('sesi', [SessionController::class, 'index']);
+Route::post('sesi/login', [SessionController::class, 'login']);
+Route::get('sesi/logout', [SessionController::class, 'logout']);
+Route::post('sesi/create', [SessionController::class, 'create']);
