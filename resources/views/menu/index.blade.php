@@ -53,7 +53,7 @@
                                                             placeholder="Nama">
                                                     </div>
 
-                                                    <div class="mb-3">
+                                                    <<<<<<< HEAD <div class="mb-3">
                                                         <label class="form-label"><b>Kategori</b></label>
                                                         <div class="form-group">
                                                             <select class="form-control main" name="id_kategori">
@@ -64,60 +64,132 @@
                                                                 @endforeach
                                                             </select>
                                                         </div>
-                                                    </div>
+                                                </div>
 
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Harga</label>
-                                                        <input name="harga" type="text" class="form-control"
-                                                            placeholder="Harga">
-                                                    </div>
-                                                    <div class="mb-3">
-                                                        <label class="form-label">Keterangan</label>
-                                                        <input name="ket" type="text" class="form-control"
-                                                            placeholder="Keterangan">
-                                                    </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Harga</label>
+                                                    <input name="harga" type="text" class="form-control"
+                                                        placeholder="Harga">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Keterangan</label>
+                                                    <input name="ket" type="text" class="form-control"
+                                                        placeholder="Keterangan">
                                                 </div>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                                <button type="button" class="btn light btn-danger"
-                                                    data-bs-dismiss="modal">Close</button>
-                                            </div>
-                                        </form>
                                     </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="button" class="btn light btn-danger"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                    </form>
                                 </div>
                             </div>
-                            <!-- End Modal -->
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="example3" class="display" style="min-width: 845px">
-                                    <thead>
+                        <!-- End Modal -->
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="example3" class="display" style="min-width: 845px">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 30px;">No</th>
+                                        <th>Foto</th>
+                                        <th>Nama</th>
+                                        <th>Kategori</th>
+                                        <th>Harga</th>
+                                        <th>Keterangan</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php
+                                        $no = 1;
+                                    @endphp
+                                    @foreach ($menu as $row)
                                         <tr>
-                                            <th style="width: 30px;">No</th>
-                                            <th>Foto</th>
-                                            <th>Nama</th>
-                                            <th>Kategori</th>
-                                            <th>Harga</th>
-                                            <th>Keterangan</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @php
-                                            $no = 1;
-                                        @endphp
-                                        @foreach ($menu as $row)
-                                            <tr>
-                                                <td>{{ $no++ }}</td>
-                                                <td><img class="rounded-circle" width="50"
-                                                        src="https://dummyimage.com/256x256/bdbdbd/fff" alt=""></td>
-                                                <td>{{ $row->nama }}</td>
-                                                <td>{{ $row->kategori->nama }}</td>
-                                                <td>{{ $row->harga }}</td>
-                                                <td>{{ $row->ket }}</td>
-                                                <td>
-                                                    {{-- <form action="{{ route('menu.destroy', $row->id) }}" method="POST">
+                                            <td>{{ $no++ }}</td>
+                                            <td><img class="rounded-circle" width="50"
+                                                    src="https://dummyimage.com/256x256/bdbdbd/fff" alt=""></td>
+                                            <td>{{ $row->nama }}</td>
+                                            <td>{{ $row->kategori->nama }}</td>
+                                            <td>{{ $row->harga }}</td>
+                                            <td>{{ $row->ket }}</td>
+                                            <td>
+                                                {{-- <form action="{{ route('menu.destroy', $row->id) }}" method="POST">
+=======
+												<div class="mb-3">
+													<label class="form-label"><b>Kategori</b></label>
+													<div class="form-group">
+														<select class="form-control main" name="id_kategori">
+															<option selected>-- Pilih Kategori --</option>
+																@foreach ($kategori as $kat)
+																	<option value="{{ $kat->id }}">{{ $kat->nama }}</option>
+																@endforeach
+														</select>
+													</div>
+												</div>
+										
+												<div class="mb-3">
+													<label class="form-label">Harga</label>
+													<input name="harga" type="text" class="form-control" placeholder="Harga">
+												</div>
+												<div class="mb-3">
+													<label class="form-label">Keterangan</label>
+													<input name="ket" type="text" class="form-control" placeholder="Keterangan">
+												</div>
+												<div class="mb-3">
+													<label class="form-label">Foto</label>
+													<input name="foto" type="file" class="form-control">
+												</div>
+											</div>
+						      	</div>
+						      	<div class="modal-footer">
+											<button type="submit" class="btn btn-primary">Submit</button>
+											<button type="button" class="btn light btn-danger" data-bs-dismiss="modal">Close</button>
+						      	</div>
+									</form>
+						    </div>
+						  </div>
+						</div>
+						<!-- End Modal -->
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table id="example3" class="display" style="min-width: 845px">
+								<thead>
+									<tr>
+										<th style="width: 30px;">No</th>
+										<th>Foto</th>
+										<th>Nama</th>
+										<th>Kategori</th>
+										<th>Harga</th>
+										<th>Keterangan</th>
+										<th>Aksi</th>
+									</tr>
+								</thead>
+								<tbody>
+									@php
+										$no = 1;
+									@endphp
+									@foreach ($menu as $row)
+										<tr>
+											<td>{{$no++}}</td>
+											<td>
+												@empty($row->foto)
+												<img src="{{ url('/public/admin/images/avatar/nophoto.jpg') }}" width="50" alt="Menu" class="rounded-circle" />
+												@else
+												<img src="{{ url('/public/admin/images/menu') }}/{{ $row->foto }}" width="50" alt="Menu" class="rounded-circle" />
+												@endempty
+										</td>
+											<td>{{ $row->nama }}</td>
+											<td>{{ $row->kategori->nama }}</td>
+											<td>{{ $row->harga }}</td>
+											<td>{{ $row->ket }}</td>
+											<td>
+                        {{-- <form action="{{ route('menu.destroy', $row->id) }}" method="POST">
+>>>>>>> 57c3144edcd5a036daf965963c6698a0c48604cf
 
 													<a data-toggle="modal" id="smallButton" data-target="#smallModal"
 															data-attr="{{ route('menu.show', $row->id) }}" title="show">
@@ -135,55 +207,74 @@
 															<i class="fas fa-trash fa-lg text-danger"></i>
 													</button>
 											</form> --}}
-                                                    <div class="dropdown">
-                                                        <button type="button" class="btn btn-primary light sharp"
-                                                            data-bs-toggle="dropdown">
-                                                            <svg width="20px" height="20px" viewbox="0 0 24 24"
-                                                                version="1.1">
-                                                                <g stroke="none" stroke-width="1" fill="none"
-                                                                    fill-rule="evenodd">
-                                                                    <rect x="0" y="0" width="24"
-                                                                        height="24"></rect>
-                                                                    <circle fill="#000000" cx="5" cy="12"
-                                                                        r="2"></circle>
-                                                                    <circle fill="#000000" cx="12" cy="12"
-                                                                        r="2"></circle>
-                                                                    <circle fill="#000000" cx="19" cy="12"
-                                                                        r="2"></circle>
-                                                                </g>
-                                                            </svg>
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                            <!-- Button trigger Detail modal -->
-                                                            <form method="POST"
-                                                                action="{{ route('menu.destroy', $row->id) }}">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <a class="btn btn-sm btndetail"
-                                                                    data-bs-target="#detailModal"
-                                                                    href="{{ route('menu.show', $row->id) }} ">
-                                                                    Detail
-                                                                </a>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn btn-primary light sharp"
+                                                        data-bs-toggle="dropdown">
+                                                        <svg width="20px" height="20px" viewbox="0 0 24 24"
+                                                            version="1.1">
+                                                            <g stroke="none" stroke-width="1" fill="none"
+                                                                fill-rule="evenodd">
+                                                                <rect x="0" y="0" width="24"
+                                                                    height="24"></rect>
+                                                                <circle fill="#000000" cx="5" cy="12"
+                                                                    rS="2"></circle>
+                                                                <circle fill="#000000" cx="12" cy="12"
+                                                                    r="2"></circle>
+                                                                <circle fill="#000000" cx="19" cy="12"
+                                                                    r="2"></circle>
+                                                            </g>
+                                                        </svg>
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <!-- Button trigger Detail modal -->
+                                                        <form method="POST"
+                                                            action="{{ route('menu.destroy', $row->id) }}">
+                                                            <button type="button"
+                                                                data-path="{{ route('menu.show', $row->id) }}"
+                                                                class="dropdown-item load-ajax-modal"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#menuDetailModal">Detail</button>
+                                                            <a class="dropdown-item"
+                                                                href="{{ url('administrator/menu-edit', $row->id) }}">Edit</a>
 
-
-                                                                <a class="dropdown-item" href="#">Edit</a>
-                                                                <button type="submit" class="dropdown-item"
-                                                                    title="Hapus Pegawai"
-                                                                    onclick="return confirm('yakin?')">Hapus</button>
-                                                            </form>
-                                                        </div>
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="dropdown-item"
+                                                                title="Hapus Pegawai"
+                                                                onclick="return confirm('yakin?')">Hapus</button>
+                                                        </form>
                                                     </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+
+
+    <a class="dropdown-item" href="#">Edit</a>
+    <button type="submit" class="dropdown-item" title="Hapus Pegawai" onclick="return confirm('yakin?')">Hapus</button>
+    </form>
+    </div>
+    </div>
+    </td>
+    </tr>
+    @endforeach
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
 
     {{-- Modal Detail Menu --}}

@@ -72,6 +72,7 @@ Route::resource('administrator/meja', MejaController::class);
 Route::resource('administrator/menu', MenuController::class);
 // Route::get('menu-detail/{id}', [MenuController::class, 'show'])->name('show');
 Route::resource('administrator/kategori', KategoriController::class);
+Route::get('administrator/menu-edit/{id}', [MenuController::class, 'edit']);
 
 Route::get('sesi', [SessionController::class, 'index']);
 Route::post('sesi/login', [SessionController::class, 'login']);

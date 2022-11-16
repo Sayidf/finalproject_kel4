@@ -14,6 +14,8 @@
         </nav>
         <div class="justify-content-center d-flex">
             @if (Auth::check())
+                <a href="{{ route('reservasi.create') }}" class="book-a-table-btn d-none d-lg-flex">Book a table</a>
+                <span class="mt-2 mx-3">|</span>
                 <div class="nav-link mt-2 dropdown">
                     <a class=" dropdown-toggle" href="#" style="color: white" data-bs-toggle="dropdown"
                         aria-expanded="false">
