@@ -81,7 +81,7 @@
                             <form method="POST" action="{{ route('kategori.destroy',$row->id) }}">
                               @csrf
                               @method('DELETE')
-                                <a class="dropdown-item" href="#">Edit</a>
+                                <a class="dropdown-item" href="{{ url('administrator/kategori-edit',$row->id) }}">Edit</a>
 														    <button type="submit" class="dropdown-item" title="Hapus Kategori" onclick="return confirm('yakin?')">Hapus</button>
 													  </form>
 													</div>

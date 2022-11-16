@@ -66,7 +66,7 @@
 												</div>
 												<div class="mb-3">
 													<label class="form-label">Foto</label>
-													<input name="foto" type="file" class="form-control">
+													<input name="foto" type="file" class="form-control form-file-input">
 												</div>
 											</div>
 						      	</div>
@@ -90,7 +90,6 @@
 										<th>Nama</th>
 										<th>Kategori</th>
 										<th>Harga</th>
-										<th>Keterangan</th>
 										<th>Aksi</th>
 									</tr>
 								</thead>
@@ -103,7 +102,7 @@
 											<td>{{$no++}}</td>
 											<td>
 												@empty($row->foto)
-												<img src="{{ url('/public/admin/images/avatar/nophoto.jpg') }}" width="50" alt="Menu" class="rounded-circle" />
+												<img src="{{ url('public/admin/images/menu/placeholder.jpg') }}" width="50" alt="Menu" class="rounded-circle" />
 												@else
 												<img src="{{ url('/public/admin/images/menu') }}/{{ $row->foto }}" width="50" alt="Menu" class="rounded-circle" />
 												@endempty
@@ -111,7 +110,6 @@
 											<td>{{ $row->nama }}</td>
 											<td>{{ $row->kategori->nama }}</td>
 											<td>{{ $row->harga }}</td>
-											<td>{{ $row->ket }}</td>
 											<td>
                         {{-- <form action="{{ route('menu.destroy', $row->id) }}" method="POST">
 

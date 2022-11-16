@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class KategoriController extends Controller
 {
@@ -41,7 +42,11 @@ class KategoriController extends Controller
             'nama' => 'required|unique:kategori|max:45',
         ]);
 
-        Kategori::create($request->all());
+        DB::table('kategori')->insert(
+            [
+                'nama'=>$request->nama,
+                'created_at'=>now(),
+            ]);
 
         return redirect()->route('kategori.index')
             ->with('success', 'Kategori Berhasil Disimpan');
@@ -66,7 +71,8 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        //
+        $row = Kategori::find($id);
+        return view('kategori.form_edit', compact('row'));
     }
 
     /**
@@ -78,7 +84,18 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama' => 'required|unique:kategori|max:45',
+        ]);
+
+        DB::table('kategori')->where('id',$id)->update(
+            [
+                'nama'=>$request->nama,
+                'updated_at'=>now(),
+            ]);
+
+        return redirect('/administrator/kategori')
+            ->with('success', 'Data Kategori Menu Berhasil Diubah');
     }
 
     /**

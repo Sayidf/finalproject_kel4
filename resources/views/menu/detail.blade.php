@@ -2,6 +2,13 @@
 @section('content')
 <div class="content-body">
 	<div class="container-fluid">
+    <div class="row page-titles">
+			<ol class="breadcrumb">
+			  <li class="breadcrumb-item"><a href="#">Master Data</a></li>
+				<li class="breadcrumb-item"><a href="{{ url('administrator/menu') }}">Menu</a></li>
+				<li class="breadcrumb-item active"><a href="#">Detail Menu <span class="">{{ $row->nama }}</span></a></li>
+			</ol>
+		</div>
     <div class="row">
       <div class="col-xl-12">
           <div class="card">
@@ -12,9 +19,9 @@
             @endif
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
               @empty($row->foto)
-              <img src="{{ url('/public/admin/images/avatar/nophoto.jpg') }}" alt="Menu" class="rounded-circle">
+              <img src="{{ url('/public/admin/images/menu/placeholder.jpg') }}" width="250" alt="Menu" class="rounded-circle">
               @else
-              <img src="{{ url('/public/admin/images/menu')}}/{{$row->foto}}" alt="Menu" class="rounded-circle">
+              <img src="{{ url('/public/admin/images/menu')}}/{{$row->foto}}" width="250" alt="Menu" class="rounded-circle">
               @endempty
               <div class="col text-center">
                 <h2>{{ $row->nama }}</h2>
@@ -41,6 +48,4 @@
     </div>
   </div>
 </div>
-
-
 @endsection

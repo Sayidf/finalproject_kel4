@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Meja;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MejaController extends Controller
 {
@@ -42,7 +43,12 @@ class MejaController extends Controller
             'kapasitas' => 'required|max:45'
         ]);
 
-        Meja::create($request->all());
+        DB::table('meja')->insert(
+            [
+                'no_meja'=>$request->no_meja,
+                'kapasitas'=>$request->kapasitas,
+                'created_at'=>now(),
+            ]);
 
         return redirect()->route('meja.index')
             ->with('success', 'Meja Berhasil Disimpan');
@@ -68,7 +74,8 @@ class MejaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $row = Meja::find($id);
+        return view('meja.form_edit', compact('row'));
     }
 
     /**
@@ -80,7 +87,20 @@ class MejaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'no_meja' => 'required|unique:meja|max:45',
+            'kapasitas' => 'required|max:45'
+        ]);
+
+        DB::table('meja')->where('id',$id)->update(
+            [
+                'no_meja'=>$request->no_meja,
+                'kapasitas'=>$request->kapasitas,
+                'updated_at'=>now(),
+            ]);
+
+        return redirect('/administrator/meja')
+            ->with('success', 'Data Meja Berhasil Diubah');
     }
 
     /**

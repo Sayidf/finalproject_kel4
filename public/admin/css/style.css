@@ -31715,6 +31715,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     justify-content: center;
     padding: 0.532rem 0.75rem;
 }
+
 .input-group-text i {
     font-size: 1rem;
 }
@@ -31722,6 +31723,18 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .form-file-label {
     height: 2.5rem;
     padding: 0.5rem 0.75rem;
+}
+
+.form-file-input{
+    height: 35px;
+}
+
+.form-file-input::-webkit-file-upload-button {
+    margin-left: -20px;
+    -webkit-appearance: button;
+    height: 35px;
+    background-color: #dcbf8e;
+    color: white;
 }
 
 .input-group-prepend .btn,
