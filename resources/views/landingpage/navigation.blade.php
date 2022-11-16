@@ -13,12 +13,22 @@
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav>
         <div class="justify-content-center d-flex">
-            <a href="{{ url('/reservation') }}" class="book-a-table-btn d-none d-lg-flex">Book a table</a>
-            <span class="mt-2 mx-3">|</span>
-
             @if (Auth::check())
-                <a class="nav-link mt-2" href="{{ url('sesi/logout') }}"><i
-                        class='bx bx-log-out-circle'></i>&nbsp;Logout</a>
+                <a href="{{ route('reservasi.create') }}" class="book-a-table-btn d-none d-lg-flex">Book a table</a>
+                <span class="mt-2 mx-3">|</span>
+                <div class="nav-link mt-2 dropdown">
+                    <a class=" dropdown-toggle" href="#" style="color: white" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        {{ Auth::user()->fullname }}
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" href="{{ url('sesi/logout') }}">Logout</a></li>
+
+                    </ul>
+                </div>
+                {{-- <a class="nav-link mt-2" href="{{ url('sesi/logout') }}"><i
+                        class='bx bx-log-out-circle'></i>&nbsp;Logout</a> --}}
             @else
                 <a class="nav-link mt-2" href="{{ url('/sesi') }}"><i class='bx bx-log-in-circle'></i>
                     &nbsp;Login</a>

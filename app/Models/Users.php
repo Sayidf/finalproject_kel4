@@ -11,4 +11,9 @@ class Users extends Model
     protected $table = 'users';
 
     protected $fillable = ['fullname', 'username', 'email', 'no_hp', 'password'];
+
+    public function reservasi()
+    {
+        return $this->hasOne(Reservasi::class);
+    }
 }

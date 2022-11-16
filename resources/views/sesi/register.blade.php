@@ -1,5 +1,7 @@
 @extends('landingpage.index')
 @section('content')
+
+
     <!--====== Register Section ======-->
     <section id="login" class="login">
         <div class="container" data-aos="fade-up">
@@ -42,7 +44,7 @@
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-md-10 form-group mt-2">
-                                <input type="password" class="form-control calendar" name="password" placeholder="Password">
+                                <input type="password" class="form-control" name="password" placeholder="Password">
 
                             </div>
                         </div>
