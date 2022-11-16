@@ -64,6 +64,10 @@
 													<label class="form-label">Keterangan</label>
 													<input name="ket" type="text" class="form-control" placeholder="Keterangan">
 												</div>
+												<div class="mb-3">
+													<label class="form-label">Foto</label>
+													<input name="foto" type="file" class="form-control">
+												</div>
 											</div>
 						      	</div>
 						      	<div class="modal-footer">
@@ -97,7 +101,13 @@
 									@foreach ($menu as $row)
 										<tr>
 											<td>{{$no++}}</td>
-											<td><img class="rounded-circle" width="50" src="https://dummyimage.com/256x256/bdbdbd/fff" alt=""></td>
+											<td>
+												@empty($row->foto)
+												<img src="{{ url('/public/admin/images/avatar/nophoto.jpg') }}" width="50" alt="Menu" class="rounded-circle" />
+												@else
+												<img src="{{ url('/public/admin/images/menu') }}/{{ $row->foto }}" width="50" alt="Menu" class="rounded-circle" />
+												@endempty
+										</td>
 											<td>{{ $row->nama }}</td>
 											<td>{{ $row->kategori->nama }}</td>
 											<td>{{ $row->harga }}</td>
@@ -136,7 +146,7 @@
 														<!-- Button trigger Detail modal -->
 														<form method="POST" action="{{ route('menu.destroy',$row->id) }}">
 															<button type="button" data-path="{{ route('menu.show',$row->id) }}" class="dropdown-item load-ajax-modal" data-bs-toggle="modal" data-bs-target="#menuDetailModal">Detail</button>
-															<a class="dropdown-item" href="#">Edit</a>
+															<a class="dropdown-item" href="{{ url('administrator/menu-edit',$row->id) }}">Edit</a>
 	
 															@csrf
 															@method('DELETE')

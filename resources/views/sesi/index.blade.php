@@ -1,7 +1,6 @@
 @extends('landingpage.index')
 @section('content')
     <!--======= Login Section =======-->
-    @include('sweetalert::alert')
     <section id="login" class="login">
         <div class="container" data-aos="fade-up">
             @if ($message = Session::get('success'))
