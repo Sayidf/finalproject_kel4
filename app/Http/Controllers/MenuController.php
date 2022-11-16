@@ -49,9 +49,9 @@ class MenuController extends Controller
         ]);
 
         if(!empty($request->foto)){
-            $fileName = 'foto-'.$request->nama.'.'.$request->foto->extension();
-            //$fileName = $request->foto->getClientOriginalName();
-            $request->foto->move(public_path('/public/admin/images/menu'),$fileName);
+            $fileName = $request->nama.' '.$request->id_kategori.'.'.$request->foto->extension();
+            // $fileName = $request->foto->getClientOriginalName();
+            $request->foto->move(public_path('admin/images/menu'),$fileName);
         }
         else{
             $fileName = '';
@@ -67,8 +67,6 @@ class MenuController extends Controller
                 'created_at'=>now(),
             ]);
 
-        Menu::create($request->all());
-
         return redirect()->route('menu.index')
             ->with('success', 'Menu Berhasil Disimpan');
     }
@@ -82,7 +80,7 @@ class MenuController extends Controller
     public function show($id)
     {
         $row = Menu::find($id);
-        return view(compact('row'));
+        return view('menu.detail',compact('row'));
     }
 
     /**
@@ -124,7 +122,7 @@ class MenuController extends Controller
             //jika ada foto lama, hapus foto lamanya terlebih dahulu
             if(!empty($row->foto)) unlink('/public/admin/images/menu/'.$row->foto);
             //foto lama ganti foto baru
-            $fileName = $request->nama.'.'.$request->foto->extension();
+            $fileName = $request->nama.' '.$request->id_kategori.'.'.$request->foto->extension();
             //$fileName = $request->foto->getClientOriginalName();
             $request->foto->move(public_path('/public/admin/images/menu'),$fileName);
         }
@@ -143,9 +141,7 @@ class MenuController extends Controller
                 'updated_at'=>now(),
             ]);
 
-        Menu::create($request->all());
-
-        return redirect('/menu'.'/'.$id)
+        return redirect('/administrator/menu')
             ->with('success', 'Data Menu Berhasil Diubah');
     }
 
@@ -160,7 +156,7 @@ class MenuController extends Controller
         //sebelum hapus data, hapus terlebih dahulu fisik file fotonya jika ada
         $row = Menu::find($id);
         Menu::where('id',$id)->delete();
-        if(!empty($row->foto)) unlink('/public/admin/images/menu/'.$row->foto);
+        if(!empty($row->foto)) unlink('public/admin/images/menu/'.$row->foto);
         //setelah itu baru hapus data menu
         return redirect()->route('menu.index')
                         ->with('success','Data Menu Berhasil Dihapus');

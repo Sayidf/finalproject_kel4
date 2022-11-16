@@ -35,7 +35,7 @@
 						        <h4 class="modal-title" id="menuModalLabel">Tambah Menu</h4>
 						        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						      </div>
-									<form class="row g-3" method="POST" action="{{ route('menu.store') }}">
+									<form class="row g-3" method="POST" action="{{ route('menu.store') }}" enctype="multipart/form-data">
 										@csrf
 						      	<div class="modal-body">
 											<div class="row">
@@ -145,7 +145,8 @@
 													<div class="dropdown-menu">
 														<!-- Button trigger Detail modal -->
 														<form method="POST" action="{{ route('menu.destroy',$row->id) }}">
-															<button type="button" data-path="{{ route('menu.show',$row->id) }}" class="dropdown-item load-ajax-modal" data-bs-toggle="modal" data-bs-target="#menuDetailModal">Detail</button>
+															{{-- <button type="button" data-path="{{ route('menu.show',$row->id) }}" class="dropdown-item load-ajax-modal" data-bs-toggle="modal" data-bs-target="#menuDetailModal">Detail</button> --}}
+															<a class="dropdown-item" title="Detail Menu" href=" {{ route('menu.show',$row->id) }}">Detail</a>	
 															<a class="dropdown-item" href="{{ url('administrator/menu-edit',$row->id) }}">Edit</a>
 	
 															@csrf
@@ -168,7 +169,7 @@
 </div>
 
 {{-- Modal Detail Menu --}}
-<div class="modal fade" id="menuDetailModal" tabindex="-1" aria-labelledby="menuDetailModalLabel" aria-hidden="true">
+{{-- <div class="modal fade" id="menuDetailModal" tabindex="-1" aria-labelledby="menuDetailModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -206,7 +207,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> --}}
 {{-- End Modal Detail Menu --}}
 
 

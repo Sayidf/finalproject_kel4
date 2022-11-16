@@ -2,7 +2,7 @@
 @section('content')
 @php
     //select option kategori
-    $kategori = App\Models\Kategori::all();
+    $ar_kategori = App\Models\Kategori::all();
 @endphp
 <div class="content-body">
 	<div class="container-fluid">
@@ -10,10 +10,6 @@
   <div class="col-lg-12 margin-tb">
       <div class="pull-left">
           <h2>Edit Menu</h2>
-      </div>
-      <div class="pull-right">
-          <a class="btn btn-primary" href="{{ route('menu.index') }}" title="Go back"> <i
-                  class="fas fa-backward "></i> </a>
       </div>
   </div>
 </div>
@@ -33,7 +29,7 @@
                       </ul>
                   </div>
                   @endif
-                  <form method="POST" action="{{ route('menu.update') }}" 
+                  <form method="POST" action="{{ route('menu.update',$row->id) }}" 
                         enctype="multipart/form-data">
                       @csrf
                       @method('PUT')
@@ -48,7 +44,7 @@
                         <div class="form-group">
                           <select class="form-control main" name="id_kategori">
                             <option selected>-- Pilih Kategori --</option>
-                              @foreach($kategori as $kat)
+                              @foreach($ar_kategori as $kat)
                                 @php
                                   $sel = ($kat->id == $row->id_kategori) ? 'selected' : '';
                                 @endphp
@@ -69,7 +65,7 @@
                       <div class="mb-3">
                         <label class="form-label">Foto</label>
                         <input name="foto" type="file" class="form-control">
-                        @if(!empty($row->foto)) <img src="{{ url('/public/admin/images')}}/{{$row->foto}}" width="10%" class="img-thumbnail" >
+                        @if(!empty($row->foto)) <img src="{{ url('/public/admin/images/menu')}}/{{$row->foto}}" width="10%" class="img-thumbnail" >
                           <br>{{ $row->foto }}
                         @endif
                       </div> 
@@ -77,7 +73,7 @@
                       <div class="mb-3">
                           <label class="col-sm-2 col-form-label"></label>
                           <div class="col-sm-10 ">
-                              <a class="btn btn-info" title="Kembali" href=" {{ url('menu') }}">
+                              <a class="btn btn-info" title="Kembali" href=" {{ url('administrator/menu') }}">
                                   <i class="bi bi-arrow-left-square"> Kembali</i>
                               </a>
                               &nbsp;
