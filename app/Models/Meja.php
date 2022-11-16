@@ -12,4 +12,9 @@ class Meja extends Model
     protected $table = 'meja';
     //mapping ke kolom/fieldnya
     protected $fillable = ['no_meja', 'kapasitas'];
+
+    public function reservasi()
+    {
+        return $this->hasOne(Reservasi::class);
+    }
 }

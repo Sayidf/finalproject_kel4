@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Alert;
+use App\Models\Reservasi;
 use App\Models\User;
 use App\Models\Users;
 use Illuminate\Support\Facades\Hash;
@@ -19,7 +20,9 @@ class SessionController extends Controller
     }
     function login(Request $request)
     {
+
         Session::flash('username', $request->username);
+        Session::flash('id', $request->id);
         $request->validate([
             'username' => 'required',
             'password' => 'required',
@@ -39,7 +42,7 @@ class SessionController extends Controller
 
             //jika autentikasi sukses
 
-            return redirect('/home');
+            return redirect('/home')->with(['success' => 'Berhasil Login!']);
         } else {
             return redirect('sesi')->withErrors('Username dan Password anda salah');
         }
@@ -47,7 +50,7 @@ class SessionController extends Controller
     function logout()
     {
         Auth::logout();
-        return redirect('/home');
+        return redirect('/home')->with(['success' => 'Berhasil Logout!']);
     }
 
     function register()
@@ -83,6 +86,9 @@ class SessionController extends Controller
             'no_hp' => $request->no_hp,
             'password' => Hash::make($request->password),
         ];
+
+
+
         Users::create($data);
 
 

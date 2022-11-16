@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kategori;
-use App\Models\Menu;
+use App\Models\Meja;
+use App\Models\Reservasi;
+use App\Models\Users;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
-class MenuController extends Controller
+use function GuzzleHttp\Promise\all;
+
+class ReservasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +19,9 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //menampilkan seluruh data
-        $menu = Menu::all();
-        $kategori = Kategori::all();
-        return view('menu.index', compact('menu', 'kategori'));
+
+        $reservasi = Reservasi::orderBy('id', 'DESC')->get();
+        return view('reservasi.index', compact('reservasi'));
     }
 
     /**
@@ -28,7 +31,10 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+
+        $arr_meja = Meja::all();
+        $users = Users::all();
+        return view('reservasi.create', compact('arr_meja', 'users'));
     }
 
     /**
@@ -39,18 +45,29 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
+
+        Session::flash('id', $request->id);
         $request->validate([
-            'id_kategori' => 'required|integer',
-            'nama' => 'required|unique:menu|max:45',
-            'harga' => 'required|max:10',
-            'ket' => 'nullable',
-            'foto' => 'nullable|string'
+            'tgl_reservasi' => 'required',
+            'jam_in' => 'required|date_format:H:i',
+            'jam_out' => 'required|date_format:H:i',
+            'id_meja' => 'required|integer',
+            'id_users' => 'integer',
+            'jml_orang' => 'required|integer',
+            'created_at' => now(),
+        ], [
+            'tgl_reservasi.required' => 'Tanggal Wajib di isi',
+            'jam_in.required' => 'Waktu Check In Wajib di isi',
+            'jam_out.required' => 'Waktu Check Out Wajib di isi',
+            'id_meja.required' => 'Silahkan Pilih Nomor Meja',
+            'jml_orang.required' => 'Silahkan masukan Jumlah Orang',
+
         ]);
 
-        Menu::create($request->all());
+        Reservasi::create($request->all());
 
-        return redirect()->route('menu.index')
-            ->with('success', 'Menu Berhasil Disimpan');
+        return redirect()->route('reservasi.create')
+            ->with('success', 'Berhasil Reservasi');
     }
 
     /**
@@ -61,8 +78,7 @@ class MenuController extends Controller
      */
     public function show($id)
     {
-        Menu::find($id);
-        return view('detailmodal');
+        //
     }
 
     /**
@@ -73,8 +89,7 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        $row = Menu::find($id);
-        return view('menu.edit', compact('row'));
+        //
     }
 
     /**
@@ -97,9 +112,6 @@ class MenuController extends Controller
      */
     public function destroy($id)
     {
-        $row = Menu::find($id);
-        Menu::where('id', $id)->delete();
-        return redirect()->route('menu.index')
-            ->with('success', 'Data Menu Berhasil Dihapus');
+        //
     }
 }
