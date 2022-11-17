@@ -52,7 +52,7 @@ class MenuController extends Controller
         ]);
 
         if(!empty($request->foto)){
-            $fileName = $request->nama.' '.$request->id_kategori.'.'.$request->foto->extension();
+            $fileName = $request->id_kategori.'-'.$request->nama.'.'.$request->foto->extension();
             // $fileName = $request->foto->getClientOriginalName();
             $request->foto->move(public_path('assets/img/menu'),$fileName);
         }
@@ -123,9 +123,9 @@ class MenuController extends Controller
         //------------apakah user ingin ganti foto lama-----------
         if(!empty($request->foto)){
             //jika ada foto lama, hapus foto lamanya terlebih dahulu
-            if(!empty($row->foto)) unlink('assets/img/menu/'.$row->foto);
+            if(!empty($row->foto)) unlink('public/assets/img/menu/'.$row->foto);
             //foto lama ganti foto baru
-            $fileName = $request->nama.' '.$request->id_kategori.'.'.$request->foto->extension();
+            $fileName = $request->id_kategori.'-'.$request->nama.'.'.$request->foto->extension();
             //$fileName = $request->foto->getClientOriginalName();
             $request->foto->move(public_path('assets/img/menu'),$fileName);
         }
@@ -159,7 +159,7 @@ class MenuController extends Controller
         //sebelum hapus data, hapus terlebih dahulu fisik file fotonya jika ada
         $row = Menu::find($id);
         Menu::where('id',$id)->delete();
-        if(!empty($row->foto)) unlink('assets/img/menu/'.$row->foto);
+        if(!empty($row->foto)) unlink('public/assets/img/menu/'.$row->foto);
         //setelah itu baru hapus data menu
         return redirect()->route('menu.index')
                         ->with('success','Data Menu Berhasil Dihapus');
