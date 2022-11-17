@@ -84,3 +84,11 @@ Route::post('sesi/create', [SessionController::class, 'create']);
 
 //reservasi
 Route::resource('administrator/reservasi', ReservasiController::class);
+
+//print
+Route::get('/administrator/menu-pdf', [MenuController::class,'menuPDF']);
+Route::get('/administrator/menu-excel', [MenuController::class,'menuExcel']);
+Route::get('/administrator/meja-pdf', [MejaController::class,'mejaPDF']);
+Route::get('/administrator/meja-excel', [MejaController::class,'mejaExcel']);
+Route::get('/administrator/kategori-pdf', [KategoriController::class,'kategoriPDF']);
+Route::get('/administrator/kategori-excel', [KategoriController::class,'kategoriExcel']);

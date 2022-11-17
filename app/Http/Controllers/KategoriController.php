@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\KategoriExport;
 
 class KategoriController extends Controller
 {
@@ -110,5 +113,17 @@ class KategoriController extends Controller
         Kategori::where('id',$id)->delete();
         return redirect()->route('kategori.index')
                         ->with('success','Data Kategori Berhasil Dihapus');
+    }
+
+    public function kategoriPDF()
+    {
+        $kategori = Kategori::all();
+        $pdf = PDF::loadView('kategori.kategoriPDF', ['kategori'=>$kategori]);
+        return $pdf->download('data_kategori.pdf');
+    }
+
+    public function kategoriExcel() 
+    {
+        return Excel::download(new KategoriExport, 'data_kategori.xlsx');
     }
 }

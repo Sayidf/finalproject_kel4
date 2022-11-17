@@ -19,13 +19,23 @@
 								<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>	
 								<span class="me-3"><strong>Sukses! </strong>{{ $message }}</span>
 								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
-							</div>
-							
+							</div>		
 						@endif
+						<div>
+							<div class="btn-group" role="group">
+								<button type="button" class="btn btn-outline-warning dropdown-toggle btn-sm me-2" data-bs-toggle="dropdown" aria-expanded="false">Cetak</button>
+								<div class="dropdown-menu" style="margin: 0px;">
+									<a class="dropdown-item" href="{{ url('/administrator/menu-pdf') }}">PDF</a>
+									<a class="dropdown-item" href="{{ url('/administrator/menu-excel') }}">Excel</a>
+								</div>
+							</div>
+							<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#menuModal">
+								<i class="bi bi-plus-lg"></i> Tambah
+							</button>
+						</div>
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#menuModal">
-						  <i class="bi bi-plus-lg"></i> Tambah
-						</button>
+
+
 
 						<!-- Modal -->
 						<div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
@@ -149,7 +159,7 @@
 	
 															@csrf
 															@method('DELETE')
-															<button type="submit" class="dropdown-item" title="Hapus Pegawai" onclick="return confirm('yakin?')">Hapus</button>
+															<button type="submit" class="dropdown-item" title="Hapus Menu" onclick="return confirm('yakin?')">Hapus</button>
 														</form>
 													</div>
 												</div>

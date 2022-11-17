@@ -6,6 +6,9 @@ use App\Models\Kategori;
 use App\Models\Menu;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\MenuExport;
 
 class MenuController extends Controller
 {
@@ -161,4 +164,17 @@ class MenuController extends Controller
         return redirect()->route('menu.index')
                         ->with('success','Data Menu Berhasil Dihapus');
     }
+
+    public function menuPDF()
+    {
+        $menu = Menu::all();
+        $pdf = PDF::loadView('menu.menuPDF', ['menu'=>$menu]);
+        return $pdf->download('data_menu.pdf');
+    }
+
+    public function menuExcel() 
+    {
+        return Excel::download(new MenuExport, 'data_menu.xlsx');
+    }
+
 }

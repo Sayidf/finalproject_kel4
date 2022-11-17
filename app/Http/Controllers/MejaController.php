@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Meja;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\MejaExport;
 
 class MejaController extends Controller
 {
@@ -115,5 +118,17 @@ class MejaController extends Controller
         Meja::where('id',$id)->delete();
         return redirect()->route('meja.index')
                         ->with('success','Data Meja Berhasil Dihapus');
+    }
+
+    public function mejaPDF()
+    {
+        $meja = Meja::all();
+        $pdf = PDF::loadView('meja.mejaPDF', ['meja'=>$meja]);
+        return $pdf->download('data_meja.pdf');
+    }
+
+    public function mejaExcel() 
+    {
+        return Excel::download(new MejaExport, 'data_meja.xlsx');
     }
 }

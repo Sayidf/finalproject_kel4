@@ -25,9 +25,18 @@
 								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
 							</div>
 						@endif
-            <button type="button" class="btn btn-primary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#mejaModal">
-              <i class="bi bi-plus-lg"></i> Tambah 
-            </button>
+						<div>
+							<div class="btn-group" role="group">
+								<button type="button" class="btn btn-outline-warning dropdown-toggle btn-sm me-2" data-bs-toggle="dropdown" aria-expanded="false">Cetak</button>
+								<div class="dropdown-menu" style="margin: 0px;">
+									<a class="dropdown-item" href="{{ url('/administrator/meja-pdf') }}">PDF</a>
+									<a class="dropdown-item" href="{{ url('/administrator/meja-excel') }}">Excel</a>
+								</div>
+							</div>
+							<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#mejaModal">
+								<i class="bi bi-plus-lg"></i> Tambah
+							</button>
+						</div>
             {{-- Modal --}}
             <div class="modal fade" id="mejaModal" tabindex="-1" aria-labelledby="mejaModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">

@@ -22,9 +22,18 @@
 							</div>
 						@endif
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary btn-sm mb-2" data-bs-toggle="modal" data-bs-target="#kategoriModal">
-						  <i class="bi bi-plus-lg"></i> Tambah
-						</button>
+						<div>
+							<div class="btn-group" role="group">
+								<button type="button" class="btn btn-outline-warning dropdown-toggle btn-sm me-2" data-bs-toggle="dropdown" aria-expanded="false">Cetak</button>
+								<div class="dropdown-menu" style="margin: 0px;">
+									<a class="dropdown-item" href="{{ url('/administrator/kategori-pdf') }}">PDF</a>
+									<a class="dropdown-item" href="{{ url('/administrator/kategori-excel') }}">Excel</a>
+								</div>
+							</div>
+							<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#kategoriModal">
+								<i class="bi bi-plus-lg"></i> Tambah
+							</button>
+						</div>
 
 						<!-- Modal -->
 						<div class="modal fade" id="kategoriModal" tabindex="-1" aria-labelledby="kategoriModalLabel" aria-hidden="true">
