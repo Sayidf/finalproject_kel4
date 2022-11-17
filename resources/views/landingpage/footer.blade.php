@@ -7,7 +7,7 @@
             <h3>NF Culinary</h3>
             <p>
               Jl. Lenteng Agung Raya No. 20-21 <br>
-              NY 535022, USA<br><br>
+              Jakarta<br><br>
               <strong>Phone:</strong> +62 851-0218-5441<br>
               <strong>Email:</strong> info@example.com<br>
             </p>
@@ -82,7 +82,7 @@
 <script src="{{ asset('/public/assets/vendor/pignose-calendar/js/pignose.calendar.full.min.js') }}"></script>
 
 <!-- Template Main JS File -->
-<script src="{{ asset('/public/assets/js/main.js') }}"></script>
+<script src="{{ asset('/public/assets/js/landing.js') }}"></script>
 
 </body>
 

@@ -20,15 +20,15 @@
 	<!-- FAVICONS ICON -->
 	<link href="https://learn.nurulfikri.com/pluginfile.php/1/theme_edumy/favicon/1653270284/nci.png" rel="shortcut icon">
 
-	<link href="{{asset('/public/admin/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
-	<link href="{{asset('/public/admin/vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
-	<link href="{{asset('/public/admin/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet">
-	<link rel="stylesheet" href="{{asset('/public/admin/vendor/nouislider/nouislider.min.css')}}">
+	<link href="{{asset('/public/assets/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
+	<link href="{{asset('/public/assets/vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
+	<link href="{{asset('/public/assets/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet">
+	<link rel="stylesheet" href="{{asset('/public/assets/vendor/nouislider/nouislider.min.css')}}">
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 	<!-- Datatable -->
-  <link href="{{asset('/public/admin/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
+  <link href="{{asset('/public/assets/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 	<!-- Style css -->
-  <link href="{{asset('/public/admin/css/style.css')}}" rel="stylesheet">
+  <link href="{{asset('/public/assets/css/admin.css')}}" rel="stylesheet">
 	
 </head>
 <body>
@@ -71,30 +71,30 @@
       Scripts
   ***********************************-->
   <!-- Required vendors -->
-  <script src="{{asset('/public/admin/vendor/global/global.min.js')}}"></script>
-	<script src="{{asset('/public/admin/vendor/chart.js/Chart.bundle.min.js')}}"></script>
-	<script src="{{asset('/public/admin/vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}"></script>
+  <script src="{{asset('/public/assets/vendor/global/global.min.js')}}"></script>
+	<script src="{{asset('/public/assets/vendor/chart.js/Chart.bundle.min.js')}}"></script>
+	<script src="{{asset('/public/assets/vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}"></script>
 	
 	<!-- Apex Chart -->
-	<script src="{{asset('/public/admin/vendor/apexchart/apexchart.js')}}"></script>
+	<script src="{{asset('/public/assets/vendor/apexchart/apexchart.js')}}"></script>
 	
-	<script src="{{asset('/public/admin/vendor/chart.js/Chart.bundle.min.js')}}"></script>
+	<script src="{{asset('/public/assets/vendor/chart.js/Chart.bundle.min.js')}}"></script>
 	
 	<!-- Chart piety plugin files -->
-  <script src="{{asset('/public/admin/vendor/peity/jquery.peity.min.js')}}"></script>
+  <script src="{{asset('/public/assets/vendor/peity/jquery.peity.min.js')}}"></script>
 	<!-- Dashboard 1 -->
-	<script src="{{asset('/public/admin/js/dashboard/dashboard-1.js')}}"></script>
+	<script src="{{asset('/public/assets/js/dashboard/dashboard-1.js')}}"></script>
 	
-	<script src="{{asset('/public/admin/vendor/owl-carousel/owl.carousel.js')}}"></script>
-	<script src="{{asset('/public/admin/vendor/sweetalert2/dist/sweetalert2.min.js')}}"></script>
+	<script src="{{asset('/public/assets/vendor/owl-carousel/owl.carousel.js')}}"></script>
+	<script src="{{asset('/public/assets/vendor/sweetalert2/dist/sweetalert2.min.js')}}"></script>
 	 <!-- Datatable -->
-	<script src="{{asset('/public/admin/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
-	<script src="{{asset('/public/admin/js/plugins-init/datatables.init.js')}}"></script>
-	<script src="{{asset('/public/admin/js/plugins-init/sweetalert.init.js')}}"></script>
-  <script src="{{asset('/public/admin/js/custom.min.js')}}"></script>
-	<script src="{{asset('/public/admin/js/dlabnav-init.js')}}"></script>
-	<script src="{{asset('/public/admin/js/demo.js')}}"></script>
-  <script src="{{asset('/public/admin/js/styleSwitcher.js')}}"></script>
+	<script src="{{asset('/public/assets/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
+	<script src="{{asset('/public/assets/js/plugins-init/datatables.init.js')}}"></script>
+	<script src="{{asset('/public/assets/js/plugins-init/sweetalert.init.js')}}"></script>
+  <script src="{{asset('/public/assets/js/custom.min.js')}}"></script>
+	<script src="{{asset('/public/assets/js/dlabnav-init.js')}}"></script>
+	<script src="{{asset('/public/assets/js/demo.js')}}"></script>
+  <script src="{{asset('/public/assets/js/styleSwitcher.js')}}"></script>
 	<script>
 		function cardsCenter()
 			/*  testimonial one function by = owl.carousel.js */

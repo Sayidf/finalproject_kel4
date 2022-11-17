@@ -19,9 +19,9 @@
             @endif
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
               @empty($row->foto)
-              <img src="{{ url('/public/admin/images/menu/placeholder.jpg') }}" width="250" alt="Menu" class="rounded-circle">
+              <img src="{{ url('/public/assets/img/menu/placeholder.jpg') }}" width="250" alt="Menu" class="rounded-circle">
               @else
-              <img src="{{ url('/public/admin/images/menu')}}/{{$row->foto}}" width="250" alt="Menu" class="rounded-circle">
+              <img src="{{ url('/public/assets/img/menu')}}/{{$row->foto}}" width="250" alt="Menu" class="rounded-circle">
               @endempty
               <div class="col text-center">
                 <h2>{{ $row->nama }}</h2>

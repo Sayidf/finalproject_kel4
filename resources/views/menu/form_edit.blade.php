@@ -63,7 +63,7 @@
               <div class="mb-3">
                 <label class="form-label">Foto</label>
                 <input name="foto" type="file" class="form-control form-file-input mb-2">
-                @if(!empty($row->foto)) <img src="{{ url('/public/admin/images/menu')}}/{{$row->foto}}" width="10%" class="img-thumbnail" >
+                @if(!empty($row->foto)) <img src="{{ url('/public/assets/img/menu')}}/{{$row->foto}}" width="10%" class="img-thumbnail" >
                   <br>{{ $row->foto }}
                 @endif
               </div> 

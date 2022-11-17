@@ -102,9 +102,9 @@
 											<td>{{$no++}}</td>
 											<td>
 												@empty($row->foto)
-												<img src="{{ url('public/admin/images/menu/placeholder.jpg') }}" width="50" alt="Menu" class="rounded-circle" />
+												<img src="{{ url('public/assets/img/menu/placeholder.jpg') }}" width="50" alt="Menu" class="rounded-circle" />
 												@else
-												<img src="{{ url('/public/admin/images/menu') }}/{{ $row->foto }}" width="50" alt="Menu" class="rounded-circle" />
+												<img src="{{ url('/public/assets/img/menu') }}/{{ $row->foto }}" width="50" alt="Menu" class="rounded-circle" />
 												@endempty
 										</td>
 											<td>{{ $row->nama }}</td>
