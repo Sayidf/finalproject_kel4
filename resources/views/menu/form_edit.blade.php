@@ -1,8 +1,8 @@
 @extends('back.index')
 @section('content')
 @php
-    //select option kategori
-    $ar_kategori = App\Models\Kategori::all();
+  //select option kategori
+  $ar_kategori = App\Models\Kategori::all();
 @endphp
 <div class="content-body">
 	<div class="container-fluid">
