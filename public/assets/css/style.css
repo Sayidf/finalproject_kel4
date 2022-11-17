@@ -459,6 +459,14 @@ section.login {
     visibility: visible;
 }
 
+.navbar-user .dropdown a{
+    padding: unset;
+}
+
+.navbar-user .dropdown span{
+    font-size: 16px;
+}
+
 @media (max-width: 1366px) {
     .navbar .dropdown .dropdown ul {
         left: -90%;
