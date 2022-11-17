@@ -145,7 +145,7 @@
 														<form method="POST" action="{{ route('menu.destroy',$row->id) }}">
 															{{-- <button type="button" data-path="{{ route('menu.show',$row->id) }}" class="dropdown-item load-ajax-modal" data-bs-toggle="modal" data-bs-target="#menuDetailModal">Detail</button> --}}
 															<a class="dropdown-item" title="Detail Menu" href=" {{ route('menu.show',$row->id) }}">Detail</a>	
-															<a class="dropdown-item" href="{{ url('administrator/menu-edit',$row->id) }}">Edit</a>
+															<a class="dropdown-item" href="{{ route('menu.edit',$row->id) }}">Edit</a>
 	
 															@csrf
 															@method('DELETE')

@@ -1,5 +1,9 @@
 @extends('landingpage.index')
 @section('content')
+@php
+  //select option kategori
+  $ar_menu = App\Models\menu::all();
+@endphp
 <!--======= Menu Section =======-->
 <section id="menu" class="menu section-bg">
   <div class="container" data-aos="fade-up">
@@ -75,14 +79,21 @@
           <h3>Rice</h3>
         </div>
 				<div class="row">
+          @foreach ($ar_menu as $row)
         	<div class="col-lg-6 menu-item">
-        	  <img src="https://imgs.search.brave.com/ayCGV163wL7_8zo5dqDeFENLzkavod8-nyZy5bAqh5A/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9pMi53/cC5jb20vY2hpbGlw/ZXBwZXJtYWRuZXNz/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMC8xMS9OYXNp/LUdvcmVuZy1JbmRv/bmVzaWFuLUZyaWVk/LVJpY2UtU1EuanBn" class="menu-img" alt="">
-        	  <div class="menu-content">
-        	    <a href="#">Nasi Goreng Seafood</a><span>30K</span>
+            @empty($row->foto)
+              <img src="{{ url('/public/assets/img/menu/placeholder.jpg') }}"alt="Menu" class="menu-img">
+            @else
+              <img src="{{ url('/public/assets/img/menu')}}/{{$row->foto}}"alt="Menu" class="menu-img">
+            @endempty
+        	  <div class="menu-content"> 
+        	    <a href="#">{{ $row->nama }}</a><span>{{ $row->harga }}</span>
         	  </div>
-        	  <div class="menu-ingredients">
+        	  <div class="menu-ingredients ps-2">
+              {{ $row->ket }}
         	  </div>
         	</div>
+          @endforeach
         	<div class="col-lg-6 menu-item">
         	  <img src="https://imgs.search.brave.com/ayCGV163wL7_8zo5dqDeFENLzkavod8-nyZy5bAqh5A/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9pMi53/cC5jb20vY2hpbGlw/ZXBwZXJtYWRuZXNz/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMC8xMS9OYXNp/LUdvcmVuZy1JbmRv/bmVzaWFuLUZyaWVk/LVJpY2UtU1EuanBn" class="menu-img" alt="">
         	  <div class="menu-content">

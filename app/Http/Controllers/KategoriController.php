@@ -72,7 +72,7 @@ class KategoriController extends Controller
     public function edit($id)
     {
         $row = Kategori::find($id);
-        return view('kategori.form_edit', compact('row'));
+        return view('kategori.edit', compact('row'));
     }
 
     /**

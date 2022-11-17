@@ -89,7 +89,7 @@
                             <form method="POST" action="{{ route('meja.destroy',$row->id) }}">
                               @csrf
                               @method('DELETE')
-                                <a class="dropdown-item" href="{{ url('administrator/meja-edit',$row->id) }}">Edit</a>
+                                <a class="dropdown-item" href="{{ route('meja.edit',$row->id) }}">Edit</a>
 														    <button type="submit" class="dropdown-item" title="Hapus Meja" onclick="return confirm('yakin?')">Hapus</button>
 													  </form>
                           </div>

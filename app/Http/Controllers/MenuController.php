@@ -92,7 +92,7 @@ class MenuController extends Controller
     public function edit($id)
     {
         $row = Menu::find($id);
-        return view('menu.form_edit', compact('row'));
+        return view('menu.edit', compact('row'));
     }
 
     /**

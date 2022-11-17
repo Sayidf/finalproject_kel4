@@ -75,7 +75,7 @@ class MejaController extends Controller
     public function edit($id)
     {
         $row = Meja::find($id);
-        return view('meja.form_edit', compact('row'));
+        return view('meja.edit', compact('row'));
     }
 
     /**
