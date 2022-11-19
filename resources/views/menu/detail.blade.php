@@ -14,7 +14,7 @@
           <div class="card">
             @if ($message = Session::get('success'))
             <div class="alert alert-success">
-                <p>{{ $message }}</p>
+              <p>{{ $message }}</p>
             </div>
             @endif
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">

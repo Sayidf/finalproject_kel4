@@ -5,7 +5,7 @@
       <defs></defs>
     </svg>
     <div class="brand-title">
-      <h2 class="">NF Culinary</h2>
+      <h2 class="">NF&nbsp;Culinary</h2>
       <span class="brand-sub-title">Restaurant</span>
     </div>
   </a>

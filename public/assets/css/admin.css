@@ -34492,6 +34492,10 @@ table {
     background-color: var(--primary);
 }
 
+.bg-custom1{
+    background-color: #a1761e!important;
+}
+
 .badge-warning {
     background-color: #ffcf6d;
 }

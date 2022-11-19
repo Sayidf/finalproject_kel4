@@ -43,6 +43,7 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'id_kategori' => 'required|integer',
             'nama' => 'required|unique:menu|max:45',

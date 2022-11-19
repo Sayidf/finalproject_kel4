@@ -19,7 +19,6 @@
 	
 	<!-- FAVICONS ICON -->
 	<link href="https://learn.nurulfikri.com/pluginfile.php/1/theme_edumy/favicon/1653270284/nci.png" rel="shortcut icon">
-
 	<link href="{{asset('/public/assets/vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
 	<link href="{{asset('/public/assets/vendor/owl-carousel/owl.carousel.css')}}" rel="stylesheet">
 	<link href="{{asset('/public/assets/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet">
@@ -29,9 +28,10 @@
   <link href="{{asset('/public/assets/vendor/datatables/css/jquery.dataTables.min.css')}}" rel="stylesheet">
 	<!-- Style css -->
   <link href="{{asset('/public/assets/css/admin.css')}}" rel="stylesheet">
-	
+
+
 </head>
-<body>
+<body data-typography="poppins" data-theme-version="dark">
   <!--*******************
       Preloader start
   ********************-->
@@ -71,14 +71,13 @@
       Scripts
   ***********************************-->
   <!-- Required vendors -->
+
   <script src="{{asset('/public/assets/vendor/global/global.min.js')}}"></script>
-	<script src="{{asset('/public/assets/vendor/chart.js/Chart.bundle.min.js')}}"></script>
+
 	<script src="{{asset('/public/assets/vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}"></script>
 	
 	<!-- Apex Chart -->
 	<script src="{{asset('/public/assets/vendor/apexchart/apexchart.js')}}"></script>
-	
-	<script src="{{asset('/public/assets/vendor/chart.js/Chart.bundle.min.js')}}"></script>
 	
 	<!-- Chart piety plugin files -->
   <script src="{{asset('/public/assets/vendor/peity/jquery.peity.min.js')}}"></script>
@@ -91,10 +90,13 @@
 	<script src="{{asset('/public/assets/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
 	<script src="{{asset('/public/assets/js/plugins-init/datatables.init.js')}}"></script>
 	<script src="{{asset('/public/assets/js/plugins-init/sweetalert.init.js')}}"></script>
+
   <script src="{{asset('/public/assets/js/custom.min.js')}}"></script>
 	<script src="{{asset('/public/assets/js/dlabnav-init.js')}}"></script>
 	<script src="{{asset('/public/assets/js/demo.js')}}"></script>
   <script src="{{asset('/public/assets/js/styleSwitcher.js')}}"></script>
+	<script src="{{asset('/public/assets/vendor/chart.js/chart.min.js')}}"></script>
+	<script src="{{asset('/public/assets/js/plugins-init/chartjs.init.js')}}"></script>
 	<script>
 		function cardsCenter()
 			/*  testimonial one function by = owl.carousel.js */

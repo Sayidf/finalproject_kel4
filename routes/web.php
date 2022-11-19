@@ -6,6 +6,8 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ReservasiController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,13 +52,7 @@ Route::get('/contact', function () {
     return view('landingpage.contact');
 });
 
-
-
-Route::get('/login', function () {
-    return view('landingpage.mylogin');
-});
-
-Route::get('/reg', function () {
+Route::get('/register', function () {
     return view('sesi/register');
 });
 
@@ -72,15 +68,18 @@ Route::resource('administrator/meja', MejaController::class);
 Route::resource('administrator/menu', MenuController::class);
 // Route::get('menu-detail/{id}', [MenuController::class, 'show'])->name('show');
 Route::resource('administrator/kategori', KategoriController::class);
+Route::resource('administrator/customer', UsersController::class);
+Route::get('/administrator', [DashboardController::class,'index']);
 // Route::get('administrator/menu-edit/{id}', [MenuController::class, 'edit']);
 // Route::get('administrator/meja-edit/{id}', [MejaController::class, 'edit']);
 // Route::get('administrator/kategori-edit/{id}', [KategoriController::class, 'edit']);
 
-Route::get('sesi', [SessionController::class, 'index']);
+
+//sesi
+Route::get('login', [SessionController::class, 'index']);
 Route::post('sesi/login', [SessionController::class, 'login']);
 Route::get('sesi/logout', [SessionController::class, 'logout']);
 Route::post('sesi/create', [SessionController::class, 'create']);
-
 
 //reservasi
 Route::resource('administrator/reservasi', ReservasiController::class);
@@ -92,3 +91,5 @@ Route::get('/administrator/meja-pdf', [MejaController::class,'mejaPDF']);
 Route::get('/administrator/meja-excel', [MejaController::class,'mejaExcel']);
 Route::get('/administrator/kategori-pdf', [KategoriController::class,'kategoriPDF']);
 Route::get('/administrator/kategori-excel', [KategoriController::class,'kategoriExcel']);
+Route::get('/administrator/customer-pdf', [UsersController::class,'customerPDF']);
+Route::get('/administrator/customer-excel', [UsersController::class,'customerExcel']);

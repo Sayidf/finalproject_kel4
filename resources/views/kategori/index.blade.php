@@ -21,7 +21,7 @@
 								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
 							</div>
 						@endif
-						<!-- Button trigger modal -->
+						
 						<div>
 							<div class="btn-group" role="group">
 								<button type="button" class="btn btn-outline-warning dropdown-toggle btn-sm me-2" data-bs-toggle="dropdown" aria-expanded="false">Cetak</button>
@@ -30,6 +30,7 @@
 									<a class="dropdown-item" href="{{ url('/administrator/kategori-excel') }}">Excel</a>
 								</div>
 							</div>
+							<!-- Button trigger modal -->
 							<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#kategoriModal">
 								<i class="bi bi-plus-lg"></i> Tambah
 							</button>

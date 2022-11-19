@@ -24,11 +24,15 @@
           <h2>Delivering great food for more than 18 years!</h2>
           <div class="btns">
             <a href="{{ url('/menu') }}" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
-            <a href="{{ url('/reservation') }}" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+            @if (Auth::check())
+              <a href="{{ route('reservasi.create') }}" class="btn-book animated fadeInUp scrollto">Book a table</a>
+            @else
+              <a href="{{ url('/sesi') }}" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+            @endif
           </div>
       </div>
       <div class="col-lg-4 d-flex align-items-center justify-content-center position-relative" data-aos="zoom-in" data-aos-delay="200">
-        <a href="#" class="glightbox play-btn"></a>
+        <a href="#" class="play-btn"></a>
       </div>
     </div>
   </div>

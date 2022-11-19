@@ -28,7 +28,7 @@
         {{-- <a class="nav-link mt-2" href="{{ url('sesi/logout') }}"><i
                 class='bx bx-log-out-circle'></i>&nbsp;Logout</a> --}}
       @else
-        <a class="nav-link mt-2" href="{{ url('/sesi') }}"><i class='bx bx-log-in-circle'></i>&nbsp;Login</a>
+        <a class="nav-link mt-2" href="{{ url('/login') }}"><i class='bx bx-log-in-circle'></i>&nbsp;Login</a>
       @endif
     </div>
   </div>

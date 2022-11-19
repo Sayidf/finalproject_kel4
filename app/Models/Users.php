@@ -10,7 +10,7 @@ class Users extends Model
     use HasFactory;
     protected $table = 'users';
 
-    protected $fillable = ['fullname', 'username', 'email', 'no_hp', 'password'];
+    protected $fillable = ['fullname', 'username', 'email', 'no_hp', 'password', 'created_at'];
 
     public function reservasi()
     {

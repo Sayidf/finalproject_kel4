@@ -44,7 +44,7 @@ class SessionController extends Controller
 
             return redirect('/home')->with(['success' => 'Berhasil Login!']);
         } else {
-            return redirect('sesi')->withErrors('Username dan Password anda salah');
+            return redirect('login')->withErrors('Username dan Password anda salah');
         }
     }
     function logout()
@@ -94,6 +94,6 @@ class SessionController extends Controller
 
         //jika autentikasi sukses
 
-        return redirect('sesi')->with('success', 'Berhasil Register, Silahkan Login');
+        return redirect('login')->with('success', 'Berhasil Register, Silahkan Login');
     }
 }
