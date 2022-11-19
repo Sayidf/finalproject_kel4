@@ -15,20 +15,34 @@
         <div class="card">
           <div class="card-header">
             <h4 class="card-title">Data Reservasi</h4>
+            @if ($message = Session::get('success'))
+						<div class="alert alert-success alert-dismissible fade show">
+							<svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>	
+							<span class="me-3"><strong>Sukses! </strong>{{ $message }}</span>
+							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
+						</div>
+						@endif
+						<div class="btn-group" role="group">
+							<button type="button" class="btn btn-outline-warning dropdown-toggle btn-sm me-2" data-bs-toggle="dropdown" aria-expanded="false">Cetak</button>
+							<div class="dropdown-menu" style="margin: 0px;">
+								<a class="dropdown-item" href="{{ url('/administrator/reservasi-pdf') }}">PDF</a>
+								<a class="dropdown-item" href="{{ url('/administrator/reservasi-excel') }}">Excel</a>
+							</div>
+						</div>
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table id="example-3" class="table table-responsive-md">
+              <table id="example3" class="display" style="min-width: 845px">
                 <thead>
                   <tr>
-                    <th style="width:80px;"><strong>NO</strong></th>
+                    <th style="width: 30px;"><strong>NO</strong></th>
                     <th><strong>Nama</strong></th>
                     <th><strong>Tanggal Reservasi</strong></th>
                     <th><strong>Check In</strong></th>
                     <th><strong>Jumlah Orang</strong></th>
                     <th><strong>Status</strong></th>
                     <th><strong>No Meja</strong></th>
-                    <th></th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -42,7 +56,15 @@
                       <td>{{ $res->tgl_reservasi }}</td>
                       <td>{{ $res->jam_in }}</td>
                       <td>{{ $res->jml_orang }}</td>
-                      <td><span class="badge light badge-success">Successful</span></td>
+                      <td>
+                          @if ($res->status == 'pending') 
+                            <span class="badge light badge-warning">Pending</span>
+                          @elseif ($res->status == 'success') 
+                            <span class="badge light badge-success">Successful</span>
+                          @else 
+                            <span class="badge light badge-danger">Cancel</span>
+                          @endif
+                      </td>
                       <td>{{ $res->meja->no_meja }}</td>
                       <td>
                         <div class="dropdown">

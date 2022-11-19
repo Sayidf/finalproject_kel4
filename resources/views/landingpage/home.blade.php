@@ -27,7 +27,7 @@
             @if (Auth::check())
               <a href="{{ route('reservasi.create') }}" class="btn-book animated fadeInUp scrollto">Book a table</a>
             @else
-              <a href="{{ url('/sesi') }}" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+              <a href="{{ url('/login') }}" class="btn-book animated fadeInUp scrollto">Book a Table</a>
             @endif
           </div>
       </div>

@@ -6,7 +6,10 @@ use App\Models\Meja;
 use App\Models\Reservasi;
 use App\Models\Users;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
+use DB;
+use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ReservasiExport;
 
 use function GuzzleHttp\Promise\all;
 
@@ -113,5 +116,17 @@ class ReservasiController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function reservasiPDF()
+    {
+        $reservasi = Reservasi::all();
+        $pdf = PDF::loadView('reservasi.reservasiPDF', ['reservasi'=>$reservasi]);
+        return $pdf->download('data_reservasi.pdf');
+    }
+
+    public function reservasiExcel() 
+    {
+        return Excel::download(new ReservasiExport, 'data_reservasi.xlsx');
     }
 }

@@ -28,13 +28,10 @@
             <a href="{{ url('administrator/kategori') }}">Data Kategori Menu</a>
           </li>
           <li>
-            <a href="{{ url('administrator/reservasi') }}">Reservasi</a>
+            <a href="{{ url('administrator/reservasi') }}">Data Reservasi</a>
           </li>
           <li>
-            <a href="{{ url('administrator/customer') }}">Customers</a>
-          </li>
-          <li>
-            <a href="{{ url('administrator/pegawai') }}">Pegawai</a>
+            <a href="{{ url('administrator/customer') }}">Data Customers</a>
           </li>
         </ul>
       </li>

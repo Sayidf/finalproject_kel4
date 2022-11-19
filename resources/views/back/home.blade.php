@@ -22,9 +22,9 @@
               </div>
               <div class="col-xl-12">
                 <div class="card">
-                  <div class="card-body d-flex px-4 pb-0 justify-content-between">
+                  <div class="card-body d-flex px-4 pb-5 justify-content-between">
                     <div>
-                      <h4 class="fs-18 font-w600 mb-4 text-nowrap">Chart Harga Menu</h4>
+                      <h4 class="fs-18 font-w600 mb-4 text-nowrap text-center">Chart Harga Menu</h4>
                       <div class="chartjs-size-monitor">
                         <div class="chartjs-size-monitor-expand">
                           <div class=""></div>
@@ -33,7 +33,7 @@
                           <div class=""></div>
                         </div>
                       </div>
-                      <canvas id="hrgMenu_chart" style="display: block; width: 672px; height: 336px;" width="672" height="336" class="chartjs-render-monitor"></canvas>
+                      <canvas id="hrgMenu_chart" style="display: block;" class="chartjs-render-monitor w-100 h-100"></canvas>
                       <script>
                         var lbl = [@foreach ($ar_menu as $mnu)'{{ $mnu->nama }}', @endforeach];
                         var hrg = [@foreach ($ar_menu as $mnu) {{ $mnu->harga }}, @endforeach];
@@ -68,6 +68,17 @@
                               }]
                             },
                             options: {
+                              plugins: {
+                                legend: {
+                                  display: true,
+                                  position: 'bottom',
+                                  labels: {
+                                    boxHwidth: 15,
+                                    textAlign: 'center',
+                                    padding: 30,
+                                  },
+                                }
+                              },
                               legend: false,
                               scales: {
                                 yAxes: [{
@@ -98,7 +109,7 @@
                     <div class="card">
                       <div class="card-body d-flex px-4 pb-4 justify-content-center">
                         <div>
-                          <h4 class="fs-18 font-w600 mb-4 text-nowrap ps-1">Chart Kategori Menu</h4>
+                          <h4 class="fs-18 font-w600 mb-4 text-nowrap text-center">Chart Kategori Menu</h4>
                           <div class="chartjs-size-monitor">
                             <div class="chartjs-size-monitor-expand">
                               <div class=""></div>
@@ -142,7 +153,7 @@
                                         boxHwidth: 15,
                                         textAlign: 'left',
                                         usePointStyle: true,
-                                        padding: 20,
+                                        padding: 30,
                                       },
                                     }
                                   }
@@ -154,7 +165,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-xl-4 col-sm-4">
+                  <div class="col-xl-6 col-sm-6">
                     <div class="row">
                       <div class="col-xl-12 col-sm-12">
                         <div class="widget-stat card">

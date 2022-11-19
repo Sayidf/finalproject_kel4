@@ -93,3 +93,5 @@ Route::get('/administrator/kategori-pdf', [KategoriController::class,'kategoriPD
 Route::get('/administrator/kategori-excel', [KategoriController::class,'kategoriExcel']);
 Route::get('/administrator/customer-pdf', [UsersController::class,'customerPDF']);
 Route::get('/administrator/customer-excel', [UsersController::class,'customerExcel']);
+Route::get('/administrator/reservasi-pdf', [ReservasiController::class,'reservasiPDF']);
+Route::get('/administrator/reservasi-excel', [ReservasiController::class,'reservasiExcel']);
