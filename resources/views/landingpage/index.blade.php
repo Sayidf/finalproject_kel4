@@ -1,4 +1,5 @@
 @include('landingpage.header')
 @include('landingpage.navigation')
 @yield('content')
+@yield('scripts')
 @include('landingpage.footer')
