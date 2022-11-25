@@ -20,8 +20,10 @@
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
     <div class="justify-content-center d-flex login-nav">
-      
       <div class="dropdown">
+        @if (Auth::check() && Auth::user()->role == 'admin')
+          <div></div>
+        @else
         <button type="button" class="btn btn-book me-3 text-white" data-toggle="dropdown">
           <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge badge-pill" style="background: red">{{ count((array) session('cart')) }}</span>
         </button>
@@ -61,6 +63,7 @@
           </div>
         </div>
       </div>
+      @endif
       @if (Auth::check())
         @if (Auth::user()->role == 'user')
           <a href="{{ route('reservasi.create') }}" class="book-a-table-btn d-none d-lg-flex">Book a table</a>
