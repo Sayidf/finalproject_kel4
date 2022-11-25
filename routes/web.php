@@ -58,23 +58,37 @@ Route::get('/register', function () {
     return view('sesi/register');
 });
 
-Route::get('/administrator', function () {
-    return view('back.home');
-});
+// Route::get('/administrator', function () {
+//     return view('back.home');
+// });
 
-Route::get('/administrator/customer', function () {
-    return view('customer.index');
-});
+// Route::get('/administrator/customer', function () {
+//     return view('customer.index');
+// });
 
-Route::resource('administrator/meja', MejaController::class);
-Route::resource('administrator/menu', MenuController::class);
-// Route::get('menu-detail/{id}', [MenuController::class, 'show'])->name('show');
-Route::resource('administrator/kategori', KategoriController::class);
-Route::resource('administrator/customer', UsersController::class);
-Route::get('/administrator', [DashboardController::class,' index']);
-// Route::get('administrator/menu-edit/{id}', [MenuController::class, 'edit']);
-// Route::get('administrator/meja-edit/{id}', [MejaController::class, 'edit']);
-// Route::get('administrator/kategori-edit/{id}', [KategoriController::class, 'edit']);
+Route::middleware(['role:admin'])->group(function() {
+    Route::resource('administrator/meja', MejaController::class);
+    Route::resource('administrator/menu', MenuController::class);
+    // Route::get('menu-detail/{id}', [MenuController::class, 'show'])->name('show');
+    Route::resource('administrator/kategori', KategoriController::class);
+    Route::resource('administrator/customer', UsersController::class);
+    Route::resource('administrator/reservasi', UsersController::class);
+    Route::get('/administrator', [DashboardController::class, 'index']);
+    // Route::get('administrator/menu-edit/{id}', [MenuController::class, 'edit']);
+    // Route::get('administrator/meja-edit/{id}', [MejaController::class, 'edit']);
+    // Route::get('administrator/kategori-edit/{id}', [KategoriController::class, 'edit']);
+    //print
+    Route::get('/administrator/menu-pdf', [MenuController::class, 'menuPDF']);
+    Route::get('/administrator/menu-excel', [MenuController::class, 'menuExcel']);
+    Route::get('/administrator/meja-pdf', [MejaController::class, 'mejaPDF']);
+    Route::get('/administrator/meja-excel', [MejaController::class, 'mejaExcel']);
+    Route::get('/administrator/kategori-pdf', [KategoriController::class, 'kategoriPDF']);
+    Route::get('/administrator/kategori-excel', [KategoriController::class, 'kategoriExcel']);
+    Route::get('/administrator/customer-pdf', [UsersController::class, 'customerPDF']);
+    Route::get('/administrator/customer-excel', [UsersController::class, 'customerExcel']);
+    Route::get('/administrator/reservasi-pdf', [ReservasiController::class, 'reservasiPDF']);
+    Route::get('/administrator/reservasi-excel', [ReservasiController::class, 'reservasiExcel']);
+});
 
 
 //sesi
@@ -83,30 +97,13 @@ Route::post('sesi/login', [SessionController::class, 'login']);
 Route::get('sesi/logout', [SessionController::class, 'logout']);
 Route::post('sesi/create', [SessionController::class, 'create']);
 
-//reservasi
-Route::resource('administrator/reservasi', ReservasiController::class);
-
-//print
-Route::get('/administrator/menu-pdf', [MenuController::class, 'menuPDF']);
-Route::get('/administrator/menu-excel', [MenuController::class, 'menuExcel']);
-Route::get('/administrator/meja-pdf', [MejaController::class, 'mejaPDF']);
-Route::get('/administrator/meja-excel', [MejaController::class, 'mejaExcel']);
-Route::get('/administrator/kategori-pdf', [KategoriController::class, 'kategoriPDF']);
-Route::get('/administrator/kategori-excel', [KategoriController::class, 'kategoriExcel']);
-Route::get('/administrator/customer-pdf', [UsersController::class, 'customerPDF']);
-Route::get('/administrator/customer-excel', [UsersController::class, 'customerExcel']);
-Route::get('/administrator/reservasi-pdf', [ReservasiController::class, 'reservasiPDF']);
-Route::get('/administrator/reservasi-excel', [ReservasiController::class, 'reservasiExcel']);
-
-//Cart
-Route::get('/', [CartController::class, 'index']);
-Route::get('cart', [CartController::class, 'cart'])->name('cart');
-Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
-Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
-Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
-
-//Cart
-Route::get('cart', [CartController::class, 'cart'])->name('cart');
-Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
-Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
-Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
+Route::middleware(['role:user'])->group(function() {
+    //reservasi
+    // Route::get('/administrator/reservasi', [ReservasiController::class, 'index']);
+    Route::get('/reservasi', [ReservasiController::class, 'create']);
+    //Cart
+    Route::get('cart', [CartController::class, 'cart'])->name('cart');
+    Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
+    Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
+    Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
+});

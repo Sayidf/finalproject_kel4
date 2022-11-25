@@ -33,7 +33,7 @@
                 <td data-th="Subtotal" class="text-center">Rp{{ $details['harga'] * $details['quantity'] }}
                 </td>
                 <td class="actions" data-th="">
-                  <button class="btn btn-danger btn-sm remove-from-cart" title="Delete"><i ssclass="far fa-trash-alt"></i></button>
+                  <button class="btn btn-danger btn-sm remove-from-cart" title="Delete"><i class="far fa-trash-alt"></i></button>
                 </td>
               </tr>
             @endforeach

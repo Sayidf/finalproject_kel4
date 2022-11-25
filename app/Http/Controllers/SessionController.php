@@ -42,15 +42,21 @@ class SessionController extends Controller
 
             //jika autentikasi sukses
 
-            return redirect('/home')->with(['success' => 'Berhasil Login!']);
-        } else {
-            return redirect('login')->withErrors('Username dan Password anda salah');
+            // return redirect('/home')->with(['success' => 'Berhasil Login!']);
+            return redirect('/home')->with('success', 'Berhasil Login');
+        } 
+        // elseif (Auth::user()->role == 'admin') { // Role Murid
+        //     return redirect('/administrator')->with('success', 'Berhasil Login Sebagai Admin');
+        // } 
+        else {
+            return redirect('login')->with('error', 'Username dan Password anda salah');
         }
     }
     function logout()
     {
         Auth::logout();
-        return redirect('/home')->with(['success' => 'Berhasil Logout!']);
+        // return redirect('/home')->with(['success' => 'Berhasil Logout!']);
+        return redirect('/home')->with('success', 'Berhasil Logout');
     }
 
     function register()

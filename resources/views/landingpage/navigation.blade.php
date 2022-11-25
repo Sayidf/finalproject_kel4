@@ -9,13 +9,18 @@
         <li><a class="nav-link {{ (request()->segment(1) == 'home' || '') ? 'active' : '' }}" href="{{ url('/home') }}">Home</a></li>
         <li><a class="nav-link {{ (request()->segment(1) == 'menu') ? 'active' : '' }}" href="{{ url('/menu') }}">Menu</a></li>
         <li><a class="nav-link {{ (request()->segment(1) == 'specials') ? 'active' : '' }}" href="{{ url('/specials') }}">Specials</a></li>
-        <li><a class="nav-link {{ (request()->segment(1) == 'chefs') ? 'active' : '' }}" href="{{ url('/chefs') }}">Chefs</a></li>
+        @if (Auth::check())
+          <li><a class="nav-link {{ (request()->segment(1) == 'reservasi') ? 'active' : '' }}" href="{{ url('/reservasi') }}">Reservation</a></li>
+        @else
+          <li><a class="nav-link {{ (request()->segment(1) == 'reservasi') ? 'active' : '' }}" href="{{ url('/login') }}">Reservation</a></li>
+        @endif
         <li><a class="nav-link {{ (request()->segment(1) == 'gallery') ? 'active' : '' }}" href="{{ url('/gallery') }}">Gallery</a></li>
         <li><a class="nav-link {{ (request()->segment(1) == 'contact') ? 'active' : '' }}" href="{{ url('/contact') }}">Contact</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
     <div class="justify-content-center d-flex login-nav">
+      
       <div class="dropdown">
         <button type="button" class="btn btn-book me-3 text-white" data-toggle="dropdown">
           <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge badge-pill" style="background: red">{{ count((array) session('cart')) }}</span>
@@ -57,21 +62,28 @@
         </div>
       </div>
       @if (Auth::check())
-        <a href="{{ route('reservasi.create') }}" class="book-a-table-btn d-none d-lg-flex">Book a table</a>
-        <span class="mt-2 mx-3">|</span>
+        @if (Auth::user()->role == 'user')
+          <a href="{{ route('reservasi.create') }}" class="book-a-table-btn d-none d-lg-flex">Book a table</a>
+          <span class="mt-2 mx-3">|</span>
+        @endif
 				<div class="navbar navbar-user">
 					<ul>
 						<li class="dropdown"><a href="#"><span>{{ Auth::user()->fullname }}</span> <i class="bi bi-caret-down-fill"></i></a>
         	    <ul>
-        	      {{-- <li><a href="{{ url('logout') }}">Logout</a></li> --}}
-                <li>
+                @if(Auth::user()->role == 'admin')
+                  <li><a href="{{ url('/administrator') }}">Menu Admin</a></li>
+                @endif
+                  
+                <li><a href="{{ url('sesi/logout') }}">Logout</a></li>
+        	      
+                {{-- <li>
                   <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                    Logout
                   </a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                       @csrf
                   </form>
-                </li>
+                </li> --}}
         	    </ul>
         	  </li>
 					</ul>

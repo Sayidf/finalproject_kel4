@@ -1,5 +1,5 @@
 @if (config('sweetalert.alwaysLoadJS') === true && config('sweetalert.neverLoadJS') === false )
-    <script src="{{ $cdn ?? asset('.public/vendor/sweetalert/sweetalert.all.js')  }}"></script>
+    <script src="{{ $cdn ?? asset('/public/vendor/sweetalert/sweetalert.all.js')  }}"></script>
 @endif
 @if (Session::has('alert.config'))
     @if(config('sweetalert.animation.enable'))

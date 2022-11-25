@@ -88,9 +88,9 @@
                             @csrf
                             @method('DELETE')
                               <a class="btn btn-primary shadow btn-xs sharp me-1" href="#"><i class="fas fa-check"></i></a>
-                              <button type="submit" data-action="{{ route('reservasi.destroy',$row->id) }}" class="btn btn-danger shadow btn-xs sharp btnDelete" title="Hapus Reservasi"><i class="fa fa-trash"></i></button>
+                              <button type="submit" data-action="{{ route('reservasi.destroy',$res->id) }}" class="btn btn-danger shadow btn-xs sharp btnDelete" title="Hapus Reservasi"><i class="fa fa-trash"></i></button>
                               {{-- <button type="submit" class="btn btn-danger shadow btn-xs sharp" title="Hapus Customer"><i class="fa fa-trash"></i></button> --}}
-                              {{-- <button type="submit" data-action="{{ route('meja.destroy',$row->id) }}" class="dropdown-item btnDelete" title="Hapus Meja">Hapus</button> --}}
+                              {{-- <button type="submit" data-action="{{ route('meja.destroy',$res->id) }}" class="dropdown-item btnDelete" title="Hapus Meja">Hapus</button> --}}
                           </form>
                         </div>
                       </td>
