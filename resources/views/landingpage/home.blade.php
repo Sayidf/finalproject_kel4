@@ -24,8 +24,10 @@
           <h2>Delivering great food for more than 18 years!</h2>
           <div class="btns">
             <a href="{{ url('/menu') }}" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
-            @if (Auth::check())
+            @if (Auth::check() && Auth::user()->role == 'user')
               <a href="{{ route('reservasi.create') }}" class="btn-book animated fadeInUp scrollto">Book a table</a>
+            @elseif (Auth::check() && Auth::user()->role == 'admin')
+              <div></div>
             @else
               <a href="{{ url('/login') }}" class="btn-book animated fadeInUp scrollto">Book a Table</a>
             @endif

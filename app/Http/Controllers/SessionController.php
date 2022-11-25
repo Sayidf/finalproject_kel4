@@ -41,9 +41,14 @@ class SessionController extends Controller
         if (Auth::attempt($infologin)) {
 
             //jika autentikasi sukses
-
+            if(Auth::user()->role == 'user'){
+                return redirect('/home')->with(['success' => 'Berhasil Login!']);
+            }
+            if(Auth::user()->role == 'admin'){
+                return redirect('/administrator')->with(['success' => 'Berhasil Login!']);
+            }    
             // return redirect('/home')->with(['success' => 'Berhasil Login!']);
-            return redirect('/home')->with('success', 'Berhasil Login');
+            // return redirect('/home')->with('success', 'Berhasil Login');
         } 
         // elseif (Auth::user()->role == 'admin') { // Role Murid
         //     return redirect('/administrator')->with('success', 'Berhasil Login Sebagai Admin');
