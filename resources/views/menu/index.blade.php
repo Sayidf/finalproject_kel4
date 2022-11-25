@@ -119,7 +119,7 @@
 										</td>
 											<td>{{ $row->nama }}</td>
 											<td>{{ $row->kategori->nama }}</td>
-											<td>{{ $row->harga }}</td>
+											<td>{{ number_format($row->harga, 0, ',', '.') }}</td>
 											<td>
                         {{-- <form action="{{ route('menu.destroy', $row->id) }}" method="POST">
 
@@ -139,7 +139,7 @@
 															<i class="fas fa-trash fa-lg text-danger"></i>
 													</button>
 											</form> --}}
-												<div class="dropdown">
+												{{-- <div class="dropdown">
 													<button type="button" class="btn btn-primary light sharp" data-bs-toggle="dropdown">
                             <svg width="20px" height="20px" viewbox="0 0 24 24" version="1.1">
                               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -153,7 +153,7 @@
 													<div class="dropdown-menu">
 														<!-- Button trigger Detail modal -->
 														<form method="POST" action="{{ route('menu.destroy',$row->id) }}">
-															{{-- <button type="button" data-path="{{ route('menu.show',$row->id) }}" class="dropdown-item load-ajax-modal" data-bs-toggle="modal" data-bs-target="#menuDetailModal">Detail</button> --}}
+															<button type="button" data-path="{{ route('menu.show',$row->id) }}" class="dropdown-item load-ajax-modal" data-bs-toggle="modal" data-bs-target="#menuDetailModal">Detail</button>
 															<a class="dropdown-item" title="Detail Menu" href=" {{ route('menu.show',$row->id) }}">Detail</a>	
 															<a class="dropdown-item" href="{{ route('menu.edit',$row->id) }}">Edit</a>
 	
@@ -162,6 +162,17 @@
 															<button type="submit" class="dropdown-item" title="Hapus Menu" onclick="return confirm('yakin?')">Hapus</button>
 														</form>
 													</div>
+												</div> --}}
+												<div class="d-flex">
+													<form method="POST" id="formDelete">
+														@csrf
+														@method('DELETE')
+															<a class="btn btn-dark shadow btn-xs sharp me-1" title="Detail Menu" href=" {{ route('menu.show',$row->id) }}"><i class="fas fa-eye"></i></a>	
+															<a class="btn btn-primary shadow btn-xs sharp me-1" href="{{ route('menu.edit',$row->id) }}"><i class="fas fa-pencil-alt"></i></a>
+															<button type="submit" data-action="{{ route('menu.destroy',$row->id) }}" class="btn btn-danger shadow btn-xs sharp btnDelete" title="Hapus Meja"><i class="fa fa-trash"></i></button>
+															{{-- <button type="submit" class="btn btn-danger shadow btn-xs sharp" title="Hapus Customer"><i class="fa fa-trash"></i></button> --}}
+															{{-- <button type="submit" data-action="{{ route('meja.destroy',$row->id) }}" class="dropdown-item btnDelete" title="Hapus Meja">Hapus</button> --}}
+													</form>
 												</div>
 											</td>
 										</tr>
@@ -275,5 +286,29 @@
 	});
 
 </script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+<script type="text/javascript">
+  $('body').on('click', '.btnDelete', function(e) {
+      e.preventDefault();
+      var action = $(this).data('action');
 
+      Swal.fire({
+          title: 'Yakin ingin menghapus data ini?',
+          text: "Data yang sudah dihapus tidak bisa dikembalikan lagi",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          cancelButtonText: 'Batal',
+          confirmButtonText: 'Yakin'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $('#formDelete').attr('action', action);
+          $('#formDelete').submit();
+        }
+      });
+   });
+</script>
 @endsection

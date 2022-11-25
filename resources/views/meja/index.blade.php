@@ -83,7 +83,7 @@
                       <td>{{ $row->no_meja }}</td>
                       <td>{{ $row->kapasitas }}</td>
                       <td>
-                        <div class="dropdown">
+                        {{-- <div class="dropdown">
                           <button type="button" class="btn btn-primary light sharp" data-bs-toggle="dropdown">
                             <svg width="20px" height="20px" viewbox="0 0 24 24" version="1.1">
                               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -93,16 +93,20 @@
                                 <circle fill="#000000" cx="19" cy="12" r="2"></circle>
                               </g>
                             </svg>
-                          </button>
-                          <div class="dropdown-menu">
-                            <form method="POST" action="{{ route('meja.destroy',$row->id) }}">
+                          </button> --}}
+                          {{-- <div class="dropdown-menu"> --}}
+                          <div class="d-flex">
+                            <form method="POST" id="formDelete">
                               @csrf
                               @method('DELETE')
-                                <a class="dropdown-item" href="{{ route('meja.edit',$row->id) }}">Edit</a>
-														    <button type="submit" class="dropdown-item" title="Hapus Meja" onclick="return confirm('yakin?')">Hapus</button>
+                                <a class="btn btn-primary shadow btn-xs sharp me-1" href="{{ route('meja.edit',$row->id) }}"><i class="fas fa-pencil-alt"></i></a>
+                                <button type="submit" data-action="{{ route('meja.destroy',$row->id) }}" class="btn btn-danger shadow btn-xs sharp btnDelete" title="Hapus Meja"><i class="fa fa-trash"></i></button>
+                                {{-- <button type="submit" class="btn btn-danger shadow btn-xs sharp" title="Hapus Customer"><i class="fa fa-trash"></i></button> --}}
+														    {{-- <button type="submit" data-action="{{ route('meja.destroy',$row->id) }}" class="dropdown-item btnDelete" title="Hapus Meja">Hapus</button> --}}
 													  </form>
                           </div>
-                        </div>
+                          {{-- </div>
+                        </div> --}}
                       </td> 
                     </tr>
                   @endforeach
@@ -115,4 +119,29 @@
     </div>
   </div>
 </div> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+<script type="text/javascript">
+  $('body').on('click', '.btnDelete', function(e) {
+      e.preventDefault();
+      var action = $(this).data('action');
+
+      Swal.fire({
+          title: 'Yakin ingin menghapus data ini?',
+          text: "Data yang sudah dihapus tidak bisa dikembalikan lagi",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          cancelButtonText: 'Batal',
+          confirmButtonText: 'Yakin'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $('#formDelete').attr('action', action);
+          $('#formDelete').submit();
+        }
+      });
+   });
+</script>
 @endsection

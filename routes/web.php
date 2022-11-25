@@ -8,6 +8,7 @@ use App\Http\Controllers\ReservasiController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,7 @@ Route::get('/about', function () {
 });
 
 Route::get('/menu', function () {
-    return view('landingpage.menu');
+    return view('cart.menu');
 });
 
 Route::get('/specials', function () {
@@ -69,7 +70,7 @@ Route::resource('administrator/menu', MenuController::class);
 // Route::get('menu-detail/{id}', [MenuController::class, 'show'])->name('show');
 Route::resource('administrator/kategori', KategoriController::class);
 Route::resource('administrator/customer', UsersController::class);
-Route::get('/administrator', [DashboardController::class,'index']);
+Route::get('/administrator', [DashboardController::class, 'index']);
 // Route::get('administrator/menu-edit/{id}', [MenuController::class, 'edit']);
 // Route::get('administrator/meja-edit/{id}', [MejaController::class, 'edit']);
 // Route::get('administrator/kategori-edit/{id}', [KategoriController::class, 'edit']);
@@ -95,3 +96,9 @@ Route::get('/administrator/customer-pdf', [UsersController::class,'customerPDF']
 Route::get('/administrator/customer-excel', [UsersController::class,'customerExcel']);
 Route::get('/administrator/reservasi-pdf', [ReservasiController::class,'reservasiPDF']);
 Route::get('/administrator/reservasi-excel', [ReservasiController::class,'reservasiExcel']);
+
+//Cart
+Route::get('cart', [CartController::class, 'cart'])->name('cart');
+Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
+Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
+Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');

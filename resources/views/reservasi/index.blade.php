@@ -9,7 +9,6 @@
       </ol>
     </div>
     <!-- row -->
-
     <div class="row">
       <div class="col-lg-12">
         <div class="card">
@@ -67,7 +66,7 @@
                       </td>
                       <td>{{ $res->meja->no_meja }}</td>
                       <td>
-                        <div class="dropdown">
+                        {{-- <div class="dropdown">
                           <button type="button" class="btn btn-success light sharp" data-bs-toggle="dropdown">
                             <svg width="20px" height="20px" viewbox="0 0 24 24" version="1.1">
                               <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -83,6 +82,16 @@
                             <a class="dropdown-item" href="#">Edit</a>
                             <a class="dropdown-item" href="#">Delete</a>
                           </div>
+                        </div> --}}
+                        <div class="d-flex">
+                          <form method="POST" id="formDelete">
+                            @csrf
+                            @method('DELETE')
+                              <a class="btn btn-primary shadow btn-xs sharp me-1" href="#"><i class="fas fa-check"></i></a>
+                              <button type="submit" data-action="{{ route('reservasi.destroy',$row->id) }}" class="btn btn-danger shadow btn-xs sharp btnDelete" title="Hapus Reservasi"><i class="fa fa-trash"></i></button>
+                              {{-- <button type="submit" class="btn btn-danger shadow btn-xs sharp" title="Hapus Customer"><i class="fa fa-trash"></i></button> --}}
+                              {{-- <button type="submit" data-action="{{ route('meja.destroy',$row->id) }}" class="dropdown-item btnDelete" title="Hapus Meja">Hapus</button> --}}
+                          </form>
                         </div>
                       </td>
                     </tr>
@@ -96,4 +105,29 @@
     </div>
   </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+<script type="text/javascript">
+  $('body').on('click', '.btnDelete', function(e) {
+      e.preventDefault();
+      var action = $(this).data('action');
+
+      Swal.fire({
+          title: 'Yakin ingin menghapus data ini?',
+          text: "Data yang sudah dihapus tidak bisa dikembalikan lagi",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          cancelButtonText: 'Batal',
+          confirmButtonText: 'Yakin'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $('#formDelete').attr('action', action);
+          $('#formDelete').submit();
+        }
+      });
+   });
+</script>
 @endsection

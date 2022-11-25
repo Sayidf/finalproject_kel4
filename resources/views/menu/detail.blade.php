@@ -17,6 +17,9 @@
               <p>{{ $message }}</p>
             </div>
             @endif
+            <div>
+              <a class="btn btn-primary btn-sm m-3" href="{{ url('administrator/menu') }}"><i class="fas fa-chevron-left"></i></a>
+            </div>
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
               @empty($row->foto)
               <img src="{{ url('/public/assets/img/menu/placeholder.jpg') }}" width="250" alt="Menu" class="rounded-circle">
@@ -32,7 +35,7 @@
                   <tr>
                     <td>Harga</td>
                     <td>:</td>
-                    <td>{{ $row->harga }}</td>
+                    <td>{{ number_format($row->harga, 0, ',', '.') }}</td>
                   </tr>
                   <tr>
                     <td>Keterangan</td>

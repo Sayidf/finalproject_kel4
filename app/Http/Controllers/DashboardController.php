@@ -7,6 +7,7 @@ use App\Models\Menu;
 use App\Models\Kategori;
 use App\Models\Reservasi;
 use DB;
+use Alert;
 
 class DashboardController extends Controller
 {

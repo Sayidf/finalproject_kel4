@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Meja;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Alert;
 use PDF;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\MejaExport;
@@ -119,6 +120,7 @@ class MejaController extends Controller
         return redirect()->route('meja.index')
                         ->with('success','Data Meja Berhasil Dihapus');
     }
+
 
     public function mejaPDF()
     {

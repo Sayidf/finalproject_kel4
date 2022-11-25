@@ -97,6 +97,7 @@
         	  <div class="menu-ingredients ps-2">
               {{ $row->ket }}
         	  </div>
+            <p class="btn-holder float-end"><a href="{{ route('add.to.cart', $row->id) }}" class="btn btn-block text-center" style="color:#cda45e" role="button">Add to cart</a></p>
         	</div>
           @endforeach
 				</div>
@@ -120,6 +121,7 @@
         	  <div class="menu-ingredients ps-2">
               {{ $row->ket }}
         	  </div>
+            <p class="btn-holder float-end"><a href="{{ route('add.to.cart', $row->id) }}" class="btn btn-block text-center" style="color:#cda45e" role="button">Add to cart</a></p>
         	</div>
           @endforeach
 				</div>
@@ -143,6 +145,7 @@
         	  <div class="menu-ingredients ps-2">
               {{ $row->ket }}
         	  </div>
+            <p class="btn-holder float-end"><a href="{{ route('add.to.cart', $row->id) }}" class="btn btn-block text-center" style="color:#cda45e" role="button">Add to cart</a></p>
         	</div>
           @endforeach
 				</div>
@@ -166,6 +169,7 @@
         	  <div class="menu-ingredients ps-2">
               {{ $row->ket }}
         	  </div>
+            <p class="btn-holder float-end"><a href="{{ route('add.to.cart', $row->id) }}" class="btn btn-block text-center" style="color:#cda45e" role="button">Add to cart</a></p>
         	</div>
           @endforeach
 				</div>
@@ -189,6 +193,7 @@
         	  <div class="menu-ingredients ps-2">
               {{ $row->ket }}
         	  </div>
+            <p class="btn-holder float-end"><a href="{{ route('add.to.cart', $row->id) }}" class="btn btn-block text-center" style="color:#cda45e" role="button">Add to cart</a></p>
         	</div>
           @endforeach
 				</div>

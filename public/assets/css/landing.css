@@ -494,8 +494,55 @@ section.login {
         display: block;
     }
 
-    .navbar ul {
+    .navbar ul, .login-nav > span{
         display: none;
+    }
+
+    .navbar-user ul{
+        display: block;
+        margin-right: 15px;
+    }
+
+    .navbar-user .dropdown ul{
+        top: calc(100% + 30px);
+        padding: 0;
+        margin: 0;
+        left: unset;
+    }
+
+    .navbar-user .dropdown ul li{
+        min-width: unset;
+    }
+
+    .login-nav a.nav-link{
+        margin-top: 1px!important;
+        margin-right: 15px;
+        border-radius: 4px;
+        padding: 7px 20px 8px 20px;
+        transition: 0.3s;
+        font-size: 14px;
+        display: inline-block;
+        border: 2px solid #cda45e;
+        text-decoration: none;
+        background: none;
+        color: #fff;
+    }
+
+    .login-nav a.nav-link:hover{
+        background: #cda45e;
+        color: #343a40;
+    }
+
+    .login-nav a.nav-link i{
+        font-size: 12px
+    }
+
+    .contact-info span{
+        font-size: 13px;
+    }
+
+    .menu .nav-menu li.nav-item{
+        margin-top: 10px;
     }
 }
 

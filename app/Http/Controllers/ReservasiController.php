@@ -8,8 +8,10 @@ use App\Models\Users;
 use Illuminate\Http\Request;
 use DB;
 use PDF;
+use Alert;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ReservasiExport;
+use Illuminate\Support\Facades\Session;
 
 use function GuzzleHttp\Promise\all;
 
@@ -48,7 +50,6 @@ class ReservasiController extends Controller
      */
     public function store(Request $request)
     {
-
         Session::flash('id', $request->id);
         $request->validate([
             'tgl_reservasi' => 'required',
