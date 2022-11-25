@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MejaController;
 use App\Http\Controllers\MenuController;
@@ -70,7 +71,7 @@ Route::resource('administrator/menu', MenuController::class);
 // Route::get('menu-detail/{id}', [MenuController::class, 'show'])->name('show');
 Route::resource('administrator/kategori', KategoriController::class);
 Route::resource('administrator/customer', UsersController::class);
-Route::get('/administrator', [DashboardController::class, 'index']);
+Route::get('/administrator', [DashboardController::class,' index']);
 // Route::get('administrator/menu-edit/{id}', [MenuController::class, 'edit']);
 // Route::get('administrator/meja-edit/{id}', [MejaController::class, 'edit']);
 // Route::get('administrator/kategori-edit/{id}', [KategoriController::class, 'edit']);
@@ -86,16 +87,23 @@ Route::post('sesi/create', [SessionController::class, 'create']);
 Route::resource('administrator/reservasi', ReservasiController::class);
 
 //print
-Route::get('/administrator/menu-pdf', [MenuController::class,'menuPDF']);
-Route::get('/administrator/menu-excel', [MenuController::class,'menuExcel']);
-Route::get('/administrator/meja-pdf', [MejaController::class,'mejaPDF']);
-Route::get('/administrator/meja-excel', [MejaController::class,'mejaExcel']);
-Route::get('/administrator/kategori-pdf', [KategoriController::class,'kategoriPDF']);
-Route::get('/administrator/kategori-excel', [KategoriController::class,'kategoriExcel']);
-Route::get('/administrator/customer-pdf', [UsersController::class,'customerPDF']);
-Route::get('/administrator/customer-excel', [UsersController::class,'customerExcel']);
-Route::get('/administrator/reservasi-pdf', [ReservasiController::class,'reservasiPDF']);
-Route::get('/administrator/reservasi-excel', [ReservasiController::class,'reservasiExcel']);
+Route::get('/administrator/menu-pdf', [MenuController::class, 'menuPDF']);
+Route::get('/administrator/menu-excel', [MenuController::class, 'menuExcel']);
+Route::get('/administrator/meja-pdf', [MejaController::class, 'mejaPDF']);
+Route::get('/administrator/meja-excel', [MejaController::class, 'mejaExcel']);
+Route::get('/administrator/kategori-pdf', [KategoriController::class, 'kategoriPDF']);
+Route::get('/administrator/kategori-excel', [KategoriController::class, 'kategoriExcel']);
+Route::get('/administrator/customer-pdf', [UsersController::class, 'customerPDF']);
+Route::get('/administrator/customer-excel', [UsersController::class, 'customerExcel']);
+Route::get('/administrator/reservasi-pdf', [ReservasiController::class, 'reservasiPDF']);
+Route::get('/administrator/reservasi-excel', [ReservasiController::class, 'reservasiExcel']);
+
+//Cart
+Route::get('/', [CartController::class, 'index']);
+Route::get('cart', [CartController::class, 'cart'])->name('cart');
+Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
+Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
+Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
 
 //Cart
 Route::get('cart', [CartController::class, 'cart'])->name('cart');
