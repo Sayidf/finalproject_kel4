@@ -65,14 +65,14 @@ Route::get('/register', function () {
 // Route::get('/administrator/customer', function () {
 //     return view('customer.index');
 // });
-
-Route::middleware(['role:admin'])->group(function() {
+Route::resource('administrator/reservasi', ReservasiController::class);
+Route::middleware(['role:admin'])->group(function () {
     Route::resource('administrator/meja', MejaController::class);
     Route::resource('administrator/menu', MenuController::class);
     // Route::get('menu-detail/{id}', [MenuController::class, 'show'])->name('show');
     Route::resource('administrator/kategori', KategoriController::class);
     Route::resource('administrator/customer', UsersController::class);
-    Route::resource('administrator/reservasi', ReservasiController::class);
+    // Route::resource('administrator/reservasi', ReservasiController::class);
     Route::get('/administrator', [DashboardController::class, 'index']);
     // Route::get('administrator/menu-edit/{id}', [MenuController::class, 'edit']);
     // Route::get('administrator/meja-edit/{id}', [MejaController::class, 'edit']);
@@ -98,18 +98,23 @@ Route::post('sesi/login', [SessionController::class, 'login']);
 Route::get('sesi/logout', [SessionController::class, 'logout']);
 Route::post('sesi/create', [SessionController::class, 'create']);
 
-Route::middleware(['role:user'])->group(function() {
+Route::middleware(['role:user'])->group(function () {
     //reservasi
     // Route::get('/administrator/reservasi', [ReservasiController::class, 'index']);
-    
-    
+
+
 });
 
 Route::get('/reservasi', [ReservasiController::class, 'create']);
 Route::get('/reservasi/store', [ReservasiController::class, 'store']);
+Route::get('/data-reservasi/{id}', [ReservasiController::class, 'dataReservasi']);
 
 //Cart
 Route::get('cart', [CartController::class, 'cart'])->name('cart');
 Route::get('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
 Route::patch('update-cart', [CartController::class, 'update'])->name('update.cart');
 Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remove.from.cart');
+
+//Verifikasi Status
+Route::get('canceled/{id}', [ReservasiController::class, 'canceled']);
+Route::get('approved/{id}', [ReservasiController::class, 'approved']);
