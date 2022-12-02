@@ -185,7 +185,7 @@ h6 {
     border-bottom: 1px solid rgba(12, 11, 9, 0.6);
     transition: all 0.5s;
     z-index: 997;
-    padding: 15px 0;
+    height: 72px;
     top: 40px;
 }
 
@@ -395,7 +395,6 @@ section.login {
 .navbar a:focus i {
     font-size: 12px;
     line-height: 0;
-    margin-left: 5px;
 }
 
 .navbar a:hover,
@@ -408,7 +407,7 @@ section.login {
 .navbar .dropdown ul {
     display: block;
     position: absolute;
-    left: 14px;
+    left: 14px!important;
     top: calc(100% + 30px);
     margin: 0;
     padding: 10px 0;
@@ -2023,4 +2022,191 @@ section .about {
     text-align: center;
     font-size: 13px;
     color: #fff;
+}
+
+.cart h1, h2, h3, h4, h5, h6{
+    font-family: "Poppins", sans-serif;
+}
+
+a.cart-button, a.cart-button:active{
+    box-sizing: border-box;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    width: 100%;
+    text-align: center!important;
+    border-radius: 0;
+    display: block;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: .5rem;
+    opacity: .9;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    background-color: #cda563;
+    color: #fff!important;
+    cursor: pointer;
+    padding: 10px;
+}
+
+a.cart-button:hover{
+    background-color: #ceb080;
+    box-sizing: border-box;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    width: 100%;
+    text-align: center!important;
+    border-radius: 0;
+    display: block;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: .5rem;
+    opacity: .9;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    color: #fff!important;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.cart-menu-img img{
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+a.btn-cart .badge{
+    margin-left: -1.8vh;
+    margin-top: 2.7vh;
+    font-size: 10px!important;
+    background-color: rgba(219, 10, 10, 0.6);
+    color: white;
+}
+
+.card-user-nav .card-body span{
+    margin-top: unset!important;
+}
+
+.card-user-nav .card-body a{
+    padding: unset!important;
+}
+
+.card-user-nav .card-body p{
+    font-size: 15px;
+}
+
+.text-tiny{
+    font-size: 12px!important;
+}
+
+.navbar-user li.dropdown > ul{
+    top: 72px!important;
+    left: 0px!important;
+}
+
+.nav-72{
+    height: 72px;
+}
+
+.navbar-user a:hover, .navbar-user li.dropdown:hover{
+    background-color: rgb(61, 61, 61, 0.9);
+}
+
+/* custom cart */
+
+.quantity{
+    width: 50px;
+    text-align: center;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.img-responsive{
+    width: 100px;
+    max-width: 100%;
+    height: auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-control {
+    margin-left: auto;
+    margin-right: auto;
+    }
+
+ .table-responsive{
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 300px;
+    background-color: rgba(206, 165, 95, 0.726);
+    color: #fff;
+    border-radius:  10px;
+    overflow: hidden;
+}
+
+.table-responsive tr{
+    border-top: 1px solid #cda45e;
+    border-bottom: 1px solid #cda45e;
+    border-color: #cda45e;
+}
+
+
+.table-responsive th,
+.table-responsive td{
+    text-align: center;
+    margin: .5em 1em;
+}
+
+.table-responsive th{
+    display: none;
+}
+
+.table-responsive td{
+    display: block;
+}
+
+.table-responsive td:first-child{
+    padding-top: .5em;
+}
+
+.table-responsive td:last-child{
+    padding-bottom: .5em;
+}
+
+.table-responsive td::before{
+    content: attr(data-th)" ";
+    width: 14px;
+    /* display: inline-block; */
+}
+
+.table-responsive th, 
+.table-responsive td::before{
+    color: #ddd;
+}
+@media (min-width: 600px){
+    .table-responsive td::before{
+        display: none;
+    }
+
+    .table-responsive{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .table-responsive th, 
+    .table-responsive td{
+        display: table-cell;
+        padding: .25em .5em;
+        padding: 1em !important;
+    }
+
+    .table-responsive th:first-child, 
+    .table-responsive td:first-child{
+        padding-left: 0;
+    }
+    .table-responsive th:last-child, 
+    .table-responsive td:last-child{
+        padding-right: 0;
+    }
 }

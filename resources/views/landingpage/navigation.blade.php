@@ -6,79 +6,120 @@
     <h1 class="logo me-auto me-lg-0"><a href="{{ url('/home') }}">NF Culinary</a></h1>
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
-        <li><a class="nav-link {{ (request()->segment(1) == 'home' || '') ? 'active' : '' }}" href="{{ url('/home') }}">Home</a></li>
-        <li><a class="nav-link {{ (request()->segment(1) == 'menu') ? 'active' : '' }}" href="{{ url('/menu') }}">Menu</a></li>
-        <li><a class="nav-link {{ (request()->segment(1) == 'specials') ? 'active' : '' }}" href="{{ url('/specials') }}">Specials</a></li>
-        @if (Auth::check())
-          <li><a class="nav-link {{ (request()->segment(1) == 'reservasi') ? 'active' : '' }}" href="{{ url('/reservasi') }}">Reservation</a></li>
-        @else
-          <li><a class="nav-link {{ (request()->segment(1) == 'reservasi') ? 'active' : '' }}" href="{{ url('/login') }}">Reservation</a></li>
-        @endif
-        <li><a class="nav-link {{ (request()->segment(1) == 'gallery') ? 'active' : '' }}" href="{{ url('/gallery') }}">Gallery</a></li>
-        <li><a class="nav-link {{ (request()->segment(1) == 'contact') ? 'active' : '' }}" href="{{ url('/contact') }}">Contact</a></li>
+        <li><a class="nav-link nav-72 {{ (request()->segment(1) == 'home' || '') ? 'active' : '' }}" href="{{ url('/home') }}">Home</a></li>
+        <li><a class="nav-link nav-72 {{ (request()->segment(1) == 'menu') ? 'active' : '' }}" href="{{ url('/menu') }}">Menu</a></li>
+        <li><a class="nav-link nav-72 {{ (request()->segment(1) == 'specials') ? 'active' : '' }}" href="{{ url('/specials') }}">Specials</a></li>
+        <li><a class="nav-link nav-72 {{ (request()->segment(1) == 'gallery') ? 'active' : '' }}" href="{{ url('/gallery') }}">Gallery</a></li>
+        <li><a class="nav-link nav-72 {{ (request()->segment(1) == 'contact') ? 'active' : '' }}" href="{{ url('/contact') }}">Contact</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
     <div class="justify-content-center d-flex login-nav">
-      <div class="dropdown">
-        @if (Auth::check() && Auth::user()->role == 'admin')
-          <div></div>
-        @else
-        <button type="button" class="btn btn-book me-3 text-white" data-toggle="dropdown">
-          <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge badge-pill" style="background: red">{{ count((array) session('cart')) }}</span>
-        </button>
-        <div class="dropdown-menu mt-2 p-2" style="width: 300px">
-          <div class="row total-header-section">
-            <div class="col-lg-6 col-sm-6 col-6">
-              <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-info" style="background: red">{{ count((array) session('cart')) }}</span>
-            </div>
-            @php $total = 0 @endphp
-            @foreach ((array) session('cart') as $id => $details)
-              @php $total += $details['harga'] * $details['quantity'] @endphp
-            @endforeach
-            <div class="col-lg-6 col-sm-6 col-6 total-section text-right">
-              <p>Total: <span style="color:#cda45e">Rp.{{ $total }}</span></p>
-            </div>
-          </div>
-          @if (session('cart'))
-            @foreach (session('cart') as $id => $details)
-              <div class="row cart-detail">
-                <div class="col-lg-4 col-sm-4 col-4 cart-detail-img mt-2">
-                  <img src="{{ url('/public/assets/img/menu') }}/{{ $details['foto'] }}" style="width:60px">
-                </div>
-                <div class="col-lg-8 col-sm-8 col-8 cart-detail-product mt-2">
-                  <p class="fw-bold mb-1">{{ $details['nama'] }}</p>
-                  <span class="me-2" style="font-size: 12px; font-weight:500; color:#cda45e">
-                    Rp.{{ $details['harga'] }}</span> <span class="count" style="color: #c2c2dc">
-                    Quantity: {{ $details['quantity'] }}
-                  </span>
+			<div class="navbar navbar-user">
+				<ul>          
+          @if (Auth::check())
+            @if (Auth::user()->role == 'admin')
+              <div class="d-none"></div>
+            @else
+              <a href="{{ url('/reservasi') }}" class="nav-72 px-3 {{ (request()->segment(1) == 'reservasi') ? 'active' : '' }}" title="Reservasi">
+                <i class="fs-6 fa-regular fa-calendar-clock"></i>
+              </a>
+            @endif
+          @else
+            <a href="{{ url('/login') }}" class="nav-72 px-3" title="Reservasi">
+              <i class="fs-6 fa-regular fa-calendar-clock"></i>
+            </a>
+          @endif
+          @if (Auth::check() && Auth::user()->role == 'admin')
+            <div class="d-none"></div>
+          @else
+          
+            <li class="dropdown">        
+              {{-- <button type="button" class="btn me-3 btn-cart text-white" data-toggle="dropdown">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i><span class="badge badge-pill ms-2">{{ count((array) session('cart')) }}</span>
+              </button> --}}
+              <a href="#" class="btn-cart px-3 nav-72">
+                <i class="fs-6 fa fa-shopping-cart"></i> 
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">{{ count((array) session('cart')) }}</span>
+              </a>
+              {{-- <button type="button" class="btn btn-book btn-cart text-white" data-toggle="dropdown">
+                <i class="fa fa-shopping-cart"></i> 
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">{{ count((array) session('cart')) }}</span>
+              </button> --}}
+              <ul style="min-width:300px">
+                <li>
+                  <div class="border-0 bg-menu text-dark w-100 card">
+                    <div class="text-left card-body"><span class="text-small">Ada <b>{{ count((array) session('cart')) }}</b> menu di keranjang Anda</span></div>
+                  </div>
+                  @php $total = 0 @endphp
+                  @foreach ((array) session('cart') as $id => $details)
+                    @php $total += $details['harga'] * $details['quantity'] @endphp
+                  @endforeach
+                  @if (session('cart'))
+                    @foreach (session('cart') as $id => $details)
+                      <div class="m-3 border-0 bg-menu text-dark card">
+                        <div class="card-body p-0 border-bottom border-2 border-light">
+                          <div class="row mb-1">
+                            <div class="col-3 cart-menu-img">
+                              <img src="{{ url('/public/assets/img/menu') }}/{{ $details['foto'] }}">
+                            </div>
+                            <div class="col">
+                              <div class="mt-1">
+                                <span class="fw-bold text-small">{{ $details['nama'] }}</span>
+                                <p class="text-secondary"><small>Rp {{ number_format($details['harga'], 0, ',', '.') }}&nbsp;&nbsp;|&nbsp;&nbsp;Qty : {{ $details['quantity'] }}</small></p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    @endforeach
+                  @endif
+                  <div class="border-0 bg-menu text-dark text-cart card">
+                    <div class="card-body">
+                      <p><span>Subtotal : </span><b class="float-end">Rp {{ number_format($total, 0, ',', '.') }}</b></p>
+                        <a href="{{ route('cart') }}" class="btn btn-primary text-white text-center cart-button">Lihat Keranjang</a> 
+                    </div>
+                  </div>                
+                </li>
+              </ul>
+            </li>
+          @endif
+
+					<li class="dropdown text-dark">
+            <a href="#" class="btn-cart px-3 nav-72">
+              <i class="fs-6 fa fa-user"></i> 
+            </a>
+      	    <ul class="p-0" style="width:200px">
+              {{-- Jika sudah login tampilkan detail user --}}
+              <div class="border-0 card card-user-nav">
+                <div class="card-body">
+                  @if (Auth::check())
+                  
+                    <span class="text-tiny mt-1">Welcome</span>
+                    <p class="fw-bold border-bottom border-1 border-dark pb-3">{{ Auth::user()->fullname }}</p>
+                    @if(Auth::user()->role == 'admin')
+                      <a href="{{ url('/administrator') }}" class="my-3">Menu Admin</a>
+                    @endif 
+                    <a href="{{ url('sesi/logout') }}">Logout</a>
+
+                  {{-- Jika belum login tampilkan tombol login --}}
+                  @else
+                    <li class="text-center"><a href="{{ url('/login') }}" class="text-center d-block">Login atau Register</a></li>  
+                  @endif
                 </div>
               </div>
-            @endforeach
-          @endif
-          <div class="row">
-            <div class="col-lg-12 col-sm-12 col-12 text-center checkout mt-3">
-              <a href="{{ route('cart') }}" class="btn btn-primary btn-block">View all</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      @endif
-      @if (Auth::check())
-        @if (Auth::user()->role == 'user')
-          <a href="{{ route('reservasi.create') }}" class="book-a-table-btn d-none d-lg-flex">Book a table</a>
-          <span class="mt-2 mx-3">|</span>
-        @endif
-				<div class="navbar navbar-user">
-					<ul>
-						<li class="dropdown"><a href="#"><span>{{ Auth::user()->fullname }}</span> <i class="bi bi-caret-down-fill"></i></a>
-        	    <ul>
-                @if(Auth::user()->role == 'admin')
-                  <li><a href="{{ url('/administrator') }}">Menu Admin</a></li>
-                @endif
-                  
-                <li><a href="{{ url('sesi/logout') }}">Logout</a></li>
-        	      
+      	    </ul>
+      	  </li>
+          
+				</ul>
+			</div>
+      {{-- <a class="nav-link mt-2" href="{{ url('sesi/logout') }}"><i
+              class='bx bx-log-out-circle'></i>&nbsp;Logout</a> --}}
+
+      {{-- <a class="nav-link mt-2 login-button {{ (request()->segment(1) == 'login') ? 'active' : '' }}" href="{{ url('/login') }}"><i class='bx bx-log-in-circle'></i>&nbsp;Login</a> --}}
+    </div>
+  </div>
+</header>
                 {{-- <li>
                   <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                    Logout
@@ -87,15 +128,3 @@
                       @csrf
                   </form>
                 </li> --}}
-        	    </ul>
-        	  </li>
-					</ul>
-				</div>
-        {{-- <a class="nav-link mt-2" href="{{ url('sesi/logout') }}"><i
-                class='bx bx-log-out-circle'></i>&nbsp;Logout</a> --}}
-      @else
-        <a class="nav-link mt-2 login-button {{ (request()->segment(1) == 'login') ? 'active' : '' }}" href="{{ url('/login') }}"><i class='bx bx-log-in-circle'></i>&nbsp;Login</a>
-      @endif
-    </div>
-  </div>
-</header>
