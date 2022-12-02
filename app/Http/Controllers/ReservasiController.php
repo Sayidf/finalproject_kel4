@@ -70,7 +70,7 @@ class ReservasiController extends Controller
 
         Reservasi::create($request->all());
 
-        return redirect()->route('landingpage.reservasi')
+        return redirect()->route('reservasi.create')
             ->with('success', 'Berhasil Reservasi');
     }
 
