@@ -11,6 +11,7 @@ use PDF;
 use Alert;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ReservasiExport;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 use function GuzzleHttp\Promise\all;
@@ -50,6 +51,7 @@ class ReservasiController extends Controller
      */
     public function store(Request $request)
     {
+        $id = Auth::user()->id;
         Session::flash('id', $request->id);
         $request->validate([
             'tgl_reservasi' => 'required',
@@ -70,7 +72,7 @@ class ReservasiController extends Controller
 
         Reservasi::create($request->all());
 
-        return redirect()->route('reservasi.create')
+        return redirect('/data-reservasi' . '/' . $id)
             ->with('success', 'Berhasil Reservasi');
     }
 
@@ -122,12 +124,32 @@ class ReservasiController extends Controller
     public function reservasiPDF()
     {
         $reservasi = Reservasi::all();
-        $pdf = PDF::loadView('reservasi.reservasiPDF', ['reservasi'=>$reservasi]);
+        $pdf = PDF::loadView('reservasi.reservasiPDF', ['reservasi' => $reservasi]);
         return $pdf->download('data_reservasi.pdf');
     }
 
-    public function reservasiExcel() 
+    public function reservasiExcel()
     {
         return Excel::download(new ReservasiExport, 'data_reservasi.xlsx');
+    }
+
+    public function dataReservasi($id)
+    {
+        $data_reservasi = Reservasi::where('id_users', $id)->first();
+        return view('reservasi.data', compact('data_reservasi'));
+    }
+    public function canceled($id)
+    {
+        $data = Reservasi::find($id);
+        $data->status = 'cancel';
+        $data->save();
+        return redirect()->back();
+    }
+    public function approved($id)
+    {
+        $data = Reservasi::find($id);
+        $data->status = 'approved';
+        $data->save();
+        return redirect()->back();
     }
 }
