@@ -420,10 +420,6 @@ section.login {
     border-radius: 4px;
 }
 
-.navbar .dropdown ul li {
-    min-width: 200px;
-}
-
 .navbar .dropdown ul a {
     padding: 10px 20px;
     color: #444444;
@@ -2098,14 +2094,15 @@ a.btn-cart .badge{
 
 .navbar-user li.dropdown > ul{
     top: 72px!important;
-    left: 0px!important;
+    left: auto!important;
+    right: 0px!important;
 }
 
 .nav-72{
     height: 72px;
 }
 
-.navbar-user a:hover, .navbar-user li.dropdown:hover{
+.navbar-user > ul > a:hover, .navbar-user li.dropdown:hover{
     background-color: rgb(61, 61, 61, 0.9);
 }
 
