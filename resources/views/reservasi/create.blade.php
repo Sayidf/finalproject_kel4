@@ -30,24 +30,58 @@
             placeholder="Pilih Tanggal Reservasi" data-rule="minlen:4"
             data-msg="Please enter at least 4 chars">
         </div>
+        <script>
+          var today = new Date().toISOString().split('T')[0];
+          document.getElementsByName("tgl_reservasi")[0].setAttribute('min', today);
+        </script>
         <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
           <input type="time" class="form-control" name="jam_in" id="starttime" placeholder="Check In"
-            data-rule="email" data-msg="Please enter a valid email">
+            data-rule="email" data-msg="Please enter a valid email" min="11:00" max="22:59" pattern="(09|1[0-5]):[0-5]\d">
         </div>
         <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
           <input type="time" class="form-control" name="jam_out" id="phone" placeholder="Checkout"
-            data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            data-rule="minlen:4" data-msg="Please enter at least 4 chars" min="11:01" max="23:00" pattern="(09|1[0-5]):[0-5]\d">
         </div>
         <div class="col-lg-4 col-md-6 form-group mt-3">
-          <input type="number" class="form-control " name="jml_orang" placeholder="Jumlah Orang"
-            data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+          <input type="number" id="jml-org" class="form-control " name="jml_orang" placeholder="Jumlah Orang"
+            data-rule="minlen:4" data-msg="Please enter at least 4 chars" onkeypress="return isNumberKey(event)">
+          <script>
+            $('#jml-org').on('paste input', function () {
+              var number = $(this).val()
+              if (isNaN(number)) {
+                $(this).val('');
+              } 
+              if (number > 12) {
+                alert("Maksimal 12 Orang");
+                $(this).val('');
+              }
+            });
+          </script>
         </div>
         <div class="col-lg-4 col-md-6 form-group mt-3">
-          <select name="id_meja" id="phone" class="form-control">
+          <select name="id_meja" id="id_meja" class="form-control">
             <option disabled selected>--- Pilih No Meja ---</option>
             @foreach ($arr_meja as $meja)
-              <option value="{{ $meja->id }}">No {{ $meja->no_meja }} Kapasitas {{ $meja->kapasitas }} Orang</option>
+              <option value="{{ $meja->id }}" class="{{ $meja->kapasitas }}org">No {{ $meja->no_meja }} Kapasitas {{ $meja->kapasitas }} Orang</option>
             @endforeach
+            <script>
+              $(document).ready(function() {
+                $('#id_meja').attr('disabled',true);
+                $("#jml-org").on("keyup", function() {
+                  var a = 4;
+                  var b = 6;
+                  var c = 8;
+                  var d = 10;
+                  var e = 12;
+                  Number($("#jml-org").val()) > Number(a) ? $(".4org").hide() : $(".4org").show();
+                  Number($("#jml-org").val()) > Number(b) ? $(".6org").hide() : $(".6org").show();
+                  Number($("#jml-org").val()) > Number(c) ? $(".8org").hide() : $(".8org").show();
+                  Number($("#jml-org").val()) > Number(d) ? $(".10org").hide() : $(".10org").show();
+                  Number($("#jml-org").val()) > Number(e) ? $(".12org").hide() : $(".12org").show();
+                  $(this).val().length !=0 ? $('#id_meja').attr('disabled', false) : $('#id_meja').attr('disabled', true);
+                });
+              });
+            </script>
           </select>
         </div>
         <div class="col-lg-4 col-md-6 form-group mt-3">

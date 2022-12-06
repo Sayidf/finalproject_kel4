@@ -135,9 +135,16 @@ class ReservasiController extends Controller
 
     public function dataReservasi($id)
     {
-        $data_reservasi = Reservasi::where('id_users', $id)->first();
+        $data_reservasi = Reservasi::where('id_users', $id)->get();
         return view('reservasi.data', compact('data_reservasi'));
     }
+
+    public function cekReservasi($id)
+    {
+        $ar_reservasi = Reservasi::where('id_users', $id)->orderBy('id', 'desc')->first();
+        return view('cart.cart', compact('ar_reservasi'));
+    }
+
     public function canceled($id)
     {
         $data = Reservasi::find($id);
