@@ -351,9 +351,12 @@ section.login {
 }
 
 @media (max-width: 992px) {
-    .book-a-table-btn {
-        margin: 0 15px 0 0;
-        padding: 8px 20px;
+    #login > div > form > div > div > div.row {
+        margin: 0px 10px
+    }
+
+    #login > div{
+        padding: 0px 20px;
     }
 }
 
@@ -498,6 +501,15 @@ section.login {
         margin-right: 15px;
     }
 
+    .navbar-user ul .reservation-nav{
+        display: none;
+    }
+
+    .navbar-user ul .user-nav{
+        display: none;
+    }
+
+
     .navbar-user .dropdown ul{
         top: calc(100% + 30px);
         padding: 0;
@@ -507,6 +519,15 @@ section.login {
 
     .navbar-user .dropdown ul li{
         min-width: unset;
+    }
+
+    .custom-navbar-mobile{
+        display: block!important;
+        padding: 0px 20px 0px 20px;
+    }
+
+    .custom-navbar-mobile a{
+        padding: 10px 10px!important;
     }
 
     .login-nav a.nav-link{
@@ -566,7 +587,7 @@ section.login {
     right: 15px;
     bottom: 15px;
     left: 15px;
-    padding: 10px 0;
+    padding: 15px 0;
     border-radius: 6px;
     background-color: #fff;
     overflow-y: auto;
@@ -575,9 +596,10 @@ section.login {
 
 .navbar-mobile a,
 .navbar-mobile a:focus {
-    padding: 10px 20px;
+    padding: 10px 30px;
     font-size: 15px;
     color: #1a1814;
+    height: unset;
 }
 
 .navbar-mobile a:hover,
@@ -624,6 +646,7 @@ section.login {
 .navbar-mobile .dropdown > .dropdown-active {
     display: block;
 }
+
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -2092,10 +2115,15 @@ a.btn-cart .badge{
     font-size: 12px!important;
 }
 
-.navbar-user li.dropdown > ul{
+.navbar-user li.dropdown.cart-nav > ul, .navbar-user li.dropdown.user-nav > ul{
     top: 72px!important;
     left: auto!important;
     right: 0px!important;
+}
+
+.navbar-user li.dropdown.reservation-nav > ul{
+    top: 72px!important;
+    left: 0px!important
 }
 
 .nav-72{
@@ -2137,9 +2165,7 @@ input::-webkit-inner-spin-button {
     margin-left: auto;
     margin-right: auto;
     min-width: 300px;
-    background-color: rgba(206, 165, 95, 0.726);
     color: #fff;
-    border-radius:  10px;
     overflow: hidden;
 }
 
@@ -2206,4 +2232,39 @@ input::-webkit-inner-spin-button {
     .table-responsive td:last-child{
         padding-right: 0;
     }
+}
+
+#cart > tbody > tr:nth-last-child(1) > td:nth-last-child(-n + 5){
+    border-bottom: 1px solid rgb(87, 87, 87);
+}
+
+#cart > tbody > tr:nth-child(1) > td:nth-last-child(-n + 5){
+    border-top: 1px solid rgb(87, 87, 87);
+}
+
+#cart > tbody > tr:nth-child(1) > td:nth-child(1){
+    padding-top: unset;
+}
+
+#cart > tbody > tr:nth-last-child(1) > td:nth-child(1){
+    padding-bottom: unset;
+}
+
+#cart > tbody > tr > td > img{
+    width: 100px;
+    height: 100px;;
+}
+
+table#cart{
+    border-collapse: separate;
+    border-spacing: 0 20px; /* this is the ultimate fix */
+}
+
+/* table tbody { display: block; max-height:400px; overflow-y:scroll; }
+table thead, table tbody tr { table-layout:fixed; } */
+
+.scrollable-menu {
+    height: auto;
+    max-height: 350px;
+    overflow-x: hidden;
 }

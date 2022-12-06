@@ -108,6 +108,7 @@ Route::middleware(['role:user'])->group(function () {
 Route::get('/reservasi', [ReservasiController::class, 'create']);
 Route::get('/reservasi/store', [ReservasiController::class, 'store']);
 Route::get('/data-reservasi/{id}', [ReservasiController::class, 'dataReservasi']);
+Route::get('cart/{id}', [ReservasiController::class, 'cekReservasi']);
 
 //Cart
 Route::get('cart', [CartController::class, 'cart'])->name('cart');
