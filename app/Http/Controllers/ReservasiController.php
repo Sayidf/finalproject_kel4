@@ -159,4 +159,48 @@ class ReservasiController extends Controller
         $data->save();
         return redirect()->back();
     }
+
+
+    //Resrevasi API
+    public function apiReservasi()
+    {
+        
+        $reservasi = Reservasi::join('users', 'users.id', '=', 'reservasi.id_users')
+                ->select('users.fullname AS nama','reservasi.tgl_reservasi', 'reservasi.jam_in', 
+                'reservasi.jam_out', 'reservasi.status', 'reservasi.id_meja', 'reservasi.id_users', 
+                'reservasi.jml_orang',)
+                ->get();
+        return response()->json(
+            [
+                'success'=>true,
+                'message'=>'Data Reservasi',
+                'data'=>$reservasi,
+            ],200);
+    }
+
+    public function apiReservasiDetail($id)
+    {
+      
+        $reservasi = Reservasi::join('users', 'users.id', '=', 'reservasi.id_users')
+        ->select('users.fullname AS nama','reservasi.tgl_reservasi', 'reservasi.jam_in', 'reservasi.jam_out', 'reservasi.status', 
+        'reservasi.id_meja', 'reservasi.id_users', 'reservasi.jml_orang',)
+        ->where('reservasi.id', '=', $id) 
+        ->get();
+        
+        if($reservasi){ 
+            return response()->json(
+                [
+                    'success'=>true,
+                    'message'=>'Detail Reservasi',
+                    'data'=>$reservasi,
+                ],200);
+        }
+        else{
+            return response()->json(
+                [
+                    'success'=>false,
+                    'message'=>'Detail Reservasi Tidak ditemukan',
+                ],404);
+        }
+    }
 }

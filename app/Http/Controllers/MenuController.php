@@ -179,4 +179,46 @@ class MenuController extends Controller
         return Excel::download(new MenuExport, 'data_menu.xlsx');
     }
 
+    // Fungsi API
+
+    
+    public function apiMenu()
+    {
+        
+        $menu = Menu::join('kategori', 'kategori.id', '=', 'menu.id_kategori')
+                ->select('menu.nama','kategori.nama AS kategori', 'menu.harga')
+                ->get();
+        return response()->json(
+            [
+                'success'=>true,
+                'message'=>'Data Menu',
+                'data'=>$menu,
+            ],200);
+    }
+
+    public function apiMenuDetail($id)
+    {
+       
+        $menu = Menu::join('kategori', 'kategori.id', '=', 'menu.id_kategori')
+        ->select('menu.nama','kategori.nama AS kategori', 'menu.harga')
+        ->where('menu.id', '=', $id) 
+        ->get();
+        
+        if($menu){ //jika data pegawai ditemukan
+            return response()->json(
+                [
+                    'success'=>true,
+                    'message'=>'Detail Menu',
+                    'data'=>$menu,
+                ],200);
+        }
+        else{ //jika data pegawai tidak ditemukan
+            return response()->json(
+                [
+                    'success'=>false,
+                    'message'=>'Detail Menu Tidak ditemukan',
+                ],404);
+        }
+    }
+
 }
