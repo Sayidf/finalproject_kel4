@@ -34,6 +34,10 @@ h6 {
     font-family: "Playfair Display", serif;
 }
 
+.text-temp-primary{
+    color: #cda45e;
+}
+
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -509,7 +513,6 @@ section.login {
         display: none;
     }
 
-
     .navbar-user .dropdown ul{
         top: calc(100% + 30px);
         padding: 0;
@@ -560,6 +563,7 @@ section.login {
     .menu .nav-menu li.nav-item{
         margin-top: 10px;
     }
+    
 }
 
 .navbar-mobile {
@@ -2136,10 +2140,6 @@ a.btn-cart .badge{
 
 /* custom cart */
 
-.quantity{
-    width: 50px;
-    text-align: center;
-}
 body::-webkit-scrollbar {
     display: none;
 }
@@ -2267,4 +2267,91 @@ table thead, table tbody tr { table-layout:fixed; } */
     height: auto;
     max-height: 350px;
     overflow-x: hidden;
+}
+
+/* Cart */
+
+section.cart-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 140px;
+}
+
+.cart-section input,
+.cart-section textarea {
+    box-shadow: none;
+    font-size: 14px;
+    height: 50px;
+    background: #0c0b09;
+    border: unset;
+    color: white;
+    padding-left: 1rem;
+}
+
+.cart-section input::-moz-placeholder,
+.cart-section textarea::-moz-placeholder {
+    color: #a49b89;
+}
+
+.cart-section input::placeholder,
+.cart-section textarea::placeholder {
+    color: #a49b89;
+}
+
+.cart-section input:focus,
+.cart-section textarea:focus {
+    border-color: #cda45e;
+    background-color: black;
+    color: white;
+}
+
+.cart-section textarea {
+    padding: 10px 12px;
+}
+
+.cart-section .checkout-btn button {
+    background: #cda45e;
+    border: 0;
+    padding: 10px 20px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+.cart-section .checkout-btn button:hover {
+    background: #d3af71;
+}
+
+.cart-section .border-grey{
+    border-bottom: 2px solid #424242;
+    border-radius: 10px;
+}
+
+@media (max-width: 991px) {
+    section.cart-section{
+        padding-top: 110px;
+        align-items: unset;
+        justify-content: unset;
+    }
+    .cart-desktop{
+        display: none;
+    }
+
+    .cart-mobile{
+        display: block!important;
+    }
+
+    input.quantity{
+        width: 36px;
+        height: 36px;
+        padding: 0px;
+        border-radius: 8px;
+    }
+}
+
+.quantity{
+    width: 50px;
+    text-align: center;
 }
