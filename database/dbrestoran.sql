@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2022 at 03:43 PM
+-- Generation Time: Dec 05, 2022 at 02:49 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -160,7 +160,7 @@ CREATE TABLE `reservasi` (
   `tgl_reservasi` date DEFAULT NULL,
   `jam_in` time DEFAULT NULL,
   `jam_out` time DEFAULT NULL,
-  `status` enum('success','pending','cancel') DEFAULT 'pending',
+  `status` enum('done','approved','pending','cancel') DEFAULT 'pending',
   `id_meja` int(11) NOT NULL,
   `id_users` bigint(20) UNSIGNED NOT NULL,
   `jml_orang` int(11) DEFAULT NULL,
@@ -173,17 +173,14 @@ CREATE TABLE `reservasi` (
 --
 
 INSERT INTO `reservasi` (`id`, `tgl_reservasi`, `jam_in`, `jam_out`, `status`, `id_meja`, `id_users`, `jml_orang`, `created_at`, `updated_at`) VALUES
-(3, '2022-11-26', '11:29:00', '12:29:00', 'pending', 3, 1, 6, '2022-11-24 20:29:21', '2022-11-24 20:29:21'),
-(4, '2022-11-28', '01:05:00', '02:05:00', 'pending', 3, 1, 6, '2022-11-24 21:06:01', '2022-11-24 21:06:01'),
-(5, '2022-11-26', '03:08:00', '04:08:00', 'pending', 3, 1, 6, '2022-11-24 21:08:57', '2022-11-24 21:08:57'),
-(6, '2022-11-30', '05:11:00', '06:11:00', 'pending', 3, 1, 6, '2022-11-24 21:11:17', '2022-11-24 21:11:17'),
-(7, '2022-12-03', '01:16:00', '02:16:00', 'pending', 1, 1, 1, '2022-11-24 21:16:16', '2022-11-24 21:16:16'),
-(8, '2022-11-25', '22:50:00', '23:50:00', 'pending', 3, 1, 6, '2022-11-25 06:50:59', '2022-11-25 06:50:59'),
-(9, '2022-11-25', '13:54:00', '20:54:00', 'pending', 1, 1, 1, '2022-11-25 07:00:26', '2022-11-25 07:00:26'),
-(10, '2022-11-26', '13:01:00', '14:01:00', 'pending', 2, 1, 1, '2022-11-25 07:01:25', '2022-11-25 07:01:25'),
-(11, '2022-11-26', '21:01:00', '22:01:00', 'pending', 3, 1, 1, '2022-11-25 07:02:03', '2022-11-25 07:02:03'),
-(12, '2022-11-26', '21:01:00', '22:01:00', 'pending', 3, 1, 1, '2022-11-25 07:02:03', '2022-11-25 07:02:03'),
-(13, '2022-11-26', '12:02:00', '13:02:00', 'pending', 2, 1, 2, '2022-11-25 07:03:00', '2022-11-25 07:03:00');
+(3, '2022-11-26', '11:29:00', '12:29:00', 'approved', 3, 1, 6, '2022-11-24 20:29:21', '2022-12-02 17:58:06'),
+(4, '2022-11-28', '01:05:00', '02:05:00', 'approved', 3, 1, 6, '2022-11-24 21:06:01', '2022-12-02 17:56:33'),
+(5, '2022-11-26', '03:08:00', '04:08:00', 'approved', 3, 1, 6, '2022-11-24 21:08:57', '2022-12-02 17:55:56'),
+(6, '2022-11-30', '05:11:00', '06:11:00', 'approved', 3, 1, 6, '2022-11-24 21:11:17', '2022-12-02 17:55:47'),
+(21, '2022-12-06', '07:57:00', '11:53:00', 'approved', 1, 3, 4, '2022-12-02 17:53:55', '2022-12-02 18:23:40'),
+(24, '2022-12-17', '14:40:00', '23:42:00', 'pending', 1, 3, 2, '2022-12-04 09:40:35', '2022-12-04 09:40:35'),
+(25, '2022-11-29', '05:57:00', '05:57:00', 'pending', 4, 3, 12, '2022-12-04 15:54:19', '2022-12-04 15:54:19'),
+(26, '2022-12-14', '09:39:00', '11:40:00', 'pending', 1, 8, 4, '2022-12-04 16:40:11', '2022-12-04 16:40:11');
 
 -- --------------------------------------------------------
 
@@ -226,7 +223,9 @@ INSERT INTO `users` (`id`, `fullname`, `username`, `email`, `password`, `no_hp`,
 (2, 'Fulan', 'fulan', 'tes@gmail.com', '$2y$10$gGlTMnVlRrp5MuumgN8gkO3i0yyYcUeZjWUcbmLsueRDeIdt1hGUS', '08888888888', 'user', '2022-11-23 16:50:05', '2022-11-23 16:50:05'),
 (3, 'Testing', 'testing', 'rambo@gmail.com', '$2y$10$Afl1.EGNTmlsYTvVhPTppObXsIFUyyaoQG6833Y9zIg2Q3wNpPF/G', '123456789', 'user', '2022-11-24 03:21:16', '2022-11-24 03:21:16'),
 (4, 'Taufiq', 'tes', 'tes1@gmail.com', '$2y$10$.z0NwQc9N/V9wqKSt1Qmv.keqhlsWZ2EZZXuVjgDsnM2y3zD7RMg2', '21212121212', 'user', '2022-11-24 03:26:52', '2022-11-24 03:26:52'),
-(7, 'Testing', 'johndoe', 'testi@gmail.com', '$2y$10$4hCGegYIBkueT0KtNepJku4oYh7oC5RbAEaTNHqtTJ9Edb7FIn6X2', '088888888888', 'user', '2022-11-24 21:18:52', '2022-11-24 21:18:52');
+(7, 'Testing', 'johndoe', 'testi@gmail.com', '$2y$10$4hCGegYIBkueT0KtNepJku4oYh7oC5RbAEaTNHqtTJ9Edb7FIn6X2', '088888888888', 'user', '2022-11-24 21:18:52', '2022-11-24 21:18:52'),
+(8, 'fahrulsw', 'fahrulsw', 'fahrulsw@gmail.com', '$2y$10$hBfH1VbqBtO9LzAD88pS7eTchtdYyR3GiczKrVVv4/0VZwpFnl0FG', '09873763763733', 'user', '2022-12-04 07:24:41', '2022-12-04 07:24:41'),
+(9, 'admin', 'admin123', 'admin@admin.com', '$2y$10$2aHQg70tgL3mPSvxV0S42.M2qSmmraZnuqn3HzGa.Sx07CRb5B7ti', '0888888888', 'admin', '2022-12-04 18:48:29', '2022-12-04 18:48:29');
 
 --
 -- Indexes for dumped tables
@@ -341,13 +340,13 @@ ALTER TABLE `pembayaran`
 -- AUTO_INCREMENT for table `reservasi`
 --
 ALTER TABLE `reservasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
