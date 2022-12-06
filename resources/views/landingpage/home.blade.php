@@ -2,23 +2,9 @@
 @section('content')
 <!--======= Hero Section =======-->
 <section id="hero" class="d-flex align-items-center">
+
   <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
     <div class="row">
-      <div class="row justify-content-center mb-2">
-        <div class="col-4">
-          @if ($message = Session::get('success'))
-            <div class="alert alert-success alert-dismissible fade show">
-              <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
-                fill="none" stroke-linecap="round" stroke-linejoin="round" class="me-2">
-                <polyline points="9 11 12 14 22 4"></polyline>
-                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-              </svg>
-              <span class="me-3"><strong>Sukses! </strong>{{ $message }}</span>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"></button>
-            </div>
-          @endif
-        </div>
-      </div>
       <div class="col-lg-8">
           <h1>Welcome to <span>Nurul Fikri Culinary</span></h1>
           <h2>Delivering great food for more than 18 years!</h2>

@@ -13,15 +13,14 @@
   <link href="https://learn.nurulfikri.com/pluginfile.php/1/theme_edumy/favicon/1653270284/nci.png" rel="shortcut icon">
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=EB Garamond' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet'>
 
   <!-- Vendor CSS Files -->
-  <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet"
-      type="text/css" />
+  <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@44659d9/css/all.min.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.15/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
   <link href="{{ asset('/public/assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
   <link href="{{ asset('/public/assets/vendor/aos/aos.min.css') }}" rel="stylesheet">
   <link href="{{ asset('/public/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
