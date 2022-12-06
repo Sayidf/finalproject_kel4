@@ -52,7 +52,8 @@ class CartController extends Controller
     }
 
     session()->put('cart', $cart);
-    return redirect()->back()->with('success', 'Product added to cart successfully!');
+    toast('Menu Berhasil Ditambah ke Keranjang!','success')->position('bottom-end')->width('fit-content');
+    return redirect()->back();
   }
 
   /**
@@ -66,7 +67,7 @@ class CartController extends Controller
       $cart = session()->get('cart');
       $cart[$request->id]["quantity"] = $request->quantity;
       session()->put('cart', $cart);
-      session()->flash('success', 'Cart updated successfully');
+      toast('Keranjang Berhasil Diupdate!','success')->position('bottom-end')->width('fit-content');
     }
   }
 
@@ -83,7 +84,7 @@ class CartController extends Controller
         unset($cart[$request->id]);
         session()->put('cart', $cart);
       }
-      session()->flash('success', 'Product removed successfully');
+      toast('Menu Berhasil Dihapus!','success')->position('bottom-end')->width('fit-content');
     }
   }
 }

@@ -42,10 +42,12 @@ class SessionController extends Controller
 
             //jika autentikasi sukses
             if(Auth::user()->role == 'user'){
-                return redirect('/home')->with(['success' => 'Berhasil Login!']);
+                toast('Berhasil Login!','success')->position('bottom-end')->width('fit-content');
+                return redirect('/home');
             }
             if(Auth::user()->role == 'admin'){
-                return redirect('/administrator')->with(['success' => 'Berhasil Login!']);
+                toast('Berhasil Login!','success')->position('bottom-end')->width('fit-content');
+                return redirect('/administrator');
             }    
             // return redirect('/home')->with(['success' => 'Berhasil Login!']);
             // return redirect('/home')->with('success', 'Berhasil Login');
@@ -61,7 +63,8 @@ class SessionController extends Controller
     {
         Auth::logout();
         // return redirect('/home')->with(['success' => 'Berhasil Logout!']);
-        return redirect('/home')->with('success', 'Berhasil Logout');
+        toast('Logout Berhasil!','success')->position('bottom-end')->width('fit-content');
+        return redirect('/home');
     }
 
     function register()
@@ -97,8 +100,6 @@ class SessionController extends Controller
             'no_hp' => $request->no_hp,
             'password' => Hash::make($request->password),
         ];
-
-
 
         Users::create($data);
 
