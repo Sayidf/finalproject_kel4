@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Users;
+use App\Models\Reservasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PDF;
@@ -18,7 +19,12 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $customer = Users::all();
+        // $customer = Users::all();
+        $customer = DB::table('users')
+        ->selectRaw('users.id, users.fullname, users.username, users.email, users.no_hp, users.role, count(reservasi.id_users) as jumlah')
+        ->leftjoin('reservasi', 'reservasi.id_users', '=', 'users.id')
+        ->groupBy('users.id', 'reservasi.id_users', 'users.fullname', 'users.username', 'users.email', 'users.no_hp', 'users.role')
+        ->get();
         return view('customer.index', compact('customer'));
     }
 
