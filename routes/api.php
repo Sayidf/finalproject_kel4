@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ReservasisController;
+use App\Http\Controllers\Api\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/reservasi', [ReservasisController::class, 'index']);
 Route::get('/reservasi/{id}', [ReservasisController::class, 'show']);
 Route::post('/reservasi-create', [ReservasisController::class, 'store']);
+
+Route::get('/menu', [MenuController::class, 'index']);
+Route::get('/menu/{id}', [MenuController::class, 'show']);
