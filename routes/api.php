@@ -20,3 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/reservasi', [ReservasisController::class, 'index']);
+Route::get('/reservasi/{id}', [ReservasisController::class, 'show']);
+Route::post('/reservasi-create', [ReservasisController::class, 'store']);
