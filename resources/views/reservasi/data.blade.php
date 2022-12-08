@@ -27,10 +27,11 @@
 					Anda belum melakukan reservasi, silahkan reservasi terlebih dahulu
 				@else
         <div class="card-body">
-          <div class="table-responsive">
-            <table id="example3" class="display w-100" style="min-width: 845px">
+          <div class="table-responsive container table-reservation">
+            <table id="example3" class="table display w-100 text-white text-center border-temp-primary align-middle" cellspacing="0">
               <thead>
                 <tr>
+                  <th><strong>ID Booking</strong></th>
                   <th><strong>Nama</strong></th>
                   <th><strong>Tanggal Reservasi</strong></th>
                   <th><strong>Check In</strong></th>
@@ -43,6 +44,7 @@
               <tbody>
                 @foreach ($data_reservasi as $res)
                   <tr>
+                    <td>{{ sprintf('%07d', $res->id) }}</td>
                     <td>{{ $res->users->fullname }}</td>
                     <td>{{ $res->tgl_reservasi }}</td>
                     <td>{{ $res->jam_in }}</td>

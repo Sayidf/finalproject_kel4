@@ -38,6 +38,10 @@ h6 {
     color: #cda45e;
 }
 
+.border-temp-primary{
+    border-bottom: 1px solid #cda45e;
+}
+
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -2140,100 +2144,6 @@ a.btn-cart .badge{
 
 /* custom cart */
 
-body::-webkit-scrollbar {
-    display: none;
-}
-
-.img-responsive{
-    width: 100px;
-    max-width: 100%;
-    height: auto;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.form-control {
-    margin-left: auto;
-    margin-right: auto;
-    }
-
- .table-responsive{
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 300px;
-    color: #fff;
-    overflow: hidden;
-}
-
-.table-responsive tr{
-    border-top: 1px solid #cda45e;
-    border-bottom: 1px solid #cda45e;
-    border-color: #cda45e;
-}
-
-
-.table-responsive th,
-.table-responsive td{
-    text-align: center;
-    margin: .5em 1em;
-}
-
-.table-responsive th{
-    display: none;
-}
-
-.table-responsive td{
-    display: block;
-}
-
-.table-responsive td:first-child{
-    padding-top: .5em;
-}
-
-.table-responsive td:last-child{
-    padding-bottom: .5em;
-}
-
-.table-responsive td::before{
-    content: attr(data-th)" ";
-    width: 14px;
-    /* display: inline-block; */
-}
-
-.table-responsive th, 
-.table-responsive td::before{
-    color: #ddd;
-}
-@media (min-width: 600px){
-    .table-responsive td::before{
-        display: none;
-    }
-
-    .table-responsive{
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .table-responsive th, 
-    .table-responsive td{
-        display: table-cell;
-        padding: .25em .5em;
-        padding: 1em !important;
-    }
-
-    .table-responsive th:first-child, 
-    .table-responsive td:first-child{
-        padding-left: 0;
-    }
-    .table-responsive th:last-child, 
-    .table-responsive td:last-child{
-        padding-right: 0;
-    }
-}
-
 #cart > tbody > tr:nth-last-child(1) > td:nth-last-child(-n + 5){
     border-bottom: 1px solid rgb(87, 87, 87);
 }
@@ -2355,3 +2265,114 @@ section.cart-section {
     width: 50px;
     text-align: center;
 }
+
+.table-reservation .table td:nth-child(2) {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+@media only screen and (max-width: 767px) {
+    /* Force table to not be like tables anymore */
+    .table-reservation table,
+    .table-reservation thead,
+    .table-reservation tbody,
+    .table-reservation th,
+    .table-reservation td,
+    .table-reservation tr {
+      display: block;
+      text-align: left;
+      border: none;
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    .table-reservation thead tr,
+    .table-reservation tfoot tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    .table-reservation td {
+      /* Behave  like a "row" */
+      border: none;
+      position: relative;
+      padding-left: 50% !important;
+      vertical-align: middle!important;
+      font-weight: 300;
+      background:rgb(31, 31, 31);
+    }
+
+    .table-reservation tr {
+        /* Behave  like a "row" */
+        margin-bottom: 0px;
+    }
+
+
+    .table-reservation td:before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 8px;
+      left: 10px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+  
+    .table-reservation .table td:nth-child(1) {
+      background: #cda45e;
+      height: 100%;
+      top: 0;
+      left: 0;
+      font-weight: bold;
+    }
+    
+    /*
+      Label the data
+      */
+    .table-reservation td:nth-of-type(1):before {
+      content: "ID Booking";
+    }
+    .table-reservation td:nth-of-type(2):before {
+      content: "Nama";
+      font-weight: 500;
+    }
+    .table-reservation td:nth-of-type(3):before {
+      content: "Tanggal Reservasi";
+      font-weight: 500;
+    }
+    .table-reservation td:nth-of-type(4):before {
+      content: "Check In";
+      font-weight: 500;
+    }
+    .table-reservation td:nth-of-type(5):before {
+      content: "Jumlah Orang";
+      font-weight: 500;
+    }
+    .table-reservation td:nth-of-type(6):before {
+      content: "Status";
+      font-weight: 500;
+    }
+    .table-reservation td:nth-of-type(7):before {
+      content: "No Meja";
+      font-weight: 500;
+    }
+    .table-reservation td:nth-of-type(8) {
+      display: none;
+    }
+    .table-reservation tr:nth-last-child(1) > td:nth-last-child(1){
+      display: block
+    }
+    
+    .table-reservation td:nth-of-type(8) > div > .btn {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+
+    }
+    .table-reservation td:nth-of-type(8) > div {
+        padding: 10px 0 20px 0;
+        margin: auto;
+    }
+  }

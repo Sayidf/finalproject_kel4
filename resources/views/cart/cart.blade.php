@@ -133,7 +133,7 @@
                       @endif
                     @endempty
                     @else
-                      <a href="{{ url('/login') }}" class="btn btn-dark p-3">Checkout</a>
+                      <button onclick="location.href='{{ url('/login') }}'" class="d-grid align-items-center">Checkout</button>
                     @endif
                   </div>                       
                 </div>        
@@ -232,5 +232,9 @@
         }
         lastScrollTop = st;
     });
+    $('.mobile-nav-toggle').click(function () {
+        $('.checkout-menu').toggleClass('d-none');
+    });
+
   </script>
 @endsection
