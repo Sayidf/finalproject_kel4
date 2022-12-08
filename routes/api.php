@@ -26,3 +26,4 @@ Route::post('/reservasi-create', [ReservasisController::class, 'store']);
 
 Route::get('/menu', [MenuController::class, 'index']);
 Route::get('/menu/{id}', [MenuController::class, 'show']);
+Route::get('/menu-create', [MenuController::class, 'store']);
