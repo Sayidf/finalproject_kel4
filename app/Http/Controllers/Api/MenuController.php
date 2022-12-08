@@ -53,7 +53,6 @@ class MenuController extends Controller
                 'nama'=>$request->nama,
                 'harga'=>$request->harga,
                 'ket'=>$request->ket,
-                'foto'=>$fileName,
                 'created_at'=>now(),
             ]);
 
