@@ -39,7 +39,6 @@ class MenuController extends Controller
             'nama' => 'required|unique:menu|max:45',
             'harga' => 'required|max:10',
             'ket' => 'nullable',
-            'foto' => 'nullable|image|mimes:jpg,jpeg,png,gif,svg|max:2048'
         ]);
 
         //cek error
