@@ -119,3 +119,4 @@ Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remo
 //Verifikasi Status
 Route::get('canceled/{id}', [ReservasiController::class, 'canceled']);
 Route::get('approved/{id}', [ReservasiController::class, 'approved']);
+Route::get('done/{id}', [ReservasiController::class, 'done']);
