@@ -44,31 +44,31 @@
                   </tr>
                 </thead>
                 <tbody>
-									@php
-										$no = 1;
-									@endphp
-									@foreach ($customer as $row)
+                  @php
+                  	$no = 1;
+                  @endphp
+                  @foreach ($customer as $row)
                     @if ($row->role == 'user')
-									    <tr>
-									    	<td>{{$no++}}</td>
-									    	<td>{{ $row->fullname }}</td>
-									    	<td>{{ $row->username }}</td>
-									    	<td>{{ $row->email }}</td>
-									    	<td>{{ $row->no_hp }}</td>
-									    	<td>{{ $row->jumlah }}</td>
-									    	<td>
-									    		<div class="d-flex">
-									    			<form method="POST" id="formDelete">
-									    				@csrf
-									    				@method('DELETE')
-									    					<button type="submit" data-action="{{ route('customer.destroy',$row->id) }}" class="btn btn-danger shadow btn-xs sharp btnDelete" title="Hapus Customer"><i class="fa fa-trash"></i></button>
-									    			</form>
-									    		</div>
-									    	</td>
+                      <tr>
+                      	<td>{{$no++}}</td>
+                      	<td>{{ $row->fullname }}</td>
+                      	<td>{{ $row->username }}</td>
+                      	<td>{{ $row->email }}</td>
+                      	<td>{{ $row->no_hp }}</td>
+                      	<td>{{ $row->jumlah }}</td>
+                      	<td>
+                      		<div class="d-flex">
+                      			<form method="POST" id="formDelete">
+                      				@csrf
+                      				@method('DELETE')
+                      					<button type="submit" data-action="{{ route('customer.destroy',$row->id) }}" class="btn btn-danger shadow btn-xs sharp btnDelete" title="Hapus Customer"><i class="fa fa-trash"></i></button>
+                      			</form>
+                      		</div>
+                      	</td>
                       </tr>
                       @else
                     @endif
-									@endforeach
+                  @endforeach
                 </tbody>
               </table>
             </div>

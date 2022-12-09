@@ -89,48 +89,54 @@
               </button> --}}
               <ul style="min-width:300px">
                 <li>
-                  <div class="border-0 bg-menu text-dark w-100 card">
-                    <div class="text-left card-body"><span class="text-small">Ada <b>{{ count((array) session('cart')) }}</b> menu di keranjang Anda</span></div>
-                  </div>
-                  <div class="scrollable-menu">
-                    @php $total = 0 @endphp
-                    @foreach ((array) session('cart') as $id => $details)
-                      @php $total += $details['harga'] * $details['quantity'] @endphp
-                    @endforeach
-                    @if (session('cart'))
-                      @foreach (session('cart') as $id => $details)
-                        <div class="m-3 border-0 bg-menu text-dark card">
-                          <div class="card-body p-0 border-bottom border-2 border-light">
-                            <div class="row mb-1">
-                              <div class="col-3 cart-menu-img">
-                                @empty($details['foto'])
-                                  <img src="{{ url('/public/assets/img/menu/placeholder.jpg') }}">
-                                @else
-                                  <img src="{{ url('/public/assets/img/menu') }}/{{ $details['foto'] }}">
-                                @endempty
-                              </div>
-                              <div class="col">
-                                <div class="mt-1">
-                                  <span class="fw-bold text-small">{{ $details['nama'] }}</span>
-                                  <p class="text-secondary"><small>Rp {{ number_format($details['harga'], 0, ',', '.') }}&nbsp;&nbsp;|&nbsp;&nbsp;Qty : {{ $details['quantity'] }}</small></p>
+                  @php $total = 0 @endphp
+                  @foreach ((array) session('cart') as $id => $details)
+                    @php $total += $details['harga'] * $details['quantity'] @endphp
+                  @endforeach
+                  @if (count((array) session('cart')) == 0)
+                    <div class="border-0 bg-menu text-dark w-100 card">
+                      <div class="text-left card-body"><span class="text-small">Silahkan pilih menu terlebih dahulu</span></div>
+                    </div>
+                  @else
+                    <div class="border-0 bg-menu text-dark w-100 card">
+                      <div class="text-left card-body"><span class="text-small">Ada <b>{{ count((array) session('cart')) }}</b> menu di keranjang Anda</span></div>
+                    </div>
+                    <div class="scrollable-menu">
+                      @if (session('cart'))
+                        @foreach (session('cart') as $id => $details)
+                          <div class="m-3 border-0 bg-menu text-dark card">
+                            <div class="card-body p-0 border-bottom border-2 border-light">
+                              <div class="row mb-1">
+                                <div class="col-3 cart-menu-img">
+                                  @empty($details['foto'])
+                                    <img src="{{ url('/public/assets/img/menu/placeholder.jpg') }}">
+                                  @else
+                                    <img src="{{ url('/public/assets/img/menu') }}/{{ $details['foto'] }}">
+                                  @endempty
+                                </div>
+                                <div class="col">
+                                  <div class="mt-1">
+                                    <span class="fw-bold text-small">{{ $details['nama'] }}</span>
+                                    <p class="text-secondary"><small>Rp {{ number_format($details['harga'], 0, ',', '.') }}&nbsp;&nbsp;|&nbsp;&nbsp;Qty : {{ $details['quantity'] }}</small></p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      @endforeach
-                    @endif
-                  </div>
-                  <div class="border-0 bg-menu text-dark text-cart card">
-                    <div class="card-body">
-                      <p><span>Subtotal : </span><b class="float-end">Rp {{ number_format($total, 0, ',', '.') }}</b></p>
-                        @if (Auth::check())
-                          <a href="{{ url('/cart' . '/' . Auth::user()->id) }}" class="btn btn-primary text-white text-center cart-button">Lihat Keranjang</a> 
-                        @else
-                          <a href="{{ url('/cart') }}" class="btn btn-primary text-white text-center cart-button">Lihat Keranjang</a> 
-                        @endif
+                        @endforeach
+                      @endif
                     </div>
-                  </div>                
+                    <div class="border-0 bg-menu text-dark text-cart card">
+                      <div class="card-body">
+                        <p><span>Subtotal : </span><b class="float-end">Rp {{ number_format($total, 0, ',', '.') }}</b></p>
+                          @if (Auth::check())
+                            <a href="{{ url('/cart' . '/' . Auth::user()->id) }}" class="btn btn-primary text-white text-center cart-button">Lihat Keranjang</a> 
+                          @else
+                            <a href="{{ url('/cart') }}" class="btn btn-primary text-white text-center cart-button">Lihat Keranjang</a> 
+                          @endif
+                      </div>
+                    </div>  
+                  @endif              
                 </li>
               </ul>
             </li>
@@ -151,7 +157,6 @@
                       <a href="{{ url('/administrator') }}" class="my-3">Menu Admin</a>
                     @endif 
                     <a href="{{ url('sesi/logout') }}">Logout</a>
-
                   {{-- Jika belum login tampilkan tombol login --}}
                   @else
                     <li class="text-center"><a href="{{ url('/login') }}" class="text-center d-block">Login atau Register</a></li>  

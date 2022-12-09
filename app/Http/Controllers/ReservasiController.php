@@ -159,6 +159,13 @@ class ReservasiController extends Controller
         $data->save();
         return redirect()->back();
     }
+    public function done($id)
+    {
+        $data = Reservasi::find($id);
+        $data->status = 'done';
+        $data->save();
+        return redirect()->back();
+    }
 
 
     //Resrevasi API

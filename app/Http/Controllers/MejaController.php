@@ -133,4 +133,36 @@ class MejaController extends Controller
     {
         return Excel::download(new MejaExport, 'data_meja.xlsx');
     }
+
+    public function apiMeja()
+    {
+        $meja = Meja::all();
+        return response()->json(
+            [
+                'success'=>true,
+                'message'=>'Data Meja',
+                'data'=>$meja,
+            ],200);
+    }
+
+    public function apiMejaDetail($id)
+    {
+       
+        $meja = Meja::find($id);
+        if($meja){ //jika data meja ditemukan
+            return response()->json(
+                [
+                    'success'=>true,
+                    'message'=>'Detail Meja',
+                    'data'=>$meja,
+                ],200);
+        }
+        else{ //jika data meja tidak ditemukan
+            return response()->json(
+                [
+                    'success'=>false,
+                    'message'=>'Detail Meja Tidak ditemukan',
+                ],404);
+        }
+    }
 }

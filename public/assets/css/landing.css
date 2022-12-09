@@ -38,6 +38,10 @@ h6 {
     color: #cda45e;
 }
 
+.border-temp-primary{
+    border-bottom: 1px solid #cda45e;
+}
+
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -499,71 +503,6 @@ section.login {
     .navbar ul, .login-nav > span{
         display: none;
     }
-
-    .navbar-user ul{
-        display: block;
-        margin-right: 15px;
-    }
-
-    .navbar-user ul .reservation-nav{
-        display: none;
-    }
-
-    .navbar-user ul .user-nav{
-        display: none;
-    }
-
-    .navbar-user .dropdown ul{
-        top: calc(100% + 30px);
-        padding: 0;
-        margin: 0;
-        left: unset;
-    }
-
-    .navbar-user .dropdown ul li{
-        min-width: unset;
-    }
-
-    .custom-navbar-mobile{
-        display: block!important;
-        padding: 0px 20px 0px 20px;
-    }
-
-    .custom-navbar-mobile a{
-        padding: 10px 10px!important;
-    }
-
-    .login-nav a.nav-link{
-        margin-top: 1px!important;
-        margin-right: 15px;
-        border-radius: 4px;
-        padding: 7px 20px 8px 20px;
-        transition: 0.3s;
-        font-size: 14px;
-        display: inline-block;
-        border: 2px solid #cda45e;
-        text-decoration: none;
-        background: none;
-        color: #fff;
-    }
-
-    .login-nav a.nav-link:hover{
-        background: #cda45e;
-        color: #343a40;
-    }
-
-    .login-nav a.nav-link i{
-        font-size: 12px
-    }
-
-    .contact-info span{
-        font-size: 13px;
-    }
-
-    .menu .nav-menu li.nav-item{
-        margin-top: 10px;
-    }
-    
 }
 
 .navbar-mobile {
@@ -2047,6 +1986,80 @@ section .about {
     color: #fff;
 }
 
+/*--------------------------------------------------------------
+# Navbar Cart
+--------------------------------------------------------------*/
+
+@media (max-width: 991px) {
+    .navbar-user ul{
+        display: block;
+        margin-right: 15px;
+    }
+
+    .navbar-user ul .reservation-nav{
+        display: none;
+    }
+
+    .navbar-user ul .user-nav{
+        display: none;
+    }
+
+    .navbar-user .dropdown ul{
+        top: calc(100% + 30px);
+        padding: 0;
+        margin: 0;
+        left: unset;
+    }
+
+    .navbar-user .dropdown ul li{
+        min-width: unset;
+    }
+
+    .custom-navbar-mobile{
+        display: block!important;
+        padding: 0px 20px 0px 20px;
+    }
+
+    .custom-navbar-mobile a{
+        padding: 10px 10px!important;
+    }
+
+    .login-nav a.nav-link{
+        margin-top: 1px!important;
+        margin-right: 15px;
+        border-radius: 4px;
+        padding: 7px 20px 8px 20px;
+        transition: 0.3s;
+        font-size: 14px;
+        display: inline-block;
+        border: 2px solid #cda45e;
+        text-decoration: none;
+        background: none;
+        color: #fff;
+    }
+
+    .login-nav a.nav-link:hover{
+        background: #cda45e;
+        color: #343a40;
+    }
+
+    .login-nav a.nav-link i{
+        font-size: 12px
+    }
+
+    .contact-info span{
+        font-size: 13px;
+    }
+
+    .menu .nav-menu li.nav-item{
+        margin-top: 10px;
+    }
+}
+
+/*--------------------------------------------------------------
+# Navbar Cart
+--------------------------------------------------------------*/
+
 .cart h1, h2, h3, h4, h5, h6{
     font-family: "Poppins", sans-serif;
 }
@@ -2087,6 +2100,11 @@ a.cart-button:hover{
     color: #fff!important;
     cursor: pointer;
     padding: 10px;
+}
+
+a.cart-button:active{
+    background-color: #ceb997!important;
+    border-color: #ceb997!important;
 }
 
 .cart-menu-img img{
@@ -2138,138 +2156,15 @@ a.btn-cart .badge{
     background-color: rgb(61, 61, 61, 0.9);
 }
 
-/* custom cart */
-
-body::-webkit-scrollbar {
-    display: none;
-}
-
-.img-responsive{
-    width: 100px;
-    max-width: 100%;
-    height: auto;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.form-control {
-    margin-left: auto;
-    margin-right: auto;
-    }
-
- .table-responsive{
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 300px;
-    color: #fff;
-    overflow: hidden;
-}
-
-.table-responsive tr{
-    border-top: 1px solid #cda45e;
-    border-bottom: 1px solid #cda45e;
-    border-color: #cda45e;
-}
-
-
-.table-responsive th,
-.table-responsive td{
-    text-align: center;
-    margin: .5em 1em;
-}
-
-.table-responsive th{
-    display: none;
-}
-
-.table-responsive td{
-    display: block;
-}
-
-.table-responsive td:first-child{
-    padding-top: .5em;
-}
-
-.table-responsive td:last-child{
-    padding-bottom: .5em;
-}
-
-.table-responsive td::before{
-    content: attr(data-th)" ";
-    width: 14px;
-    /* display: inline-block; */
-}
-
-.table-responsive th, 
-.table-responsive td::before{
-    color: #ddd;
-}
-@media (min-width: 600px){
-    .table-responsive td::before{
-        display: none;
-    }
-
-    .table-responsive{
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .table-responsive th, 
-    .table-responsive td{
-        display: table-cell;
-        padding: .25em .5em;
-        padding: 1em !important;
-    }
-
-    .table-responsive th:first-child, 
-    .table-responsive td:first-child{
-        padding-left: 0;
-    }
-    .table-responsive th:last-child, 
-    .table-responsive td:last-child{
-        padding-right: 0;
-    }
-}
-
-#cart > tbody > tr:nth-last-child(1) > td:nth-last-child(-n + 5){
-    border-bottom: 1px solid rgb(87, 87, 87);
-}
-
-#cart > tbody > tr:nth-child(1) > td:nth-last-child(-n + 5){
-    border-top: 1px solid rgb(87, 87, 87);
-}
-
-#cart > tbody > tr:nth-child(1) > td:nth-child(1){
-    padding-top: unset;
-}
-
-#cart > tbody > tr:nth-last-child(1) > td:nth-child(1){
-    padding-bottom: unset;
-}
-
-#cart > tbody > tr > td > img{
-    width: 100px;
-    height: 100px;;
-}
-
-table#cart{
-    border-collapse: separate;
-    border-spacing: 0 20px; /* this is the ultimate fix */
-}
-
-/* table tbody { display: block; max-height:400px; overflow-y:scroll; }
-table thead, table tbody tr { table-layout:fixed; } */
-
 .scrollable-menu {
     height: auto;
     max-height: 350px;
     overflow-x: hidden;
 }
 
-/* Cart */
+/*--------------------------------------------------------------
+# Tampilan Cart
+--------------------------------------------------------------*/
 
 section.cart-section {
     min-height: 100vh;
@@ -2351,7 +2246,74 @@ section.cart-section {
     }
 }
 
-.quantity{
+#cart .quantity{
     width: 50px;
     text-align: center;
 }
+
+#cart > tbody > tr:nth-last-child(1) > td:nth-last-child(-n + 5){
+    border-bottom: 1px solid rgb(87, 87, 87);
+}
+
+#cart > tbody > tr:nth-child(1) > td:nth-last-child(-n + 5){
+    border-top: 1px solid rgb(87, 87, 87);
+}
+
+#cart > tbody > tr:nth-child(1) > td:nth-child(1){
+    padding-top: unset;
+}
+
+#cart > tbody > tr:nth-last-child(1) > td:nth-child(1){
+    padding-bottom: unset;
+}
+
+#cart > tbody > tr > td > img{
+    width: 100px;
+    height: 100px;;
+}
+
+table#cart{
+    border-collapse: separate;
+    border-spacing: 0 20px; /* this is the ultimate fix */
+}
+
+/*--------------------------------------------------------------
+# Tampilan Reservasi Mobile
+--------------------------------------------------------------*/
+@media only screen and (max-width: 767px) {
+    #accordion-reservasi{
+        --bs-accordion-border-radius: 0px;
+    }
+    #accordion-reservasi table tr > td:nth-child(1){
+        font-weight: bold!important;
+    }
+    #accordion-reservasi .accordion-header button{
+        background: unset;
+        color: white;
+    }
+    #accordion-reservasi .accordion-item{
+        border: none;
+        border-bottom: 1px solid #cda45e;
+        background: none;
+    }
+    #accordion-reservasi .accordion-body{
+        background: none;
+        border-top: 1px solid white;
+    }
+    #accordion-reservasi .accordion-button:not(.collapsed) {
+        box-shadow: none;
+    }
+    #accordion-reservasi .accordion-button::after {
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
+    }
+    #accordion-reservasi .accordion-button:focus {
+        box-shadow: none;
+        border-color: #cda45e
+    }
+    #accordion-reservasi{
+        display: block!important;
+    }
+    .table-reservation{
+        display: none;
+    }
+  }

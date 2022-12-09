@@ -119,11 +119,4 @@ Route::delete('remove-from-cart', [CartController::class, 'remove'])->name('remo
 //Verifikasi Status
 Route::get('canceled/{id}', [ReservasiController::class, 'canceled']);
 Route::get('approved/{id}', [ReservasiController::class, 'approved']);
-
-//rest API Reservasi
-Route::get('/api-reservasi', [ReservasiController::class, 'apiReservasi']);
-Route::get('api-reservasi/{id}', [ReservasiController::class,'apiReservasiDetail']);
-
-//rest API Menu
-Route::get('/api-menu', [MenuController::class, 'apiMenu']);
-Route::get('api-menu/{id}', [MenuController::class,'apiMenuDetail']);
+Route::get('done/{id}', [ReservasiController::class, 'done']);

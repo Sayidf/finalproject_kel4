@@ -1,5 +1,8 @@
 @extends('landingpage.index')
 @section('content')
+@php
+  $reservasi = App\Models\Reservasi::orderBy('id', 'DESC')->first();
+@endphp
   <section id="cart-section" class="cart-section" style="background: #1a1814">
     <div class="container p-4">
       <div class="cart-desktop">
@@ -55,7 +58,7 @@
                   <button onclick="location.href='{{ url('/reservasi') }}'" class="btn btn-dark p-3">Checkout</button>
                 @else
                   @if ($ar_reservasi->status == 'approved')
-                    <button onclick="location.href='#'" class="btn btn-dark p-3">Checkout</button>
+                  <button type="button" class="btn btn-dark p-3" data-bs-toggle="modal" data-bs-target="#checkout-modal">Checkout</button>
                   @elseif ($ar_reservasi->status == 'pending')
                     <button onclick="errorSweetAlert()" class="btn btn-dark p-3">Checkout</button>
                   @else
@@ -121,19 +124,19 @@
                 <div class="d-flex h-100">
                   <div class="d-flex align-items-center checkout-btn">
                     @if (Auth::check())
-                    @empty($ar_reservasi)
-                      <button onclick="location.href='{{ url('/reservasi') }}'" class="d-grid align-items-center">Checkout</button>
-                    @else
-                      @if ($ar_reservasi->status == 'approved')
-                        <button onclick="location.href='#'" class="d-grid align-items-center">Checkout</button>
-                      @elseif ($ar_reservasi->status == 'pending')
-                        <button onclick="errorSweetAlert()" class="d-grid align-items-center">Checkout</button>
-                      @else
+                      @empty($ar_reservasi)
                         <button onclick="location.href='{{ url('/reservasi') }}'" class="d-grid align-items-center">Checkout</button>
-                      @endif
-                    @endempty
+                      @else
+                        @if ($ar_reservasi->status == 'approved')
+                          <button type="button" class="d-grid align-items-center" data-bs-toggle="modal" data-bs-target="#checkout-modal">Checkout</button>
+                        @elseif ($ar_reservasi->status == 'pending')
+                          <button onclick="errorSweetAlert()" class="d-grid align-items-center">Checkout</button>
+                        @else
+                          <button onclick="location.href='{{ url('/reservasi') }}'" class="d-grid align-items-center">Checkout</button>
+                        @endif
+                      @endempty
                     @else
-                      <a href="{{ url('/login') }}" class="btn btn-dark p-3">Checkout</a>
+                      <button onclick="location.href='{{ url('/login') }}'" class="d-grid align-items-center">Checkout</button>
                     @endif
                   </div>                       
                 </div>        
@@ -162,6 +165,36 @@
         {{-- </div>
       </div> --}}
     </div>
+  <!-- Modal -->
+  <div class="modal fade text-dark" id="checkout-modal" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Informasi Pembayaran</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h6>Ringkasan Belanja</h6>
+            <div class="pb-3 border-1 border-bottom border-dark">
+              <div class="d-flex justify-content-between text-tiny text-black-50">
+                <span>Total Pesanan {{ count((array) session('cart')) }} Menu</span>
+                <span>Rp {{ number_format($total, 0, ',', '.') }}</span>
+              </div>
+            </div>
+            <div class="pt-3">
+              <div class="d-flex justify-content-between">
+                <div class="row">
+                  <span class="text-tiny">Total Belanja</span>
+                  <span class="fs-5 fw-bold">Rp {{ number_format($total, 0, ',', '.') }}</span>
+                </div>
+                  <button onclick="location.href='{{ url('done', $reservasi->id) }}'" class="btn btn-dark text-tiny">Konfirmasi Pembayaran</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   </section>
 @endsection
 @section('scripts')
@@ -232,5 +265,9 @@
         }
         lastScrollTop = st;
     });
+    $('.mobile-nav-toggle').click(function () {
+        $('.checkout-menu').toggleClass('d-none');
+    });
+
   </script>
 @endsection
