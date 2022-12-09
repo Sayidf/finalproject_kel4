@@ -75,7 +75,74 @@
             </table>
           </div>
         </div>
-				@endif
+        {{-- Tampilan Mobile --}}
+        <div class="accordion d-none" id="accordion-reservasi">
+          @foreach ($data_reservasi as $res)
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="accordion-resv-heading{{ $res->id }}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-resv-collapse{{ $res->id }}" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+                  <table>
+                    <tr>
+                      <td width="100px">{{ date("d-m-Y", strtotime($res->tgl_reservasi)) }}</td>
+                      <td><span class="text-white-50">({{ $res->jml_orang }} Orang)</span></td>
+                    </tr>
+                  </table>
+                </button>
+              </h2>
+              <div id="accordion-resv-collapse{{ $res->id }}" class="accordion-collapse collapse" aria-labelledby="accordion-resv-heading{{ $res->id }}">
+                <div class="accordion-body">
+                  <table class="table text-white">
+                    <tr>
+                      <td>ID Booking</td>
+                      <td>{{ sprintf('%07d', $res->id) }}</td>
+                    </tr>
+                    <tr>
+                      <td>Nama</td>
+                      <td>{{ $res->users->fullname }}</td>
+                    </tr>
+                    <tr>
+                      <td>Tanggal Reservasi</td>
+                      <td>{{ date("d-m-Y", strtotime($res->tgl_reservasi)) }}</td>
+                    </tr>
+                    <tr>
+                      <td>Check In</td>
+                      <td>{{ $res->jam_in }}</td>
+                    </tr>
+                    <tr>
+                      <td>Jumlah Orang</td>
+                      <td>{{ $res->jml_orang }}</td>
+                    </tr>
+                    <tr>
+                      <td>Status</td>
+                      <td>                      
+                        @if ($res->status == 'pending')
+                          <span class="badge light bg-warning rounded-pill">Pending</span>
+                        @elseif ($res->status == 'approved')
+                          <span class="badge light bg-success rounded-pill">Successful</span>
+                        @elseif ($res->status == 'done')
+                          <span class="badge light bg-success rounded-pill">Done</span>
+                        @else
+                          <span class="badge light bg-danger rounded-pill">Cancel</span>
+                        @endif
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>No Meja</td>
+                      <td>{{ $res->meja->no_meja }}</td>
+                    </tr>
+                    @if ($res->status == 'pending')
+                      <tr>
+                        <td class="align-middle">Aksi</td>
+                        <td><a href="{{ url('canceled', $res->id) }}" class="btn btn-danger text-tiny">Cancel</a></td>
+                      </tr>
+                    @endif
+                  </table>
+                </div>
+              </div>
+            </div>
+          @endforeach
+        </div>
+        @endif
       </div>
     </div>
   </section>
