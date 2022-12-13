@@ -72,4 +72,46 @@ class ReservasisController extends Controller
 
         return new ReservasisResource(true, 'Data reservasi berhasil di input',$reservasi);
     }
+
+    public function update(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(),[
+            'tgl_reservasi' => 'required',
+            'jam_in' => 'required|date_format:H:i',
+            'jam_out' => 'required|date_format:H:i',
+            'id_meja' => 'required|integer',
+            'id_users' => 'integer',
+            'jml_orang' => 'required|integer',
+            'created_at' => now(),
+        ], [
+            'tgl_reservasi.required' => 'Tanggal Wajib di isi',
+            'jam_in.required' => 'Waktu Check In Wajib di isi',
+            'jam_out.required' => 'Waktu Check Out Wajib di isi',
+            'id_meja.required' => 'Silahkan Pilih Nomor Meja',
+            'jml_orang.required' => 'Silahkan masukan Jumlah Orang',
+
+        ]);
+
+        //cek error
+        if($validator->fails()){
+            return response()->json($validator->errors(),422);
+        }
+
+        $reservasi = Reservasi::whereId($id)->update([
+
+            'tgl_reservasi' => $request->tgl_reservasi,
+            'jam_in' => $request->jam_in,
+            'jam_out' => $request->jam_out,
+            'id_meja' => $request->id_meja,
+            'id_users' => $request->id_users,
+            'jml_orang' => $request->jml_orang,
+            'created_at' => now(),
+
+        ]);
+
+        return new ReservasisResource(true, 'Data reservasi berhasil di ubah',$reservasi);
+
+    }
+
+
 }
