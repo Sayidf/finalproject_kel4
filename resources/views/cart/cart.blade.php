@@ -199,7 +199,7 @@
       </div> --}}
 </div>
 <!-- Modal -->
-<div class="modal fade text-dark" id="checkout-modal" tabindex="-1" aria-labelledby="staticBackdropLabel"
+{{-- <div class="modal fade text-dark" id="checkout-modal" tabindex="-1" aria-labelledby="staticBackdropLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -228,7 +228,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 </div>
 </section>
 @endsection

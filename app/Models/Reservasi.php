@@ -21,4 +21,13 @@ class Reservasi extends Model
     {
         return $this->belongsTo(Meja::class, 'id_meja');
     }
+
+    public function pembayaran()
+    {
+        return $this->hasOne(Pembayaran::class);
+    }
+    public function order()
+    {
+        return $this->hasOne(Order::class);
+    }
 }

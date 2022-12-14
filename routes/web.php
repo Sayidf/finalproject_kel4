@@ -10,6 +10,7 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PembayaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -121,3 +122,6 @@ Route::post('/cart/checkout', [CartController::class, 'checkout']);
 Route::get('canceled/{id}', [ReservasiController::class, 'canceled']);
 Route::get('approved/{id}', [ReservasiController::class, 'approved']);
 Route::get('done/{id}', [ReservasiController::class, 'done']);
+
+//payment
+Route::resource('/pembayaran', PembayaranController::class);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Menu;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Reservasi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -96,6 +97,8 @@ class CartController extends Controller
   public function checkout(Request $request)
   {
 
+    $id = auth()->user()->id;
+    $data_reservasi = Reservasi::where('id_users', $id)->orderBy('id', 'desc')->first('id');
     //session cart
     $menu = Menu::all()->first();
 
@@ -127,7 +130,7 @@ class CartController extends Controller
     //Create Order
     $order = new Order();
     $order->total = $total_price;
-    $order->id_reservasi = Auth::id();
+    $order->id_reservasi = $data_reservasi->id;
     $order->save();
 
     //Create Order Detail
@@ -142,7 +145,7 @@ class CartController extends Controller
       $order_detail->save();
     }
 
-    return redirect()->back();
+    return redirect()->route('pembayaran.index');
     toast('Success Checkout', 'success')->position('bottom-end')->width('fit-content');
   }
 }
