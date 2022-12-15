@@ -10,7 +10,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <header id="header" class="fixed-top d-flex align-items-center">
   <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
-    <h1 class="logo me-auto me-lg-0"><a href="{{ url('/home') }}">NF Culinary</a></h1>
+    {{-- <h1 class="logo me-auto me-lg-0"><a href="{{ url('/home') }}">NF Culinary</a></h1> --}}
+    <a href="{{ url('/home') }}" class="logo me-auto me-lg-0"><img src="{{ url('/public/assets/img/logo.png') }}" class="img-fluid"></a>
     <nav id="navbar" class="navbar order-last order-lg-0">
       <ul>
         <li><a class="nav-link nav-72 {{ (request()->segment(1) == 'home' || '') ? 'active' : '' }}" href="{{ url('/home') }}">Home</a></li>
