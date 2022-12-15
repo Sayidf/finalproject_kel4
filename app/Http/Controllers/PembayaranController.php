@@ -6,8 +6,13 @@ use App\Models\Menu;
 use App\Models\OrderDetail;
 use App\Models\Pembayaran;
 use App\Models\Reservasi;
+use App\Models\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use DB;
+use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PembayaranExport;
 
 class PembayaranController extends Controller
 {
@@ -65,11 +70,14 @@ class PembayaranController extends Controller
         $order->total_bayar = $total_price;
         $order->id_reservasi = $data_reservasi->id;
         $order->save();
-
+        if($order->save()){
+            session()->forget('cart');
+        }
+    
         $data = Reservasi::find($data_reservasi->id);
         $data->status = 'done';
         $data->save();
-        return redirect()->back();
+        return redirect('/data-reservasi' . '/' . $id)->with('success', 'Pembayaran Berhasil!, Silahkan datang ketempat sesuai jadwal yang dipilih');
     }
 
     /**
@@ -116,4 +124,23 @@ class PembayaranController extends Controller
     {
         //
     }
+
+    public function indexAdmin()
+    {
+        $pembayaran = Pembayaran::all();
+        return view('pembayaran.admin', compact('pembayaran'));
+    }
+    
+    public function pembayaranPDF()
+    {
+        $pembayaran = Pembayaran::all();
+        $pdf = PDF::loadView('pembayaran.pembayaranPDF', ['pembayaran'=>$pembayaran]);
+        return $pdf->download('data_pembayaran.pdf');
+    }
+
+    public function pembayaranExcel() 
+    {
+        return Excel::download(new PembayaranExport, 'data_pembayaran.xlsx');
+    }
+
 }

@@ -106,66 +106,6 @@
               <div class="col-xl-12">
                 <div class="row">
                   <div class="col-xl-6 col-sm-6">
-                    <div class="card">
-                      <div class="card-body d-flex px-4 pb-4 justify-content-center">
-                        <div>
-                          <h4 class="fs-18 font-w600 mb-4 text-nowrap text-center">Chart Kategori Menu</h4>
-                          <div class="chartjs-size-monitor">
-                            <div class="chartjs-size-monitor-expand">
-                              <div class=""></div>
-                            </div>
-                            <div class="chartjs-size-monitor-shrink">
-                              <div class=""></div>
-                            </div>
-                          </div>
-                          <canvas id="doughnutChart" style="max-height: 241px; width: 300px"></canvas>
-                          <script>
-                            var lbl2 = [@foreach ($ar_kategori as $k)'{{ $k->nama }}', @endforeach];
-                            var jml = [@foreach ($ar_kategori as $k) {{ $k->jumlah }}, @endforeach];
-                            var colors = [
-                              ['rgba(101, 187, 166, 1)', 'rgba(101, 187, 166, 0.4)'],
-                              ['rgba(108, 185, 189, 1)', 'rgba(108, 185, 189, 0.4)'],
-                              ['rgba(128, 153, 186, 1)', 'rgba(128, 153, 186, 0.4)'],
-                              ['rgba(143, 140, 189, 1)', 'rgba(143, 140, 189, 0.4)'],
-                              ['rgba(159, 119, 184, 1)', 'rgba(159, 119, 184, 0.4)'],
-                            ];
-                            document.addEventListener("DOMContentLoaded", () => {
-                              new Chart(document.querySelector('#doughnutChart'), {
-                                type: 'doughnut',
-                                data: {
-                                  labels: lbl2,
-                                  datasets: [{
-                                    label: 'Kategori',
-                                    data: jml,
-                                    backgroundColor: ['rgb(108, 185, 189, 1)','rgb(128, 153, 186, 1)','rgb(143, 140, 189, 1)','rgb(159, 119, 184, 1)','rgb(166, 103, 160, 1)'],
-                                    hoverBackgroundColor: ['rgb(108, 185, 189, 1)','rgb(128, 153, 186, 1)','rgb(143, 140, 189, 1)','rgb(159, 119, 184, 1)','rgb(166, 103, 160, 1)'],
-                                    hoverBorderColor: ['rgb(108, 185, 189, 1)','rgb(128, 153, 186, 1)','rgb(143, 140, 189, 1)','rgb(159, 119, 184, 1)','rgb(166, 103, 160, 1)'],
-                                    borderColor: ['rgb(108, 185, 189, 1)','rgb(128, 153, 186, 1)','rgb(143, 140, 189, 1)','rgb(159, 119, 184, 1)','rgb(166, 103, 160, 1)'],
-                                    hoverBorderWidth: 10,
-                                  }]
-                                },
-                                options: {
-                                  plugins: {
-                                    legend: {
-                                      display: true,
-                                      position: 'bottom',
-                                      labels: {
-                                        boxHwidth: 15,
-                                        textAlign: 'left',
-                                        usePointStyle: true,
-                                        padding: 30,
-                                      },
-                                    }
-                                  }
-                                }
-                              });
-                            });
-                          </script>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-xl-6 col-sm-6">
                     <div class="row">
                       <div class="col-xl-12 col-sm-12">
                         <div class="widget-stat card">
@@ -194,12 +134,162 @@
                           <div class="card-body p-4">
                             <div class="media">
                               <span class="me-3">
-                                <i class="flaticon-381-calendar-1 text-success"></i>
+                                <i class="la la-dollar text-secondary"></i>
+                              </span>
+                              @foreach ($ar_penghasilan as $totalPenghasilan)
+                                <div class="media-body text-white">
+                                  <p class="mb-1">Penghasilan</p>
+                                  <?php
+                                    function thousandsCurrencyFormat($num) {
+                                      if($num>1000) {
+                                        $x = round($num);
+                                        $x_number_format = number_format($x);
+                                        $x_array = explode(',', $x_number_format);
+                                        $x_parts = array('rb', 'jt', 'ml', 'tl');
+                                        $x_count_parts = count($x_array) - 1;
+                                        $x_display = $x;
+                                        $x_display = $x_array[0] . ((int) $x_array[1][0] !== 0 ? '.' . $x_array[1][0] : '');
+                                        $x_display .= $x_parts[$x_count_parts - 1];
+                                        return $x_display;
+                                      }
+                                        return $num;
+                                    }
+                                  ?>
+                                  <h4 class="text-white fw-bold">Rp {{ thousandsCurrencyFormat($totalPenghasilan->jumlah) }}</h4>
+                                </div>
+                              @endforeach
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-sm-6">
+                    <div class="row">
+                      <div class="col-xl-12 col-sm-12">
+                        <div class="widget-stat card">
+                          <div class="card-body p-4">
+                            <div class="media">
+                              <span class="me-3">
+                                <i class="flaticon-381-calendar-1 text-warning"></i>
                               </span>
                               @foreach ($ar_reservasi as $totalReservasi)
                                 <div class="media-body">
-                                  <h6 class="mb-1">Reservasi</h6>
+                                  <h6 class="mb-1">Reservasi (Pending)</h6>
                                   <h4 class="fs-32 font-w700 mb-0">{{$totalReservasi->jumlah}}</h4>
+                                </div>
+                              @endforeach
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xl-12 col-sm-12">
+                        <div class="widget-stat card">
+                          <div class="card-body p-4">
+                            <div class="media">
+                              <span class="me-3">
+                                <i class="flaticon-381-calendar-1 text-success"></i>
+                              </span>
+                              @foreach ($ar_reservasi_done as $totalReservasi2)
+                                <div class="media-body">
+                                  <h6 class="mb-1">Reservasi (Selesai)</h6>
+                                  <h4 class="fs-32 font-w700 mb-0">{{$totalReservasi2->jumlah}}</h4>
+                                </div>
+                              @endforeach
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-sm-6">
+                    <div class="row">
+                      <div class="col-xl-12 col-sm-12">
+                        <div class="card">
+                          <div class="card-body d-flex px-4 pb-4 justify-content-center">
+                            <div>
+                              <h4 class="fs-18 font-w600 mb-4 text-nowrap text-center">Chart Kategori Menu</h4>
+                              <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                  <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                  <div class=""></div>
+                                </div>
+                              </div>
+                              <canvas id="doughnutChart" style="max-height: 241px; width: 300px"></canvas>
+                              <script>
+                                var lbl2 = [@foreach ($ar_kategori as $k)'{{ $k->nama }}', @endforeach];
+                                var jml = [@foreach ($ar_kategori as $k) {{ $k->jumlah }}, @endforeach];
+                                var colors = [
+                                  ['rgba(101, 187, 166, 1)', 'rgba(101, 187, 166, 0.4)'],
+                                  ['rgba(108, 185, 189, 1)', 'rgba(108, 185, 189, 0.4)'],
+                                  ['rgba(128, 153, 186, 1)', 'rgba(128, 153, 186, 0.4)'],
+                                  ['rgba(143, 140, 189, 1)', 'rgba(143, 140, 189, 0.4)'],
+                                  ['rgba(159, 119, 184, 1)', 'rgba(159, 119, 184, 0.4)'],
+                                ];
+                                document.addEventListener("DOMContentLoaded", () => {
+                                  new Chart(document.querySelector('#doughnutChart'), {
+                                    type: 'doughnut',
+                                    data: {
+                                      labels: lbl2,
+                                      datasets: [{
+                                        label: 'Kategori',
+                                        data: jml,
+                                        backgroundColor: ['rgb(108, 185, 189, 1)','rgb(128, 153, 186, 1)','rgb(143, 140, 189, 1)','rgb(159, 119, 184, 1)','rgb(166, 103, 160, 1)'],
+                                        hoverBackgroundColor: ['rgb(108, 185, 189, 1)','rgb(128, 153, 186, 1)','rgb(143, 140, 189, 1)','rgb(159, 119, 184, 1)','rgb(166, 103, 160, 1)'],
+                                        hoverBorderColor: ['rgb(108, 185, 189, 1)','rgb(128, 153, 186, 1)','rgb(143, 140, 189, 1)','rgb(159, 119, 184, 1)','rgb(166, 103, 160, 1)'],
+                                        borderColor: ['rgb(108, 185, 189, 1)','rgb(128, 153, 186, 1)','rgb(143, 140, 189, 1)','rgb(159, 119, 184, 1)','rgb(166, 103, 160, 1)'],
+                                        hoverBorderWidth: 10,
+                                      }]
+                                    },
+                                    options: {
+                                      plugins: {
+                                        legend: {
+                                          display: true,
+                                          position: 'bottom',
+                                          labels: {
+                                            boxHwidth: 15,
+                                            textAlign: 'left',
+                                            usePointStyle: true,
+                                            padding: 30,
+                                          },
+                                        }
+                                      }
+                                    }
+                                  });
+                                });
+                              </script>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-sm-6">
+                    <div class="row">
+                      <div class="col-xl-12 col-sm-12">
+                        <div class="card">
+                          <div class="card-body d-flex px-4 pb-1 justify-content-center">
+                            <div>
+                              <h4 class="fs-18 font-w600 mb-4 text-nowrap text-center">Pembelian Terbanyak</h4>
+                              @foreach ($ar_maxorder as $ttl)
+                                <div class="d-flex align-items-center mb-3">
+                                  <div class="flex-shrink-0">
+                                    @empty($ttl->foto)
+                                      <img src="{{ url('/public/assets/img/menu/placeholder.jpg') }}" width="70" class="img-responsive rounded-3 float-start px-0" />
+                                    @else
+                                      <img src="{{ url('/public/assets/img/menu') }}/{{ $ttl->foto }}" width="70" class="img-responsive rounded-3 float-start px-0" />
+                                    @endempty
+                                  </div>
+                                  <div class="flex-grow-1 ms-3">
+                                    <div class="fw-bold">
+                                      {{ $ttl->nama }}
+                                    </div>
+                                    <div class="">
+                                      Total : {{ $ttl->jumlah }}
+                                    </div>
+                                  </div>
                                 </div>
                               @endforeach
                             </div>

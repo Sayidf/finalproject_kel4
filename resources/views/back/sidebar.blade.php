@@ -33,6 +33,9 @@
           <li>
             <a href="{{ url('administrator/customer') }}">Data Customers</a>
           </li>
+          <li>
+            <a href="{{ url('administrator/pembayaran') }}">Data Pembayaran</a>
+          </li>
         </ul>
       </li>
     </ul>
