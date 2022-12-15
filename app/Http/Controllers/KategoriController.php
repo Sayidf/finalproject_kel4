@@ -127,4 +127,39 @@ class KategoriController extends Controller
     {
         return Excel::download(new KategoriExport, 'data_kategori.xlsx');
     }
+
+    public function apiKategori()
+    {
+        
+        $kategori = Kategori::all();
+        return response()->json(
+            [
+                'success'=>true,
+                'message'=>'Data Kategori',
+                'data'=>$kategori,
+            ],200);
+    }
+
+    public function apiKategoriDetail($id)
+    {
+      
+        $kategori = Kategori::find($id);
+        
+        if($kategori){ 
+            return response()->json(
+                [
+                    'success'=>true,
+                    'message'=>'Detail Kategori',
+                    'data'=>$kategori,
+                ],200);
+        }
+        else{
+            return response()->json(
+                [
+                    'success'=>false,
+                    'message'=>'Detail Reservasi Tidak ditemukan',
+                ],404);
+        }
+    }
+
 }

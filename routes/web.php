@@ -129,3 +129,7 @@ Route::get('done/{id}', [ReservasiController::class, 'done']);
 
 //payment
 Route::resource('/pembayaran', PembayaranController::class);
+
+Route::get('/kategori-api', [KategoriController::class, 'apiKategori']);
+Route::get('/kategori-api/{id}', [KategoriController::class, 'apiKategoriDetail']);
+
