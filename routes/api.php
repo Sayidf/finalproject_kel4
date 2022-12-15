@@ -3,7 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\KategorisController;
+use App\Http\Controllers\Api\KategoriController;
 use App\Http\Controllers\Api\MejasController;
 use App\Http\Controllers\Api\MenuController;
 
@@ -22,9 +22,9 @@ use App\Http\Controllers\Api\MenuController;
 //     return $request->user();
 // });
 Route::middleware(["auth:sanctum"])->group(function () {
-    Route::get('/kategori', [KategorisController::class, 'index']);
-    Route::get('/kategori/{id}', [KategorisController::class, 'show']);
-    Route::post('/kategori-create', [KategorisController::class, 'store']);
+    Route::get('/kategori', [KategoriController::class, 'index']);
+    Route::get('/kategori/{id}', [KategoriController::class, 'show']);
+    Route::post('/kategori-create', [KategoriController::class, 'store']);
 
     Route::get('/meja', [MejasController::class, 'index']);
     Route::get('/meja/{id}', [MejasController::class, 'show']);

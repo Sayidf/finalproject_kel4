@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ReservasisResource extends JsonResource
+class KategoriResource extends JsonResource
 {
      //member1 variabel
      public $status;
