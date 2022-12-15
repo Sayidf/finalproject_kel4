@@ -73,6 +73,7 @@ Route::middleware(['role:admin'])->group(function () {
     // Route::get('menu-detail/{id}', [MenuController::class, 'show'])->name('show');
     Route::resource('administrator/kategori', KategoriController::class);
     Route::resource('administrator/customer', UsersController::class);
+    Route::get('administrator/pembayaran', [PembayaranController::class, 'indexAdmin']);
     // Route::resource('administrator/reservasi', ReservasiController::class);
     Route::get('/administrator', [DashboardController::class, 'index']);
     // Route::get('administrator/menu-edit/{id}', [MenuController::class, 'edit']);
@@ -89,6 +90,8 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/administrator/customer-excel', [UsersController::class, 'customerExcel']);
     Route::get('/administrator/reservasi-pdf', [ReservasiController::class, 'reservasiPDF']);
     Route::get('/administrator/reservasi-excel', [ReservasiController::class, 'reservasiExcel']);
+    Route::get('/administrator/pembayaran-pdf', [PembayaranController::class, 'pembayaranPDF']);
+    Route::get('/administrator/pembayaran-excel', [PembayaranController::class, 'pembayaranExcel']);
     // Route::get('/administrator/reservasi', [ReservasiController::class, 'index']);
 });
 
@@ -109,6 +112,7 @@ Route::middleware(['role:user'])->group(function () {
 Route::get('/reservasi', [ReservasiController::class, 'create']);
 Route::get('/reservasi/store', [ReservasiController::class, 'store']);
 Route::get('/data-reservasi/{id}', [ReservasiController::class, 'dataReservasi']);
+Route::get('/detail-reservasi/{id}', [ReservasiController::class, 'show']);
 Route::get('cart/{id}', [ReservasiController::class, 'cekReservasi']);
 
 //Cart

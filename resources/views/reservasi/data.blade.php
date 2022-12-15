@@ -65,7 +65,12 @@
                       <div class="d-flex justify-content-center">
                         @if ($res->status == 'pending')
                           <a href="{{ url('canceled', $res->id) }}" class="btn btn-danger text-tiny">Cancel</a>
-                        @else
+                        @elseif ($res->status == 'approved')
+                          <a href="{{ url('/menu') }}" class="btn btn-warning text-white text-tiny">Order</a>
+                        {{-- @elseif ($res->status == 'done') --}}
+                          {{-- <a href="{{ url('/detail-reservasi'.'/'.$res->id) }}" class="btn btn-info text-white text-tiny">Detail</a> --}}
+                          {{-- <a href="{{ route('reservasi.show',$res->id) }}" class="btn btn-info text-white text-tiny">Detail</a>
+                        @endif --}}
                         @endif
                       </div>
                     </td>
@@ -134,6 +139,11 @@
                       <tr>
                         <td class="align-middle">Aksi</td>
                         <td><a href="{{ url('canceled', $res->id) }}" class="btn btn-danger text-tiny">Cancel</a></td>
+                      </tr>
+                    @elseif ($res->status == 'approved')
+                      <tr>
+                        <td class="align-middle">Aksi</td>
+                        <td><a href="{{ url('/menu') }}" class="btn btn-warning text-white text-tiny">Order</a></td>
                       </tr>
                     @endif
                   </table>

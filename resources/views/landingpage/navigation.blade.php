@@ -1,3 +1,10 @@
+@if (Auth::check())
+  @php
+    $id = Auth::user()->id;
+    $reser = App\Models\Reservasi::where('id_users', $id)->orderBy('id', 'desc')->first();
+  @endphp
+@endif
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -34,15 +41,18 @@
                 </div>
               </a>
               @if(Auth::user()->role == 'admin')
-                <a href="{{ url('/administrator') }}">Menu Admin</a>
+                <a href="{{ url('/administrator') }}">Admin Menu</a>
               @else
-                <a href="{{ url('/reservasi') }}" class="reservation-nav nav-72 px-3 {{ (request()->segment(1) == 'reservasi') ? 'active' : '' }}">Tambah Reservasi</a>
-                <a href="{{ url('/data-reservasi' . '/' . Auth::user()->id) }}" class="reservation-nav nav-72 px-3 {{ (request()->segment(1) == 'data-reservasi') ? 'active' : '' }}">Data Reservasi</a>
+                @if (is_null($reser) || $reser->status == 'done' || $reser->status == 'cancel')
+                  <a href="{{ url('/reservasi') }}" class="reservation-nav nav-72 px-3 {{ (request()->segment(1) == 'reservasi') ? 'active' : '' }}">Add Reservation</a>
+                @else
+                @endif
+                <a href="{{ url('/data-reservasi' . '/' . Auth::user()->id) }}" class="reservation-nav nav-72 px-3 {{ (request()->segment(1) == 'data-reservasi') ? 'active' : '' }}">Reservation Data</a>
               @endif 
               <a href="{{ url('sesi/logout') }}">Logout</a>
             {{-- Jika belum login tampilkan tombol login --}}
             @else
-              <a href="{{ url('/login') }}" class="">Login atau Register</a>  
+              <a href="{{ url('/login') }}" class="">Login or Register</a>  
             @endif
           </div>
         </li>
@@ -61,8 +71,11 @@
                   <i class="fs-6 fa-regular fa-calendar-clock"></i>
                 </a>
                 <ul>
-                  <a href="{{ url('/reservasi') }}">Tambah Reservasi</a>
-                  <a href="{{ url('/data-reservasi' . '/' . Auth::user()->id) }}">Data Reservasi</a>
+                  @if (is_null($reser) || $reser->status == 'done' || $reser->status == 'cancel')
+                    <a href="{{ url('/reservasi') }}">Add Reservation</a>
+                  @else
+                  @endif
+                  <a href="{{ url('/data-reservasi' . '/' . Auth::user()->id) }}">Reservation Data</a>
                 </ul>
               </li>
             @endif
@@ -95,11 +108,11 @@
                   @endforeach
                   @if (count((array) session('cart')) == 0)
                     <div class="border-0 bg-menu text-dark w-100 card">
-                      <div class="text-left card-body"><span class="text-small">Silahkan pilih menu terlebih dahulu</span></div>
+                      <div class="text-left card-body"><span class="text-small">Please select a menu first!</span></div>
                     </div>
                   @else
                     <div class="border-0 bg-menu text-dark w-100 card">
-                      <div class="text-left card-body"><span class="text-small">Ada <b>{{ count((array) session('cart')) }}</b> menu di keranjang Anda</span></div>
+                      <div class="text-left card-body"><span class="text-small">There is <b>{{ count((array) session('cart')) }}</b> menu in your cart</span></div>
                     </div>
                     <div class="scrollable-menu">
                       @if (session('cart'))
@@ -130,9 +143,9 @@
                       <div class="card-body">
                         <p><span>Subtotal : </span><b class="float-end">Rp {{ number_format($total, 0, ',', '.') }}</b></p>
                           @if (Auth::check())
-                            <a href="{{ url('/cart' . '/' . Auth::user()->id) }}" class="btn btn-primary text-white text-center cart-button">Lihat Keranjang</a> 
+                            <a href="{{ url('/cart' . '/' . Auth::user()->id) }}" class="btn btn-primary text-white text-center cart-button">Show Cart</a> 
                           @else
-                            <a href="{{ url('/cart') }}" class="btn btn-primary text-white text-center cart-button">Lihat Keranjang</a> 
+                            <a href="{{ url('/cart') }}" class="btn btn-primary text-white text-center cart-button">Show Cart</a> 
                           @endif
                       </div>
                     </div>  
@@ -154,32 +167,18 @@
                     <span class="text-tiny mt-1">Welcome</span>
                     <p class="fw-bold border-bottom border-1 border-dark pb-3">{{ Auth::user()->fullname }}</p>
                     @if(Auth::user()->role == 'admin')
-                      <a href="{{ url('/administrator') }}" class="my-3">Menu Admin</a>
+                      <a href="{{ url('/administrator') }}" class="my-3">Admin Menu</a>
                     @endif 
                     <a href="{{ url('sesi/logout') }}">Logout</a>
                   {{-- Jika belum login tampilkan tombol login --}}
                   @else
-                    <li class="text-center"><a href="{{ url('/login') }}" class="text-center d-block">Login atau Register</a></li>  
+                    <li class="text-center"><a href="{{ url('/login') }}" class="text-center d-block">Login or Register</a></li>  
                   @endif
                 </div>
               </div>
       	    </ul>
       	  </li>
-          
 				</ul>
 			</div>
-      {{-- <a class="nav-link mt-2" href="{{ url('sesi/logout') }}"><i
-              class='bx bx-log-out-circle'></i>&nbsp;Logout</a> --}}
-
-      {{-- <a class="nav-link mt-2 login-button {{ (request()->segment(1) == 'login') ? 'active' : '' }}" href="{{ url('/login') }}"><i class='bx bx-log-in-circle'></i>&nbsp;Login</a> --}}
-
   </div>
 </header>
-                {{-- <li>
-                  <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                   Logout
-                  </a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                      @csrf
-                  </form>
-                </li> --}}

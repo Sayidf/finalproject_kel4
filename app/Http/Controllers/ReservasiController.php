@@ -11,6 +11,8 @@ use PDF;
 use Alert;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ReservasiExport;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -73,7 +75,7 @@ class ReservasiController extends Controller
         Reservasi::create($request->all());
 
         return redirect('/data-reservasi' . '/' . $id)
-            ->with('success', 'Berhasil Reservasi');
+            ->with('success', 'Reservasi Berhasil!, Silahkan tunggu persetujuan oleh admin');
     }
 
     /**
@@ -84,7 +86,14 @@ class ReservasiController extends Controller
      */
     public function show($id)
     {
-        //
+        // $row = Reservasi::where('id_users', $id)->orderBy('id', 'desc')->get();
+        $row = Reservasi::find($id);
+        
+        $row_orderdetail = OrderDetail::where('id_order', $id)->get();
+        
+        $row_order = Order::where('id_reservasi', $id)->get();
+        $id_order = Order::find($row_order->id);
+        return view('reservasi.detail_user',compact('row', 'id_order', 'row_orderdetail', 'row_order'));
     }
 
     /**

@@ -84,7 +84,7 @@ class CartController extends Controller
   public function remove(Request $request)
   {
     if ($request->id) {
-      $cart = session()->get('cart');
+      $cart = session()->get('cart')->clear();
       if (isset($cart[$request->id])) {
         unset($cart[$request->id]);
         session()->put('cart', $cart);

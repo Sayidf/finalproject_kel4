@@ -62,6 +62,7 @@ class SessionController extends Controller
     function logout()
     {
         Auth::logout();
+        session()->forget('cart');
         // return redirect('/home')->with(['success' => 'Berhasil Logout!']);
         toast('Logout Berhasil!','success')->position('bottom-end')->width('fit-content');
         return redirect('/home');

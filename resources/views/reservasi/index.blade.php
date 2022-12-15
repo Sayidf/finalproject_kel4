@@ -77,6 +77,9 @@
                             <form method="POST" id="formDelete">
                               @csrf
                               @method('DELETE')
+                              {{-- @if ($res->status == 'done')
+                                <a class="btn btn-dark shadow btn-xs sharp me-1" title="Detail Menu" href=" {{ route('reservasi.show',$res->id) }}"><i class="fas fa-eye"></i></a>	
+                              @endif --}}
 															@if ($res->status == 'pending')
                               	<a class="btn btn-primary shadow btn-xs sharp me-1" href="{{ url('approved', $res->id) }}"><i class="fas fa-check"></i></a>
 															@endif

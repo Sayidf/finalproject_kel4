@@ -31,7 +31,7 @@
           </div>
           <div class="text-center">
             <button class="my-4" name="submit" type="submit">Login</button>
-            <p class="mb-5">Belum punya akun? <a href="{{ 'register' }}">Register</a></p>
+            <p class="mb-5">Don't have an account? <a href="{{ 'register' }}">Register Now</a></p>
           </div>
         </div>
       </div>

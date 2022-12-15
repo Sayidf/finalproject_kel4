@@ -1477,6 +1477,12 @@ section .about {
     background: #d3af71;
 }
 
+.book-a-table input[type=number]::-webkit-inner-spin-button, 
+.book-a-table input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
 /*--------------------------------------------------------------
 # Testimonials
 --------------------------------------------------------------*/
