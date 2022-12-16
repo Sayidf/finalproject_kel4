@@ -77,8 +77,6 @@ class MejasController extends Controller
     {
         $meja = Meja::whereId($id)->first();
         $meja->delete();
-
-        return new MejaResource(true, 'Data meja berhasil di hapus',$meja);
-
+        return new MejasResource(true, 'Data meja berhasil di hapus',$meja);
     }
 }

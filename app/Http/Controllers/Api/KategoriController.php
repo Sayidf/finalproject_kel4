@@ -14,21 +14,23 @@ class KategoriController extends Controller
 {
     public function index()
     {
-        
-        $Kategori = Kategori::all();
-        return new KategoriResource(true, 'Data Kategori',$Kategori);
+        $kategori = Kategori::all();
+        return new KategoriResource(true, 'Data Kategori',$kategori);
     }
 
     public function show($id)
     {
-        $Kategori = Kategori::find($id);
-        return new KategoriResource(true, 'Data Kategori',$Kategori);
+        $kategori = Kategori::find($id);
+        return new KategoriResource(true, 'Data Kategori',$kategori);
     }
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'nama' => 'required|unique:kategori|max:45',
+            'created_at' => now(),
+        ], [
+            'nama.required' => 'Nama Kategori Wajib di isi',
         ]);
 
         //cek error
@@ -37,10 +39,8 @@ class KategoriController extends Controller
         }
 
         $Kategori = Kategori::create([
-
             'nama'=>$request->nama,
             'created_at'=>now(),
-
         ]);
 
         return new KategoriResource(true, 'Data Kategori berhasil di input',$Kategori);
@@ -49,7 +49,10 @@ class KategoriController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(),[
-            'nama' => 'required|unique:kategori|max:45'
+            'nama' => 'required|unique:kategori|max:45',
+            'created_at' => now(),
+        ], [
+            'nama.required' => 'Nama Kategori Wajib di isi',
         ]);
 
         //cek error
@@ -57,15 +60,21 @@ class KategoriController extends Controller
             return response()->json($validator->errors(),422);
         }
 
-        $Kategori = Kategori::whereId($id)->update([
-
+        $kategori = Kategori::whereId($id)->update(
+        [
             'nama'=>$request->nama,
             'created_at'=>now(),
-
         ]);
 
-        return new KategoriResource(true, 'Data Kategori berhasil di ubah',$Kategori);
+        return new KategoriResource(true, 'Data kategori berhasil di ubah',$kategori);
 
+    }
+
+    public function destroy($id)
+    {
+        $kategori = Kategori::whereId($id)->first();
+        $kategori->delete();
+        return new KategoriResource(true, 'Data kategori berhasil di hapus',$kategori);
     }
 
 

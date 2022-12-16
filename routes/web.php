@@ -95,7 +95,6 @@ Route::middleware(['role:admin'])->group(function () {
     // Route::get('/administrator/reservasi', [ReservasiController::class, 'index']);
 });
 
-
 //sesi
 Route::get('login', [SessionController::class, 'index']);
 Route::post('sesi/login', [SessionController::class, 'login']);
@@ -105,8 +104,6 @@ Route::post('sesi/create', [SessionController::class, 'create']);
 Route::middleware(['role:user'])->group(function () {
     //reservasi
     // Route::get('/administrator/reservasi', [ReservasiController::class, 'index']);
-
-
 });
 
 Route::get('/reservasi', [ReservasiController::class, 'create']);
@@ -129,7 +126,4 @@ Route::get('done/{id}', [ReservasiController::class, 'done']);
 
 //payment
 Route::resource('/pembayaran', PembayaranController::class);
-
-Route::get('/kategori-api', [KategoriController::class, 'apiKategori']);
-Route::get('/kategori-api/{id}', [KategoriController::class, 'apiKategoriDetail']);
 

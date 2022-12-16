@@ -25,14 +25,17 @@ Route::middleware(["auth:sanctum"])->group(function () {
     Route::get('/kategori', [KategoriController::class, 'index']);
     Route::get('/kategori/{id}', [KategoriController::class, 'show']);
     Route::post('/kategori-create', [KategoriController::class, 'store']);
+	Route::delete('/kategori/{id}', [KategoriController::class, 'destroy']);
 
     Route::get('/meja', [MejasController::class, 'index']);
     Route::get('/meja/{id}', [MejasController::class, 'show']);
     Route::post('/meja-create', [MejasController::class, 'store']);
+	Route::delete('/meja/{id}', [MejasController::class, 'destroy']);
 
     Route::get('/menu', [MenuController::class, 'index']);
     Route::get('/menu/{id}', [MenuController::class, 'show']);
-    Route::get('/menu-create', [MenuController::class, 'store']);
+    Route::post('/menu-create', [MenuController::class, 'store']);
+	Route::delete('/menu/{id}', [MenuController::class, 'destroy']);
 });
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
