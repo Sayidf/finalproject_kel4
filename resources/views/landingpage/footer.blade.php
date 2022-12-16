@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-lg-3 col-md-6">
           <div class="footer-info">
-            <h3>Nusantara Kuliner Cafe & Resto</h3>
+            <h3>KOKENAK Cafe & Resto</h3>
             <p>
               Jl. Lenteng Agung Raya No. 20-21 <br>
               Jakarta<br><br>

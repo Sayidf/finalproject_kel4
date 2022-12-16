@@ -43,7 +43,7 @@
             data-rule="minlen:4" data-msg="Please enter at least 4 chars" min="11:01" max="23:00" pattern="(09|1[0-5]):[0-5]\d">
         </div>
         <div class="col-lg-4 col-md-6 form-group mt-3">
-          <input type="number" id="jml-org" class="form-control " name="jml_orang" placeholder="Jumlah Orang"
+          <input type="number" id="jml-org" class="form-control " name="jml_orang" placeholder="Number of People"
             data-rule="minlen:4" data-msg="Please enter at least 4 chars" onkeypress="return isNumberKey(event)">
           <script>
             $('#jml-org').on('paste input', function () {
@@ -60,9 +60,9 @@
         </div>
         <div class="col-lg-4 col-md-6 form-group mt-3">
           <select name="id_meja" id="id_meja" class="form-control">
-            <option disabled selected>--- Pilih No Meja ---</option>
+            <option disabled selected>--- Choose Table Number ---</option>
             @foreach ($arr_meja as $meja)
-              <option value="{{ $meja->id }}" class="{{ $meja->kapasitas }}org">No {{ $meja->no_meja }} Kapasitas {{ $meja->kapasitas }} Orang</option>
+              <option value="{{ $meja->id }}" class="{{ $meja->kapasitas }}org">Table No {{ $meja->no_meja }}, Capacity of {{ $meja->kapasitas }} People</option>
             @endforeach
             <script>
               $(document).ready(function() {

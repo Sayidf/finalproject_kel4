@@ -11,8 +11,8 @@
                 <div class="card tryal-gradient">
                   <div class="card-body tryal row">
                     <div class="col-xl-7 col-sm-6">
-                      <h2>Manage Nusantara Culiner in one touch</h2>
-                      <span>Let Nusantara Culiner manage your project with our best Laravel systems</span>
+                      <h2>Manage Kokenak in one touch</h2>
+                      <span>Let Kokenak manage your project with our best Laravel systems</span>
                     </div>
                     <div class="col-xl-5 col-sm-6">
                       <img src="{{ url('/public/assets/img/chart.png') }}" alt="" class="sd-shape">

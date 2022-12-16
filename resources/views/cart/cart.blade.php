@@ -54,7 +54,7 @@
         <div class="w-100 mt-5">
           <div class="d-flex justify-content-between">
             <div class="d-flex flex-row">
-              <span class="text-secondary align-self-center me-2">Cost Total: </span>
+              <span class="text-secondary align-self-center me-2">Total Cost: </span>
               <span class="fs-4 text-white fw-bolder align-self-center">&nbsp;Rp {{ number_format($total, 0, ',', '.') }}</span>
             </div>
             <div class="d-flex justify-content-between">
@@ -119,8 +119,7 @@
               </div>
             </div>
             <div class="px-2">
-              <button class="btn remove-from-cart text-white text-tiny border-0 px-1 py-3 fw-bold"
-                title="Delete">Delete</button>
+              <button class="btn remove-from-cart text-white text-tiny border-0 px-1 py-3 fw-bold" title="Delete">Delete</button>
               <div class="mb-4 border-grey"></div>
             </div>
           </div>
@@ -165,25 +164,6 @@
       </div>
     </div>
   </div>
-  {{-- <div class="col-md-3">
-            <div class="p-5 h-100 rounded-3 bg-dark">
-              <div class="d-flex flex-column bd-highlight mb-3 h-100">
-                <div class="border border-2"></div>
-                <div class="d-flex justify-content-center mt-5">
-                  <span class="text-tiny mt-auto me-3">TOTAL </span><span class="fw-bold ">&nbsp;Rp {{ number_format($total, 0, ',', '.') }}</span> 
-                </div>
-                <div class="d-flex justify-content-center mt-auto bd-highlight">
-                  @if (Auth::check())
-                  <button class="btn btn-success">Checkout</button>
-                @else
-                  <a href="{{ url('/login') }}" class="btn btn-success">Checkout</a>
-                @endif
-                </div>
-              </div>
-            </div>
-          </div> --}}
-  {{-- </div>
-      </div> --}}
 </div>
 <!-- Modal -->
 {{-- <div class="modal fade text-dark" id="checkout-modal" tabindex="-1" aria-labelledby="staticBackdropLabel"

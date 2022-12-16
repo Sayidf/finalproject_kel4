@@ -20,25 +20,25 @@
       </div>
       <div class="section-title">
         <h2>Reservation</h2>
-        <p>Data Reservasi</p>
+        <p>Reservation Data</p>
       </div>
       <div class="row d-flex justify-content-center">
 				@if ( $data_reservasi->isEmpty() )
-					Anda belum melakukan reservasi, silahkan reservasi terlebih dahulu
+					Please make a reservation first to show history
 				@else
         <div class="card-body">
           <div class="table-responsive container table-reservation">
             <table id="example3" class="table display w-100 text-white text-center border-temp-primary align-middle" cellspacing="0">
               <thead>
                 <tr>
-                  <th><strong>ID Booking</strong></th>
-                  <th><strong>Nama</strong></th>
-                  <th><strong>Tanggal Reservasi</strong></th>
+                  <th><strong>Booking ID</strong></th>
+                  <th><strong>Name</strong></th>
+                  <th><strong>Reservation Date</strong></th>
                   <th><strong>Check In</strong></th>
-                  <th><strong>Jumlah Orang</strong></th>
+                  <th><strong>Number of People</strong></th>
                   <th><strong>Status</strong></th>
-                  <th><strong>No Meja</strong></th>
-                  <th>Aksi</th>
+                  <th><strong>Table Number</strong></th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -53,7 +53,7 @@
                       @if ($res->status == 'pending')
                         <span class="badge light bg-warning rounded-pill">Pending</span>
                       @elseif ($res->status == 'approved')
-                        <span class="badge light bg-success rounded-pill">Successful</span>
+                        <span class="badge light bg-success rounded-pill">Approved</span>
                       @elseif ($res->status == 'done')
                         <span class="badge light bg-success rounded-pill">Done</span>
                       @else
@@ -89,7 +89,7 @@
                   <table>
                     <tr>
                       <td width="100px">{{ date("d-m-Y", strtotime($res->tgl_reservasi)) }}</td>
-                      <td><span class="text-white-50">({{ $res->jml_orang }} Orang)</span></td>
+                      <td><span class="text-white-50">({{ $res->jml_orang }} People)</span></td>
                     </tr>
                   </table>
                 </button>
@@ -123,7 +123,7 @@
                         @if ($res->status == 'pending')
                           <span class="badge light bg-warning rounded-pill">Pending</span>
                         @elseif ($res->status == 'approved')
-                          <span class="badge light bg-success rounded-pill">Successful</span>
+                          <span class="badge light bg-success rounded-pill">Approved</span>
                         @elseif ($res->status == 'done')
                           <span class="badge light bg-success rounded-pill">Done</span>
                         @else

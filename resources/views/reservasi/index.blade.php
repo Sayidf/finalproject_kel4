@@ -64,7 +64,7 @@
                           @if ($res->status == 'pending')
                             <span class="badge light badge-warning">Pending</span>
                           @elseif ($res->status == 'approved')
-                            <span class="badge light badge-success">Successful</span>
+                            <span class="badge light badge-success">Approved</span>
                           @elseif ($res->status == 'done')
                             <span class="badge light badge-success">Done</span>
                           @else

@@ -1453,6 +1453,35 @@ section .about {
     border-color: #cda45e;
 }
 
+.book-a-table #starttime:before {
+    content: 'Check In';
+    color: black;
+    position: absolute;
+    background: #fff;
+}
+
+.book-a-table #phone:before  {
+    content: 'Check Out';
+    color: black;
+    position: absolute;
+    background: #fff;
+}
+
+.book-a-table input[type="date"]:before {
+    content: 'Reservation Date';
+    color: black;
+    position: absolute;
+    background: #fff;
+}
+
+.book-a-table input[type="date"]:hover:before {
+    content: '';
+}
+
+.book-a-table input[type="time"]:hover:before {
+    content: '';
+}
+
 .book-a-table .php-email-form input {
     height: 44px;
 }
